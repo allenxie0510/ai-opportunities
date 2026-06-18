@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Vibe Coding · 复利创业方向</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,420;0,500;1,420&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0b0c0e;
+    --paper: #f6f4f1;
+    --text: #dbd7cf;
+    --text-mid: #9d978a;
+    --text-dim: #6b6558;
+    --rule: #2a2722;
+    --rule-light: #3d3932;
+    --accent: #b8945c;
+    --accent-muted: #8b6f46;
+    --surface: #111214;
+    --surface-alt: #16171a;
+    --serif: 'Playfair Display', 'Songti SC', 'Noto Serif CJK SC', Georgia, serif;
+    --body: 'Lora', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', serif;
+    --mono: 'DM Mono', 'SF Mono', 'JetBrains Mono', monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    background: var(--ink);
+    color: var(--text);
+    line-height: 1.7;
+    font-weight: 420;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+  .masthead {
+    padding: 80px 0 0;
+    text-align: center;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+  .masthead .kicker::before,
+  .masthead .kicker::after {
+    content: ' ── ';
+    color: var(--text-dim);
+    opacity: 0.4;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: #ece6da;
+    max-width: 720px;
+    margin: 0 auto 20px;
+  }
+  .masthead .deck {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-style: italic;
+  }
+  .masthead .byline {
+    margin-top: 28px;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .masthead .byline .rule-sm {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--rule-light);
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 36px 0 48px;
+    color: var(--text-dim);
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+  }
+  .ornament .line {
+    flex: 0 0 48px;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .stats-ribbon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 56px;
+  }
+  .stats-ribbon .item {
+    padding: 28px 20px;
+    text-align: center;
+    border-right: 1px solid var(--rule);
+    transition: background 0.3s ease;
+  }
+  .stats-ribbon .item:last-child { border-right: none; }
+  .stats-ribbon .item:hover { background: rgba(255,255,255,0.015); }
+  .stats-ribbon .num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: #e8e2d6;
+    line-height: 1;
+  }
+  .stats-ribbon .lbl {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  .filter-section {
+    margin-bottom: 48px;
+  }
+  .filter-section .section-label {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .filter-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  .filter-row .divider {
+    color: var(--rule);
+    margin: 0 8px;
+    font-size: 0.7rem;
+  }
+  .fbtn {
+    font-family: var(--body);
+    font-size: 0.78rem;
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    padding: 6px 14px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+    position: relative;
+    font-style: italic;
+  }
+  .fbtn::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 14px;
+    right: 14px;
+    height: 1px;
+    background: var(--accent-muted);
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transform-origin: left;
+  }
+  .fbtn:hover { color: var(--text); }
+  .fbtn.on { color: #e8e2d6; font-style: normal; }
+  .fbtn.on::after { transform: scaleX(1); }
+
+  .results-hint {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+  .articles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 72px;
+  }
+  .article {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 32px 0;
+    transition: background 0.3s ease;
+    position: relative;
+  }
+  .article:first-child { border-top: 1px solid var(--rule); }
+  .article:hover { background: rgba(255,255,255,0.012); }
+
+  .article .num-col {
+    padding-right: 24px;
+  }
+  .article .num-col .section-tag {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+  .article .num-col .big-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e8e2d6;
+    line-height: 0.85;
+    opacity: 0.18;
+    transition: opacity 0.3s ease;
+  }
+  .article:hover .num-col .big-num { opacity: 0.35; }
+
+  .article .content-col { display: flex; flex-direction: column; }
+
+  .article h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #e8e2d6;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .article .dek {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    max-width: 620px;
+  }
+
+  .article .meta-strip {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .meta-strip span { display: flex; align-items: center; gap: 4px; }
+  .meta-strip .val { color: var(--text-mid); }
+
+  .article .ref-strip {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .article .ref-strip a {
+    color: var(--accent-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+  }
+  .article .ref-strip a:hover { color: var(--accent); }
+
+  .article .insight {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    transition: color 0.3s ease;
+    max-width: 560px;
+  }
+  .article:hover .insight { color: var(--text-mid); }
+  .insight em { color: var(--accent-muted); font-style: normal; }
+  .insight strong { color: var(--text); font-weight: 500; }
+
+  .pull-quote {
+    margin: 48px 0 56px;
+    padding: 0;
+    text-align: center;
+    position: relative;
+  }
+  .pull-quote .mark {
+    font-family: var(--serif);
+    font-size: 4rem;
+    line-height: 0.6;
+    color: var(--accent-muted);
+    opacity: 0.3;
+    margin-bottom: -8px;
+  }
+  .pull-quote blockquote {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #e0dbd0;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+  }
+
+  .colophon {
+    border-top: 2px solid var(--rule);
+    padding: 40px 0 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+  .colophon .left { font-style: italic; }
+  .colophon .right {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .article { animation: fadeSlideUp 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+  .article:nth-child(1) { animation-delay: 0.02s; }
+  .article:nth-child(2) { animation-delay: 0.06s; }
+  .article:nth-child(3) { animation-delay: 0.10s; }
+  .article:nth-child(4) { animation-delay: 0.14s; }
+  .article:nth-child(5) { animation-delay: 0.18s; }
+  .article:nth-child(6) { animation-delay: 0.22s; }
+  .article:nth-child(7) { animation-delay: 0.26s; }
+  .article:nth-child(8) { animation-delay: 0.30s; }
+  .article:nth-child(9) { animation-delay: 0.34s; }
+  .article:nth-child(10) { animation-delay: 0.38s; }
+  .article:nth-child(11) { animation-delay: 0.42s; }
+  .article:nth-child(12) { animation-delay: 0.46s; }
+
+  @keyframes mastReveal {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .masthead h1 { animation: mastReveal 0.7s ease both; }
+  .masthead .deck { animation: mastReveal 0.7s 0.1s ease both; }
+  .masthead .byline { animation: mastReveal 0.7s 0.18s ease both; }
+  .ornament { animation: mastReveal 0.7s 0.24s ease both; }
+
+  .fbtn { transition: color 0.3s ease; }
+  .fbtn:active { transform: scale(0.97); transition: transform 0.1s ease; }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    .masthead { padding-top: 56px; }
+    .stats-ribbon { grid-template-columns: repeat(2, 1fr); }
+    .article { grid-template-columns: 1fr; gap: 12px; }
+    .article .num-col { display: flex; align-items: baseline; gap: 12px; padding-right: 0; }
+    .article .num-col .big-num { font-size: 2rem; }
+    .colophon { grid-template-columns: 1fr; text-align: center; }
+    .colophon .right { text-align: center; }
+    .masthead h1 { font-size: 2rem; }
+  }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ═══════════════ MASTHEAD ═══════════════ -->
+<div class="masthead">
+  <div class="kicker">研究报告 · 2026 年 6 月</div>
+  <h1>AI × 设计<br>复利创业</h1>
+  <p class="deck">从全球开源情报中梳理出的十二条方向——横跨 Vibe Coding 与设计思维的交汇点，为追求复利效应的独立创造者而写。</p>
+  <div class="byline">
+    <span class="rule-sm"></span>
+    GitHub Trending · Hacker News · Product Hunt
+    <span class="rule-sm"></span>
+  </div>
+</div>
+
+<div class="ornament">
+  <span class="line"></span> ◆ <span class="line"></span>
+</div>
+
+<!-- ═══════════════ STATS ═══════════════ -->
+<div class="stats-ribbon">
+  <div class="item"><div class="num">12</div><div class="lbl">方向</div></div>
+  <div class="item"><div class="num">4</div><div class="lbl">赛道</div></div>
+  <div class="item"><div class="num">68k</div><div class="lbl">最高星标</div></div>
+  <div class="item"><div class="num">30 天</div><div class="lbl">数据窗口</div></div>
+</div>
+
+<!-- ═══════════════ FILTERS ═══════════════ -->
+<div class="filter-section">
+  <div class="section-label">筛选与排序</div>
+  <div class="filter-row">
+    <button class="fbtn on" data-filter="all">全部赛道</button>
+    <button class="fbtn" data-filter="agent-skill">Agent 技能</button>
+    <button class="fbtn" data-filter="creative-tool">创意工具</button>
+    <button class="fbtn" data-filter="vertical-agent">垂直 Agent</button>
+    <button class="fbtn" data-filter="content-ai">AI 内容</button>
+    <span class="divider">|</span>
+    <button class="fbtn on" data-designer="all">设计师匹配：不限</button>
+    <button class="fbtn" data-designer="high">强匹配</button>
+    <button class="fbtn" data-designer="medium">中等匹配</button>
+    <span class="divider">|</span>
+    <button class="fbtn on" data-compound="all">复利效应：不限</button>
+    <button class="fbtn" data-compound="high">高复利</button>
+    <button class="fbtn" data-compound="medium">中等复利</button>
+  </div>
+</div>
+<div class="results-hint" id="resultsInfo">12 篇文章</div>
+
+<!-- ═══════════════ ARTICLES ═══════════════ -->
+<div class="articles" id="articleList">
+
+<!-- 01 -->
+<article class="article" data-category="agent-skill" data-designer="high" data-compound="high" data-difficulty="medium">
+  <div class="num-col">
+    <div class="section-tag">Agent 技能</div>
+    <div class="big-num">01</div>
+  </div>
+  <div class="content-col">
+    <h3>Agent 技能市场</h3>
+    <p class="dek">为 AI 编程 Agent 开发和销售垂直领域技能包。taste-skill（46K★）、academic-research-skills（32K★）、last30days-skill（44K★）在本月集中爆发——Agent 的 App Store 时刻已经到来。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🔥 爆发</span></span>
+      <span>变现 <span class="val">订阅 / 按量</span></span>
+      <span>MVP <span class="val">2–4 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/Leonxlnx/taste-skill">taste-skill</a> · <a href="https://github.com/mvanhorn/last30days-skill">last30days-skill</a> · <a href="https://github.com/Imbad0202/academic-research-skills">academic-research-skills</a>
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>技能文件的本质是 Prompt 工程与工作流设计的结合——这正是设计师擅长的人机交互领域。你来定义 Agent 的<em>品味</em>与行为模式；核心竞争力是设计思维，而非代码量。</p>
+  </div>
+</article>
+
+<!-- 02 -->
+<article class="article" data-category="creative-tool" data-designer="high" data-compound="high" data-difficulty="medium">
+  <div class="num-col">
+    <div class="section-tag">创意工具</div>
+    <div class="big-num">02</div>
+  </div>
+  <div class="content-col">
+    <h3>叙事型演示文稿引擎</h3>
+    <p class="dek">面向特定场景的 AI 演示生成器——融资路演、学术答辩、品牌叙事。Gamma 估值已超 $2B；presenton（8.3K★）证明了开源路线的可行性。但<em>设计品味</em>这一环仍是巨大的空白。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🚀 增长</span></span>
+      <span>变现 <span class="val">$10–50 / 月</span></span>
+      <span>MVP <span class="val">4–8 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/presenton/presenton">presenton (8.3K★)</a> · Gamma ($2B+) · Beautiful.ai
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>所有竞品最大的痛点是<em>缺乏设计感知力</em>。你来定义视觉语言、字体规则、色彩系统——让 AI 产出的内容有"被设计过"的感觉，而非模板堆砌。这件事纯工程师做不了。</p>
+  </div>
+</article>
+
+<!-- 03 -->
+<article class="article" data-category="vertical-agent" data-designer="medium" data-compound="high" data-difficulty="high">
+  <div class="num-col">
+    <div class="section-tag">垂直 Agent</div>
+    <div class="big-num">03</div>
+  </div>
+  <div class="content-col">
+    <h3>领域知识图谱 × AI 问答</h3>
+    <p class="dek">将特定领域知识结构化，构建可交互的知识图谱产品。Understand-Anything（63K★）和 codegraph（51K★）印证了核心判断：可视化知识是一个巨大的未满足需求。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🔥 爆发</span></span>
+      <span>变现 <span class="val">$50–500 / 月</span></span>
+      <span>MVP <span class="val">6–12 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/Egonex-AI/Understand-Anything">Understand-Anything (63K★)</a> · <a href="https://github.com/colbymchenry/codegraph">codegraph (51K★)</a> · NotebookLM
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>互动可视化层是核心差异所在——信息架构、交互设计、视觉层次。技术层用 Vibe Coding 解决；你来定义<em>知识长什么样、如何被感知</em>。</p>
+  </div>
+</article>
+
+<!-- 04 -->
+<article class="article" data-category="creative-tool" data-designer="medium" data-compound="high" data-difficulty="medium">
+  <div class="num-col">
+    <div class="section-tag">创意工具</div>
+    <div class="big-num">04</div>
+  </div>
+  <div class="content-col">
+    <h3>创作者语音工作台</h3>
+    <p class="dek">面向播客主、视频创作者、有声书制作者的 AI 音频工具。OmniVoice-Studio（7K★）、dograh（4.4K★）、MOSS-TTS（3.3K★）密集出现，标志着语音 AI 的产品化浪潮。关键在于做<em>创作者工作流</em>，而非底层模型。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🚀 增长</span></span>
+      <span>变现 <span class="val">$15–100 / 月</span></span>
+      <span>MVP <span class="val">3–6 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/debpalash/OmniVoice-Studio">OmniVoice-Studio (7K★)</a> · <a href="https://github.com/dograh-hq/dograh">dograh (4.4K★)</a> · ElevenLabs ($3B+)
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>所有竞品都是<em>工程师为工程师设计</em>的。打造一个可视化、直觉化的音频编辑工作流，让创作者真正享受使用——这是纯粹的产品设计直觉。</p>
+  </div>
+</article>
+
+<!-- 05 -->
+<article class="article" data-category="creative-tool" data-designer="high" data-compound="high" data-difficulty="medium">
+  <div class="num-col">
+    <div class="section-tag">创意工具</div>
+    <div class="big-num">05</div>
+  </div>
+  <div class="content-col">
+    <h3>互动叙事引擎</h3>
+    <p class="dek">用 AI 生成分支故事、互动小说、沉浸式学习体验。Loreline 在 Hacker News 上获得了 146 分的高关注度。叙事设计 + 体验设计是核心能力。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🌊 早期蓝海</span></span>
+      <span>变现 <span class="val">$5–30 / 月 + B2B</span></span>
+      <span>MVP <span class="val">3–6 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://loreline.app/en/">Loreline (HN 146pts)</a> · <a href="https://github.com/lfnovo/open-notebook">open-notebook (31K★)</a> · AI Dungeon
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>互动叙事的本质是<em>体验设计</em>——节奏控制、情感曲线、视觉氛围、交互流畅度。这完全是设计师的领地。工程师搭建框架；你来创造沉浸感。</p>
+  </div>
+</article>
+
+<!-- 06 -->
+<article class="article" data-category="creative-tool" data-designer="high" data-compound="high" data-difficulty="high">
+  <div class="num-col">
+    <div class="section-tag">创意工具</div>
+    <div class="big-num">06</div>
+  </div>
+  <div class="content-col">
+    <h3>可视化 AI 工作流构建器</h3>
+    <p class="dek">通过拖拽让非程序员构建 AI 自动化流程。CopilotKit（35K★）验证了 Agent 前端框架的市场需求，但真正面向非开发者的产品尚不存在。连接器生态天然具有复利效应。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🚀 增长</span></span>
+      <span>变现 <span class="val">$20–500 / 月</span></span>
+      <span>MVP <span class="val">8–16 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/CopilotKit/CopilotKit">CopilotKit (35K★)</a> · Dify · n8n · dograh workflow
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>无代码工具的成败取决于交互设计——节点编排、可视化反馈、新手引导。Zapier 的剧本已经证明了连接器生态的复利效应。你的设计能力是决定性因素。</p>
+  </div>
+</article>
+
+<!-- 07 -->
+<article class="article" data-category="creative-tool" data-designer="high" data-compound="medium" data-difficulty="medium">
+  <div class="num-col">
+    <div class="section-tag">创意工具</div>
+    <div class="big-num">07</div>
+  </div>
+  <div class="content-col">
+    <h3>AI 品牌系统生成器</h3>
+    <p class="dek">为初创团队和独立开发者提供：Logo、配色、字体层级、品牌指南——一整套保持一致性。不是"生成一个 Logo"，而是<em>生成一套品牌识别系统</em>。设计方法论就是护城河。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">📈 稳定</span></span>
+      <span>变现 <span class="val">$10–50 / 月</span></span>
+      <span>MVP <span class="val">4–8 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：Canva AI · Looka · Brandmark · Midjourney
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>你来定义<em>什么是好的品牌设计</em>——算法做不到这件事。将你的设计方法论产品化，让 AI 负责执行层。你的品味就是产品的护城河。</p>
+  </div>
+</article>
+
+<!-- 08 -->
+<article class="article" data-category="content-ai" data-designer="medium" data-compound="high" data-difficulty="medium">
+  <div class="num-col">
+    <div class="section-tag">AI 内容</div>
+    <div class="big-num">08</div>
+  </div>
+  <div class="content-col">
+    <h3>跨平台内容适配引擎</h3>
+    <p class="dek">一篇长文/视频 → 自动生成小红书图文、Twitter Thread、LinkedIn 帖子、短视频脚本。MoneyPrinterTurbo（89K★）证明了视频生成方向的巨大需求，但更精细的<em>平台美学适配</em>才是更好的切入点。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🚀 增长</span></span>
+      <span>变现 <span class="val">$15–60 / 月</span></span>
+      <span>MVP <span class="val">3–5 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/harry0703/MoneyPrinterTurbo">MoneyPrinterTurbo (89K★)</a> · Opus Clip · Repurpose.io
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>每个平台有独特的<em>内容美学</em>——小红书的视觉丰富性、Twitter 的锐利简洁、LinkedIn 的专业克制。理解和编码这些"平台感知力"是设计师独有的能力。</p>
+  </div>
+</article>
+
+<!-- 09 -->
+<article class="article" data-category="agent-skill" data-designer="medium" data-compound="high" data-difficulty="high">
+  <div class="num-col">
+    <div class="section-tag">Agent 技能</div>
+    <div class="big-num">09</div>
+  </div>
+  <div class="content-col">
+    <h3>Agent 记忆可视化层</h3>
+    <p class="dek">为 AI Agent 构建持久记忆与可视化管理界面。agentmemory（23K★）、supermemory（27K★）、TencentDB-Agent-Memory（5.8K★）接踵而至。但 UI 层仍然是一片蓝海。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🔥 爆发</span></span>
+      <span>变现 <span class="val">托管服务</span></span>
+      <span>MVP <span class="val">6–12 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/rohitg00/agentmemory">agentmemory (23K★)</a> · <a href="https://github.com/supermemoryai/supermemory">supermemory (27K★)</a> · <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory">TencentDB-Agent-Memory</a>
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>记忆管理界面是无人踏足的领地——用户如何可视化、编辑、整理 Agent 的记忆？这本质上是信息架构与交互设计问题。后端可以用 Vibe Coding 调用现有方案。</p>
+  </div>
+</article>
+
+<!-- 10 -->
+<article class="article" data-category="creative-tool" data-designer="medium" data-compound="medium" data-difficulty="low">
+  <div class="num-col">
+    <div class="section-tag">创意工具</div>
+    <div class="big-num">10</div>
+  </div>
+  <div class="content-col">
+    <h3>利基 AI 微工具</h3>
+    <p class="dek">解决一个极其具体的痛点：压缩图片但不损失质量、去除背景但保留阴影、生成合规的发票模板。一人公司模式，MRR $1K–10K。关键是找到"足够小，但足够痛"的需求。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">📈 稳定</span></span>
+      <span>变现 <span class="val">$5–20 / 月</span></span>
+      <span>MVP <span class="val">1–2 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：TinyWow · Pixelcut · Remove.bg · Product Hunt 日榜
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>你能发现工程师注意不到的工作流痛点——每次导出时那个需要手动调整的细节。挖掘你自己日常设计中的烦恼，下一个 Remove.bg 可能就藏在里面。</p>
+  </div>
+</article>
+
+<!-- 11 -->
+<article class="article" data-category="vertical-agent" data-designer="high" data-compound="high" data-difficulty="medium">
+  <div class="num-col">
+    <div class="section-tag">垂直 Agent</div>
+    <div class="big-num">11</div>
+  </div>
+  <div class="content-col">
+    <h3>AI 互动学习平台</h3>
+    <p class="dek">将静态教材转化为互动学习体验——自动生成测验、模拟对话、情境练习。ai-engineering-from-scratch（34K★）验证了这一模式。面向企业培训、K12、职业教育。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🌊 蓝海</span></span>
+      <span>变现 <span class="val">$50–500 / 月 B2B</span></span>
+      <span>MVP <span class="val">6–10 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/rohitg00/ai-engineering-from-scratch">ai-engineering-from-scratch (34K★)</a> · <a href="https://github.com/lfnovo/open-notebook">open-notebook (31K★)</a> · Synthesis ($2B+)
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>教育产品的本质是<em>学习体验设计</em>——信息分层、进度感知、激励循环。这与 UX 设计高度重叠。你比纯技术团队更理解<em>"人如何学习"</em>。</p>
+  </div>
+</article>
+
+<!-- 12 -->
+<article class="article" data-category="agent-skill" data-designer="medium" data-compound="high" data-difficulty="medium">
+  <div class="num-col">
+    <div class="section-tag">Agent 技能</div>
+    <div class="big-num">12</div>
+  </div>
+  <div class="content-col">
+    <h3>开源项目云托管商业化</h3>
+    <p class="dek">为缺乏商业化的热门开源项目提供托管云服务。headroom（32K★）和 Agent-Reach（33K★）正在爆发却零变现。选择一个刚需项目，提供开箱即用的云服务。</p>
+    <div class="meta-strip">
+      <span>趋势 <span class="val">🔥 爆发</span></span>
+      <span>变现 <span class="val">$20–200 / 月 + 企业版</span></span>
+      <span>MVP <span class="val">4–8 周</span></span>
+    </div>
+    <div class="ref-strip">
+      参考：<a href="https://github.com/chopratejas/headroom">headroom (32K★)</a> · <a href="https://github.com/Panniantong/Agent-Reach">Agent-Reach (33K★)</a> · Supabase 模式
+    </div>
+    <p class="insight"><strong>设计师切入点：</strong>开源工具最大的痛点是<em>极其糟糕的使用体验</em>——纯命令行、无界面、文档混乱。你的设计能力将一个"程序员工具"变成"人人可用的产品"。MongoDB → Atlas 的路径，但在 Agent 时代。</p>
+  </div>
+</article>
+
+</div><!-- /articles -->
+
+<!-- ═══════════════ PULL QUOTE ═══════════════ -->
+<div class="pull-quote">
+  <div class="mark">"</div>
+  <blockquote>
+    用设计思维构建 AI 产品。追求复利效应——而非按小时计费。创造原创价值。
+  </blockquote>
+</div>
+
+<!-- ═══════════════ COLOPHON ═══════════════ -->
+<div class="colophon">
+  <div class="left">
+    数据来源：GitHub Trending（2026 年 6 月）· Hacker News · Product Hunt · 独立开发者社区。<br>
+    本分析仅供方向参考，不构成投资建议。
+  </div>
+  <div class="right">
+    复利来源：数据网络效应 · 品牌积累 · 生态位锁定<br>
+    字体：Playfair Display + Lora + DM Mono
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+const filterBtns = document.querySelectorAll('[data-filter]');
+const designerBtns = document.querySelectorAll('[data-designer]');
+const compoundBtns = document.querySelectorAll('[data-compound]');
+const articles = document.querySelectorAll('.article');
+const resultsInfo = document.getElementById('resultsInfo');
+
+let activeCat = 'all', activeDes = 'all', activeComp = 'all';
+
+function refresh() {
+  let n = 0;
+  articles.forEach(a => {
+    const ok = (activeCat === 'all' || a.dataset.category === activeCat)
+            && (activeDes === 'all' || a.dataset.designer === activeDes)
+            && (activeComp === 'all' || a.dataset.compound === activeComp);
+    a.classList.toggle('hidden', !ok);
+    if (ok) n++;
+  });
+  resultsInfo.textContent = n + ' 篇文章';
+}
+
+function setOn(collection, el) {
+  collection.forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+}
+
+filterBtns.forEach(b => b.addEventListener('click', () => {
+  setOn(filterBtns, b); activeCat = b.dataset.filter; refresh();
+}));
+designerBtns.forEach(b => b.addEventListener('click', () => {
+  setOn(designerBtns, b); activeDes = b.dataset.designer; refresh();
+}));
+compoundBtns.forEach(b => b.addEventListener('click', () => {
+  setOn(compoundBtns, b); activeComp = b.dataset.compound; refresh();
+}));
+</script>
+</body>
+</html>
