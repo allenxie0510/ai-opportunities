@@ -79,8 +79,7 @@
     transition: box-shadow 0.3s ease; position: relative;
   }
   .fav-card:hover { box-shadow: var(--shadow-md); }
-  .fav-card .top-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
-  .fav-card .info { flex: 1; }
+  .fav-card .top-row { margin-bottom: 12px; }
   .fav-card .cat-badge {
     display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
     color: var(--accent); background: #0071e312; padding: 2px 8px; border-radius: 5px; margin-bottom: 8px;
@@ -96,7 +95,7 @@
   }
   .fav-card .meta-row span { display: flex; align-items: center; gap: 4px; }
   .fav-card .actions {
-    display: flex; gap: 8px; align-items: center;
+    display: flex; gap: 8px; align-items: center; margin-top: 10px;
   }
   .btn {
     font-size: 0.78rem; font-weight: 500; border: none; border-radius: 8px;
@@ -321,12 +320,10 @@ function renderFavorites() {
     return `
       <div class="fav-card">
         <div class="top-row">
-          <div class="info">
-            <span class="cat-badge">${f.section || ''}</span>
-            <h3>${f.title}</h3>
-            <p class="desc">${f.desc}</p>
-            <div class="meta-row">${metricsHTML}</div>
-          </div>
+          <span class="cat-badge">${f.section || ''}</span>
+          <h3>${f.title}</h3>
+          <p class="desc">${f.desc}</p>
+          <div class="meta-row">${metricsHTML}</div>
           <div class="actions">
             <button class="btn btn-analyze" onclick="openEvaluation('${f.id}')" ${hasEval ? 'style="opacity:0.5"' : ''}>${hasEval ? '重新评估' : '🔍 AI 深度评估'}</button>
             <button class="btn btn-remove" onclick="removeFav('${f.id}')" title="取消收藏">✕</button>
