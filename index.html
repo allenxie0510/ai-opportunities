@@ -3,695 +3,637 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 趋势周报 · 独立创作者复利创业方向</title>
+<title>AI 趋势周报 · 2026年第25周</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,420;0,500;1,420&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #0b0c0e;
+    --bg: #0b0c0e;
     --text: #dbd7cf;
-    --text-mid: #9d978a;
-    --text-dim: #6b6558;
-    --rule: #2a2722;
-    --rule-light: #3d3932;
     --accent: #b8945c;
-    --accent-muted: #8b6f46;
-    --serif: 'Playfair Display', 'Songti SC', 'Noto Serif CJK SC', Georgia, serif;
-    --body: 'Lora', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', serif;
-    --mono: 'DM Mono', 'SF Mono', 'JetBrains Mono', monospace;
+    --muted: #7a7568;
+    --divider: rgba(184, 148, 92, 0.15);
+    --pill-bg: rgba(184, 148, 92, 0.08);
+    --num-opacity: 0.18;
+    --ribbon-border: rgba(184, 148, 92, 0.2);
   }
-  * { margin:0; padding:0; box-sizing:border-box; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   html { scroll-behavior: smooth; }
   body {
-    font-family: var(--body);
-    background: var(--ink);
+    font-family: 'Lora', 'Georgia', 'Noto Serif SC', serif;
+    background: var(--bg);
     color: var(--text);
-    line-height: 1.7;
-    font-weight: 420;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── Navigation Bar ── */
-  .nav-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 0;
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
-    color: var(--text-dim);
-    text-transform: uppercase;
+  /* ── Navigation ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(11,12,14,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+    padding: 0.6rem 2rem;
+    display: flex; align-items: baseline; gap: 1.5rem; flex-wrap: wrap;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem; letter-spacing: 0.04em;
   }
-  .nav-bar .brand {
-    color: var(--text-mid);
-    letter-spacing: 0.12em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  nav .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--accent);
+    margin-right: auto; letter-spacing: 0;
   }
-  .nav-bar .brand .dot { width: 5px; height: 5px; background: var(--accent-muted); border-radius: 50%; }
-  .nav-bar .nav-group {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  nav a {
+    color: var(--muted); text-decoration: none;
+    transition: color 0.25s;
   }
-  .nav-bar .nav-label {
-    color: var(--text-faint);
-    margin-right: 2px;
-  }
-  .nav-select {
-    background: transparent;
-    border: 1px solid var(--rule);
-    color: var(--text-dim);
-    padding: 4px 10px;
-    font-family: var(--mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-    outline: none;
-    border-radius: 3px;
-    transition: border-color 0.3s ease;
-  }
-  .nav-select:hover, .nav-select:focus { border-color: var(--rule-light); color: var(--text-mid); }
-  .nav-link {
-    color: var(--text-dim);
-    text-decoration: none;
-    font-size: 0.6rem;
-    letter-spacing: 0.06em;
-    padding: 4px 10px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  .nav-link:hover { color: var(--text-mid); border-color: var(--rule); }
-  .nav-link.current {
-    color: var(--accent-muted);
-    border-color: var(--rule);
-  }
+  nav a:hover { color: var(--text); }
+  nav a.current { color: var(--accent); font-weight: 500; }
 
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
-
+  /* ── Masthead ── */
   .masthead {
-    padding: 64px 0 0;
-    text-align: center;
+    max-width: 960px; margin: 4rem auto 2rem; padding: 0 2rem;
+    animation: fadeUp 0.6s ease-out;
   }
   .masthead .kicker {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.12em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 0.8rem;
   }
-  .masthead .kicker::before,
-  .masthead .kicker::after { content: ' ── '; color: var(--text-dim); opacity: 0.4; }
   .masthead h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.4rem, 5vw, 3.4rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-    color: #ece6da;
-    max-width: 720px;
-    margin: 0 auto 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700; line-height: 1.18;
+    color: var(--text); margin-bottom: 0.8rem;
   }
   .masthead .deck {
-    font-size: 1.05rem;
-    color: var(--text-mid);
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
-    font-style: italic;
+    font-size: 1.08rem; color: var(--muted); max-width: 640px;
+    margin-bottom: 1.5rem; font-style: italic;
   }
   .masthead .byline {
-    margin-top: 28px;
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--muted);
+    letter-spacing: 0.05em;
   }
-  .masthead .byline .rule-sm { display: inline-block; width: 28px; height: 1px; background: var(--rule-light); }
 
-  .ornament {
-    display: flex; align-items: center; justify-content: center; gap: 16px;
-    margin: 36px 0 48px; color: var(--text-dim); font-size: 0.5rem; letter-spacing: 0.3em;
+  /* ── Diamond Divider ── */
+  .diamond-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin: 3rem 0;
+    color: var(--accent); font-size: 0.5rem; opacity: 0.5;
   }
-  .ornament .line { flex: 0 0 48px; height: 1px; background: var(--rule); }
+  .diamond-divider::before, .diamond-divider::after {
+    content: ''; height: 1px; width: 80px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+  }
 
+  /* ── Stats Ribbon ── */
   .stats-ribbon {
+    max-width: 960px; margin: 0 auto 4rem; padding: 0 2rem;
     display: grid; grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 56px;
+    border-top: 1px solid var(--ribbon-border);
+    border-bottom: 1px solid var(--ribbon-border);
   }
-  .stats-ribbon .item {
-    padding: 28px 20px; text-align: center; border-right: 1px solid var(--rule);
-    transition: background 0.3s ease;
+  .stats-ribbon .stat {
+    padding: 1.5rem 1rem; text-align: center;
+    border-right: 1px solid var(--ribbon-border);
   }
-  .stats-ribbon .item:last-child { border-right: none; }
-  .stats-ribbon .item:hover { background: rgba(255,255,255,0.015); }
-  .stats-ribbon .num { font-family: var(--serif); font-size: 2rem; font-weight: 600; color: #e8e2d6; line-height: 1; }
-  .stats-ribbon .lbl {
-    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--text-dim); margin-top: 6px;
+  .stats-ribbon .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--accent);
+    line-height: 1;
   }
-
-  .filter-section { margin-bottom: 48px; }
-  .filter-section .section-label {
-    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;
-  }
-  .filter-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
-  .filter-row .divider { color: var(--rule); margin: 0 8px; font-size: 0.7rem; }
-  .fbtn {
-    font-family: var(--body); font-size: 0.78rem; background: transparent; border: none;
-    color: var(--text-dim); padding: 6px 14px; cursor: pointer; letter-spacing: 0.02em;
-    transition: color 0.3s ease; position: relative; font-style: italic;
-  }
-  .fbtn::after {
-    content: ''; position: absolute; bottom: 2px; left: 14px; right: 14px; height: 1px;
-    background: var(--accent-muted); transform: scaleX(0);
-    transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1); transform-origin: left;
-  }
-  .fbtn:hover { color: var(--text); }
-  .fbtn.on { color: #e8e2d6; font-style: normal; }
-  .fbtn.on::after { transform: scaleX(1); }
-
-  .results-hint {
-    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
-    color: var(--text-dim); margin-bottom: 32px; text-transform: uppercase;
+  .stat .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: var(--muted);
+    letter-spacing: 0.06em; margin-top: 0.3rem;
   }
 
-  .articles { display: grid; grid-template-columns: 1fr; gap: 0; margin-bottom: 72px; }
+  /* ── Filters ── */
+  .filters {
+    max-width: 960px; margin: 0 auto 3rem; padding: 0 2rem;
+    display: flex; gap: 2rem; flex-wrap: wrap;
+    font-family: 'DM Mono', monospace; font-size: 0.72rem;
+  }
+  .filter-group { display: flex; align-items: center; gap: 0.5rem; }
+  .filter-group .label { color: var(--muted); letter-spacing: 0.06em; }
+  .filter-group button {
+    background: var(--pill-bg); border: 1px solid transparent;
+    color: var(--muted); padding: 0.25rem 0.7rem;
+    font-family: inherit; font-size: inherit; cursor: pointer;
+    transition: all 0.25s;
+  }
+  .filter-group button:hover { color: var(--text); border-color: var(--accent); }
+  .filter-group button.active { color: var(--accent); border-color: var(--accent); }
+
+  /* ── Article List ── */
+  .articles { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
   .article {
-    display: grid; grid-template-columns: 120px 1fr; gap: 0;
-    border-bottom: 1px solid var(--rule); padding: 32px 0;
-    transition: background 0.3s ease; position: relative;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(122,117,104,0.1);
+    opacity: 0; transform: translateY(24px);
+    animation: fadeUp 0.5s ease-out forwards;
   }
-  .article:first-child { border-top: 1px solid var(--rule); }
-  .article:hover { background: rgba(255,255,255,0.012); }
-  .article .num-col { padding-right: 24px; }
-  .article .num-col .section-tag {
-    font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;
-  }
-  .article .num-col .big-num {
-    font-family: var(--serif); font-size: 3rem; font-weight: 700;
-    color: #e8e2d6; line-height: 0.85; opacity: 0.18; transition: opacity 0.3s ease;
-  }
-  .article:hover .num-col .big-num { opacity: 0.35; }
-  .article .content-col { display: flex; flex-direction: column; }
-  .article h3 {
-    font-family: var(--serif); font-size: 1.25rem; font-weight: 600;
-    line-height: 1.3; color: #e8e2d6; margin-bottom: 8px; letter-spacing: -0.01em;
-  }
-  .article .dek {
-    font-size: 0.88rem; color: var(--text-mid); line-height: 1.7;
-    margin-bottom: 16px; max-width: 620px;
-  }
-  .article .meta-strip {
-    display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--mono);
-    font-size: 0.62rem; letter-spacing: 0.06em; color: var(--text-dim); margin-bottom: 12px;
-  }
-  .meta-strip span { display: flex; align-items: center; gap: 4px; }
-  .meta-strip .val { color: var(--text-mid); }
-  .article .ref-strip {
-    font-size: 0.72rem; color: var(--text-dim); line-height: 1.6;
-    margin-bottom: 14px; font-style: italic;
-  }
-  .article .ref-strip a {
-    color: var(--accent-muted); text-decoration: none; transition: color 0.3s ease;
-    font-style: normal; font-family: var(--mono); font-size: 0.65rem;
-  }
-  .article .ref-strip a:hover { color: var(--accent); }
-  .article .insight {
-    font-size: 0.78rem; color: var(--text-dim); line-height: 1.7;
-    padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.03);
-    transition: color 0.3s ease; max-width: 560px;
-  }
-  .article:hover .insight { color: var(--text-mid); }
-  .insight em { color: var(--accent-muted); font-style: normal; }
-  .insight strong { color: var(--text); font-weight: 500; }
+  .article:nth-child(1) { animation-delay: 0.04s; }
+  .article:nth-child(2) { animation-delay: 0.08s; }
+  .article:nth-child(3) { animation-delay: 0.12s; }
+  .article:nth-child(4) { animation-delay: 0.16s; }
+  .article:nth-child(5) { animation-delay: 0.20s; }
+  .article:nth-child(6) { animation-delay: 0.24s; }
+  .article:nth-child(7) { animation-delay: 0.28s; }
+  .article:nth-child(8) { animation-delay: 0.32s; }
+  .article:nth-child(9) { animation-delay: 0.36s; }
+  .article:nth-child(10) { animation-delay: 0.40s; }
+  .article:nth-child(11) { animation-delay: 0.44s; }
+  .article:nth-child(12) { animation-delay: 0.48s; }
 
-  .pull-quote { margin: 48px 0 56px; padding: 0; text-align: center; position: relative; }
+  /* Left number column */
+  .article-num {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 700;
+    color: var(--accent); opacity: var(--num-opacity);
+    line-height: 0.85; text-align: right;
+    padding-right: 1.2rem;
+    transition: opacity 0.35s;
+    user-select: none;
+  }
+  .article:hover .article-num { opacity: 0.32; }
+  .article-num .tag {
+    position: absolute; bottom: 0.2rem; right: 1.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem; font-weight: 500;
+    background: var(--pill-bg); color: var(--accent);
+    padding: 0.15rem 0.5rem; letter-spacing: 0.06em;
+  }
+
+  /* Right content */
+  .article-body { padding-left: 0; }
+
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem; font-weight: 600;
+    color: var(--text); margin-bottom: 0.5rem;
+    line-height: 1.25;
+  }
+
+  .article-body .summary {
+    font-size: 0.95rem; color: var(--muted);
+    margin-bottom: 0.9rem; max-width: 600px;
+  }
+
+  .metrics {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    margin-bottom: 0.7rem;
+  }
+  .metric {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .metric strong { color: var(--accent); font-weight: 500; }
+
+  .ref-strip {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; color: var(--muted);
+    border-left: 1px solid var(--divider);
+    padding-left: 0.7rem; margin-bottom: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+  .ref-strip a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--divider); }
+  .ref-strip a:hover { color: var(--accent); }
+
+  .insight {
+    font-size: 0.88rem; color: var(--text);
+    font-style: italic; opacity: 0.85;
+  }
+  .insight::before { content: '💡 '; font-style: normal; }
+
+  /* ── Pull Quote ── */
+  .pull-quote {
+    max-width: 720px; margin: 4rem auto;
+    padding: 0 2rem; text-align: center;
+    position: relative;
+  }
   .pull-quote .mark {
-    font-family: var(--serif); font-size: 4rem; line-height: 0.6;
-    color: var(--accent-muted); opacity: 0.3; margin-bottom: -8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; color: var(--accent); opacity: 0.15;
+    line-height: 0; position: absolute; top: -0.5rem; left: 1rem;
+    pointer-events: none;
   }
   .pull-quote blockquote {
-    font-family: var(--serif); font-size: 1.3rem; font-weight: 500; font-style: italic;
-    color: #e0dbd0; max-width: 560px; margin: 0 auto; line-height: 1.5; letter-spacing: -0.005em;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-style: italic;
+    color: var(--text); line-height: 1.5;
+  }
+  .pull-quote cite {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: var(--muted); display: block;
+    margin-top: 1rem; letter-spacing: 0.06em;
   }
 
+  /* ── Colophon ── */
   .colophon {
-    border-top: 2px solid var(--rule); padding: 40px 0 56px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-    font-size: 0.72rem; color: var(--text-dim); line-height: 1.8;
+    max-width: 960px; margin: 0 auto 4rem; padding: 0 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    border-top: 1px solid var(--divider); padding-top: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: var(--muted);
+    letter-spacing: 0.03em; line-height: 1.8;
   }
-  .colophon .left { font-style: italic; }
-  .colophon .right { text-align: right; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; }
+  .colophon h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: var(--accent);
+    letter-spacing: 0.08em; margin-bottom: 0.5rem; font-weight: 500;
+  }
 
-  @keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(12px); }
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .article { animation: fadeSlideUp 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
-  .article:nth-child(1) { animation-delay: 0.02s; }
-  .article:nth-child(2) { animation-delay: 0.06s; }
-  .article:nth-child(3) { animation-delay: 0.10s; }
-  .article:nth-child(4) { animation-delay: 0.14s; }
-  .article:nth-child(5) { animation-delay: 0.18s; }
-  .article:nth-child(6) { animation-delay: 0.22s; }
-  .article:nth-child(7) { animation-delay: 0.26s; }
-  .article:nth-child(8) { animation-delay: 0.30s; }
-  .article:nth-child(9) { animation-delay: 0.34s; }
-  .article:nth-child(10) { animation-delay: 0.38s; }
-  .article:nth-child(11) { animation-delay: 0.42s; }
-  .article:nth-child(12) { animation-delay: 0.46s; }
 
-  @keyframes mastReveal {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .masthead h1 { animation: mastReveal 0.7s ease both; }
-  .masthead .deck { animation: mastReveal 0.7s 0.1s ease both; }
-  .masthead .byline { animation: mastReveal 0.7s 0.18s ease both; }
-  .ornament { animation: mastReveal 0.7s 0.24s ease both; }
-
-  .fbtn { transition: color 0.3s ease; }
-  .fbtn:active { transform: scale(0.97); transition: transform 0.1s ease; }
-
-  @media (max-width: 768px) {
-    .container { padding: 0 24px; }
-    .masthead { padding-top: 48px; }
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .article { grid-template-columns: 60px 1fr; gap: 0.5rem; padding: 1.8rem 0; }
+    .article-num { font-size: 3rem; padding-right: 0.5rem; }
+    .article-num .tag { font-size: 0.5rem; right: 0.5rem; bottom: 0; }
     .stats-ribbon { grid-template-columns: repeat(2, 1fr); }
-    .article { grid-template-columns: 1fr; gap: 12px; }
-    .article .num-col { display: flex; align-items: baseline; gap: 12px; padding-right: 0; }
-    .article .num-col .big-num { font-size: 2rem; }
-    .colophon { grid-template-columns: 1fr; text-align: center; }
-    .colophon .right { text-align: center; }
-    .masthead h1 { font-size: 2rem; }
-    .nav-bar { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .stats-ribbon .stat:nth-child(2) { border-right: none; }
+    .colophon { grid-template-columns: 1fr; }
+    nav { padding: 0.5rem 1rem; }
+    .masthead, .articles, .stats-ribbon, .filters, .colophon { padding: 0 1rem; }
+    .filters { gap: 1rem; }
   }
-
-  .hidden { display: none !important; }
 </style>
 </head>
 <body>
-<div class="container">
 
-<!-- ═══════════════ NAVIGATION ═══════════════ -->
-<nav class="nav-bar">
-  <div class="brand"><span class="dot"></span> AI 趋势周报</div>
-  <div class="nav-group">
-    <span class="nav-label">往期：</span>
-    <span class="nav-link current" data-week="latest">最新</span>
-  </div>
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav>
+  <span class="brand">AI 趋势周报</span>
+  <a href="index.html" class="current">最新</a>
+  <span id="archive-links"></span>
 </nav>
 
-<!-- ═══════════════ MASTHEAD ═══════════════ -->
-<div class="masthead">
-  <div class="kicker">周报 · 2026 年第 25 周</div>
-  <h1>AI × 独立创作<br>复利创业</h1>
-  <p class="deck">从全球开源情报与中国创业生态中梳理出的十二条方向——面向 AI 独立创作者与 Vibe Coding 实践者，追求复利效应而非出卖时间。</p>
-  <div class="byline">
-    <span class="rule-sm"></span>
-    GitHub Trending · Hacker News · 即刻 · 少数派 · V2EX
-    <span class="rule-sm"></span>
+<!-- ═══════════ MASTHEAD ═══════════ -->
+<header class="masthead">
+  <div class="kicker">周报 · 2026年第25周</div>
+  <h1>Agent Skills 纪元<br>与独立创作者的复利窗口</h1>
+  <p class="deck">这一周，Agent Skills 生态全面爆发——从安全扫描到学术研究，从 PM 工作流到网络安全，技能市场正在成为 AI 时代的 App Store。对独立创作者而言，这不是又一个需要追赶的趋势，而是一次重新定义"一人公司"边界的契机。</p>
+  <p class="byline">数据源 · GitHub Trending (Weekly/Monthly) · Hacker News · V2EX · 少数派 · 36氪 · 2026-06-18</p>
+</header>
+
+<!-- ═══════════ DIAMOND DIVIDER ═══════════ -->
+<div class="diamond-divider">◆</div>
+
+<!-- ═══════════ STATS RIBBON ═══════════ -->
+<section class="stats-ribbon">
+  <div class="stat"><div class="num">62.6K</div><div class="label">agent-skills 星标</div></div>
+  <div class="stat"><div class="num">+98K</div><div class="label">认知图谱双雄月增</div></div>
+  <div class="stat"><div class="num">32.5K</div><div class="label">MoneyPrinterTurbo 月增</div></div>
+  <div class="stat"><div class="num">6 个</div><div class="label">新兴中国机会方向</div></div>
+</section>
+
+<!-- ═══════════ FILTERS ═══════════ -->
+<section class="filters">
+  <div class="filter-group">
+    <span class="label">赛道</span>
+    <button class="active" data-track="all">全部</button>
+    <button data-track="agent-skills">Agent 技能</button>
+    <button data-track="creative">创意工具</button>
+    <button data-track="vertical">垂直 Agent</button>
+    <button data-track="content">AI 内容</button>
+    <button data-track="devtools">开发者工具</button>
   </div>
-</div>
-
-<div class="ornament">
-  <span class="line"></span> ◆ <span class="line"></span>
-</div>
-
-<!-- ═══════════════ STATS ═══════════════ -->
-<div class="stats-ribbon">
-  <div class="item"><div class="num">12</div><div class="lbl">方向</div></div>
-  <div class="item"><div class="num">5</div><div class="lbl">赛道</div></div>
-  <div class="item"><div class="num">89k</div><div class="lbl">最高星标</div></div>
-  <div class="item"><div class="num">7 天</div><div class="lbl">数据窗口</div></div>
-</div>
-
-<!-- ═══════════════ FILTERS ═══════════════ -->
-<div class="filter-section">
-  <div class="section-label">筛选与排序</div>
-  <div class="filter-row">
-    <button class="fbtn on" data-filter="all">全部赛道</button>
-    <button class="fbtn" data-filter="agent-skill">Agent 技能</button>
-    <button class="fbtn" data-filter="creative-tool">创意工具</button>
-    <button class="fbtn" data-filter="vertical-agent">垂直 Agent</button>
-    <button class="fbtn" data-filter="content-ai">AI 内容</button>
-    <button class="fbtn" data-filter="dev-tool">开发者工具</button>
-    <span class="divider">|</span>
-    <button class="fbtn on" data-creator="all">创作者匹配：不限</button>
-    <button class="fbtn" data-creator="high">强匹配</button>
-    <button class="fbtn" data-creator="medium">中等匹配</button>
-    <span class="divider">|</span>
-    <button class="fbtn on" data-compound="all">复利效应：不限</button>
-    <button class="fbtn" data-compound="high">高复利</button>
-    <button class="fbtn" data-compound="medium">中等复利</button>
+  <div class="filter-group">
+    <span class="label">创作者匹配</span>
+    <button class="active" data-match="all">全部</button>
+    <button data-match="strong">强匹配</button>
+    <button data-match="medium">中等匹配</button>
   </div>
-</div>
-<div class="results-hint" id="resultsInfo">12 篇文章</div>
+  <div class="filter-group">
+    <span class="label">复利效应</span>
+    <button class="active" data-compound="all">全部</button>
+    <button data-compound="high">高</button>
+    <button data-compound="medium">中</button>
+  </div>
+</section>
 
-<!-- ═══════════════ ARTICLES ═══════════════ -->
-<div class="articles" id="articleList">
+<!-- ═══════════ ARTICLES ═══════════ -->
+<main class="articles">
 
 <!-- 01 -->
-<article class="article" data-category="agent-skill" data-creator="high" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">Agent 技能</div>
-    <div class="big-num">01</div>
-  </div>
-  <div class="content-col">
-    <h3>Agent 技能市场</h3>
-    <p class="dek">为 AI 编程 Agent 开发和销售垂直领域技能包。taste-skill（46K★）、academic-research-skills（32K★）、last30days-skill（44K★）本月集中爆发——Agent 的 App Store 时刻已经到来。中国生态中，Dify 插件市场同样快速增长，提示词工程正在从"个人手艺"走向"可交易资产"。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🔥 爆发</span></span>
-      <span>变现 <span class="val">订阅 / 按量</span></span>
-      <span>MVP <span class="val">2–4 周</span></span>
+<article class="article" data-track="agent-skills" data-match="strong" data-compound="high">
+  <div class="article-num">01<span class="tag">Agent 技能</span></div>
+  <div class="article-body">
+    <h2>垂直技能市场：Agent Skills 正在成为新 App Store</h2>
+    <p class="summary">addyoosmani/agent-skills（62.6K ★，本周+11.7K）和 phuryn/pm-skills（100+ 技能）引爆了"可复用 Agent 技能包"概念。从产品管理到网络安全，从学术研究到市场调研，每个垂直领域都在涌现技能集合。这本质上是将人类专业知识编码为 AI 可执行的指令序列——独立创作者最核心的护城河。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>SaaS 订阅制</strong></span>
+      <span class="metric">MVP 周期 <strong>2-4 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/Leonxlnx/taste-skill">taste-skill</a> · <a href="https://github.com/mvanhorn/last30days-skill">last30days-skill</a> | 国内：Dify 插件生态 · 扣子 Bot 商店
+      海外 · <a href="https://github.com/addyosmani/agent-skills" target="_blank">agent-skills</a> | <a href="https://github.com/phuryn/pm-skills" target="_blank">pm-skills</a> | <a href="https://github.com/openai/skills" target="_blank">openai/skills</a><br>
+      国内 · <a href="https://github.com/Imbad0202/academic-research-skills" target="_blank">academic-research-skills</a> | 即刻 #AgentSkills
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>技能文件的本质是 Prompt 工程与工作流设计的结合——定义 Agent 的<em>品味</em>和行为模式。核心竞争力是领域知识 + 人机交互设计，而非代码量。先做一个垂直领域（如法律文书、学术写作）的技能包验证需求。</p>
+    <p class="insight">从"写 Prompt"升级到"发布 Skill 包"，这就是 AI 时代的 npm。先在一个垂直领域做到最好（比如财税合规、临床试验文档），再横向扩展。</p>
   </div>
 </article>
 
 <!-- 02 -->
-<article class="article" data-category="creative-tool" data-creator="high" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">创意工具</div>
-    <div class="big-num">02</div>
-  </div>
-  <div class="content-col">
-    <h3>叙事型演示文稿引擎</h3>
-    <p class="dek">面向融资路演、学术答辩、品牌叙事等特定场景的 AI 演示生成器。Gamma 估值超 $2B，presenton（8.3K★）证明开源路线可行。国内生态中，AI PPT 工具需求旺盛但普遍缺乏设计品质——"设计感"仍然是巨大的差异化空间。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🚀 增长</span></span>
-      <span>变现 <span class="val">$10–50 / 月</span></span>
-      <span>MVP <span class="val">4–8 周</span></span>
+<article class="article" data-track="devtools" data-match="strong" data-compound="high">
+  <div class="article-num">02<span class="tag">开发者工具</span></div>
+  <div class="article-body">
+    <h2>代码认知图谱：AI 编程的下一个基础设施</h2>
+    <p class="summary">Egonex-AI/Understand-Anything（63.2K ★，月增 47.9K）和 colbymchenry/codegraph（51.4K ★，月增 48.1K）几乎同时爆发。两者都是"预索引代码知识图谱"——让 AI 编程助手在毫秒级理解整个代码库，减少 99% 的上下文 token。这不是工具，是基础设施层的范式转移。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>企业版 + 自托管</strong></span>
+      <span class="metric">MVP 周期 <strong>4-8 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/presenton/presenton">presenton (8.3K★)</a> · Gamma ($2B+) | 国内：AiPPT · 讯飞智文 · iSlide AI
+      海外 · <a href="https://github.com/Egonex-AI/Understand-Anything" target="_blank">Understand-Anything</a> | <a href="https://github.com/colbymchenry/codegraph" target="_blank">codegraph</a><br>
+      国内 · V2EX热议"AI编程工具生产力" | 适配国产IDE（Codex/Cursor替代）
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>竞品最大的痛点是<em>缺乏设计感知力</em>。定义视觉语言、字体规则、色彩系统，让 AI 产出有"被设计过"的感觉。有设计背景的 Vibe Coder 在这里有天然优势。</p>
+    <p class="insight">48K 月增不是偶然——开发者愿意为"减少 token 消耗 + 提升准确度"付费。如果你能做一个针对微信小程序/UniApp 生态的专用图谱，就是差异化。</p>
   </div>
 </article>
 
 <!-- 03 -->
-<article class="article" data-category="vertical-agent" data-creator="medium" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">垂直 Agent</div>
-    <div class="big-num">03</div>
-  </div>
-  <div class="content-col">
-    <h3>领域知识图谱 × AI 问答</h3>
-    <p class="dek">将特定领域知识结构化，构建可交互的知识图谱产品。Understand-Anything（63K★）和 codegraph（51K★）印证了可视化知识的巨大需求。国内法律 AI、医疗 AI 赛道正热，但大多停留在"对话式"，缺乏知识的结构化呈现。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🔥 爆发</span></span>
-      <span>变现 <span class="val">$50–500 / 月</span></span>
-      <span>MVP <span class="val">6–12 周</span></span>
+<article class="article" data-track="agent-skills" data-match="strong" data-compound="medium">
+  <div class="article-num">03<span class="tag">Agent 技能</span></div>
+  <div class="article-body">
+    <h2>Agent 安全扫描：NVIDIA 入场的信号</h2>
+    <p class="summary">NVIDIA/SkillSpector（7.7K ★，本周+5.3K）是 NVIDIA 官方的 AI Agent 技能安全扫描器。加上 Microsoft/agent-governance-toolkit（4.4K ★）和 Anthropic 网络安全技能包（16.3K ★），大厂正在集体布局 Agent 安全层。每一波平台崛起，安全都是最后一块但利润最厚的拼图。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>B2B SaaS + 合规</strong></span>
+      <span class="metric">MVP 周期 <strong>4-6 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/Egonex-AI/Understand-Anything">Understand-Anything (63K★)</a> · <a href="https://github.com/colbymchenry/codegraph">codegraph (51K★)</a> | 国内：秘塔 AI 搜索 · 知乎直答
+      海外 · <a href="https://github.com/NVIDIA/SkillSpector" target="_blank">SkillSpector</a> | <a href="https://github.com/microsoft/agent-governance-toolkit" target="_blank">agent-governance-toolkit</a> | <a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills" target="_blank">Anthropic-Cybersecurity-Skills</a><br>
+      国内 · 中国等保合规 + Agent 安全评估 = 蓝海
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>知识图谱的可视化交互层是蓝海。选一个你熟悉的垂直领域（如税务、劳动法、留学申请），用 Vibe Coding 构建结构化知识 + AI 问答产品。领域壁垒 + 产品体验 = 护城河。</p>
+    <p class="insight">做一个面向中国市场的 Agent 安全合规扫描 SaaS——等保 2.0 要求 + AI 治理政策 = 刚需。竞品几乎为零。</p>
   </div>
 </article>
 
 <!-- 04 -->
-<article class="article" data-category="creative-tool" data-creator="medium" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">创意工具</div>
-    <div class="big-num">04</div>
-  </div>
-  <div class="content-col">
-    <h3>创作者语音工作台</h3>
-    <p class="dek">面向播客主、视频创作者、有声书制作者的 AI 音频工作流工具。OmniVoice-Studio（7K★）、dograh（4.4K★）密集出现。国内播客/短视频创作者急需从"手动剪辑"升级到"AI 驱动的工作流"——语音克隆、自动降噪、多轨混音的产品化是大机会。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🚀 增长</span></span>
-      <span>变现 <span class="val">$15–100 / 月</span></span>
-      <span>MVP <span class="val">3–6 周</span></span>
+<article class="article" data-track="devtools" data-match="strong" data-compound="high">
+  <div class="article-num">04<span class="tag">开发者工具</span></div>
+  <div class="article-body">
+    <h2>Token 压缩：AI 时代的 Gzip</h2>
+    <p class="summary">chopratejas/headroom（32.4K ★，月增 29K）实现了工具输出、日志、文件和 RAG 块的智能压缩——减少 60-95% 的 token 消耗，回答质量不变。支持 library、proxy 和 MCP server 三种模式。这是在 LLM 调用成本仍然高昂背景下的"节流型"刚需。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>API 代理按量付费</strong></span>
+      <span class="metric">MVP 周期 <strong>2-3 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/debpalash/OmniVoice-Studio">OmniVoice-Studio (7K★)</a> · <a href="https://github.com/dograh-hq/dograh">dograh (4.4K★)</a> | 国内：魔音工坊 · 讯飞听见
+      海外 · <a href="https://github.com/chopratejas/headroom" target="_blank">headroom</a> | <a href="https://github.com/DeusData/codebase-memory-mcp" target="_blank">codebase-memory-mcp</a><br>
+      国内 · 适配国内主流模型 API（GLM/Kimi/DeepSeek）的压缩网关
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>竞品是"工程师为工程师设计"。打造一个让创作者真正享受的音频编辑工作流——可视化、直觉化——这正是产品设计驱动的机会。</p>
+    <p class="insight">做一个面向国内开发者的 API 代理——压缩 → 转发 → 按节省的 token 量收费。你的收入 = 用户省下的 API 费用 × 分成比例。</p>
   </div>
 </article>
 
 <!-- 05 -->
-<article class="article" data-category="creative-tool" data-creator="high" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">创意工具</div>
-    <div class="big-num">05</div>
-  </div>
-  <div class="content-col">
-    <h3>互动叙事引擎</h3>
-    <p class="dek">用 AI 生成分支故事、互动小说、沉浸式学习体验。Loreline 在 HN 获 146 分。国内互动小说平台（橙光、易次元）有大量用户但工具链老旧——AI 驱动的下一代互动内容创作平台是明显的升级机会。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🌊 早期蓝海</span></span>
-      <span>变现 <span class="val">$5–30 / 月 + B2B</span></span>
-      <span>MVP <span class="val">3–6 周</span></span>
+<article class="article" data-track="creative" data-match="medium" data-compound="medium">
+  <div class="article-num">05<span class="tag">创意工具</span></div>
+  <div class="article-body">
+    <h2>HTML → 视频：创作者工具的范式突破</h2>
+    <p class="summary">heygen-com/hyperframes（28.6K ★，月增 9.6K）提出了一个极简方案：写 HTML 即可渲染视频，专为 AI Agent 设计。同时 presenton（8.4K ★）做 AI 演示文稿生成，ViMax（10.4K ★）做 Agent 化视频生成（导演+编剧+制作人一体化）。内容创作正在从"手动编辑"转向"声明式生成"。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>模板市场 + API</strong></span>
+      <span class="metric">MVP 周期 <strong>3-6 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://loreline.app/en/">Loreline (HN 146pts)</a> · <a href="https://github.com/lfnovo/open-notebook">open-notebook (31K★)</a> | 国内：橙光 · 易次元 · 网易云游戏
+      海外 · <a href="https://github.com/heygen-com/hyperframes" target="_blank">hyperframes</a> | <a href="https://github.com/presenton/presenton" target="_blank">presenton</a> | <a href="https://github.com/HKUDS/ViMax" target="_blank">ViMax</a><br>
+      国内 · MoneyPrinterTurbo（89.5K ★）已验证短视频生成需求 | 电商视频模板
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>互动叙事的本质是体验设计——节奏、情感曲线、交互流畅度。有内容 sense 的独立创作者比纯技术团队更懂"沉浸感"。</p>
+    <p class="insight">如果做一个"超轻量 hyperframes 中文版"——专做小红书/抖音带货视频模板，用 HTML 声明式生成——就能吃掉 MoneyPrinterTurbo 没覆盖的"精细化控制"市场。</p>
   </div>
 </article>
 
 <!-- 06 -->
-<article class="article" data-category="dev-tool" data-creator="high" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">开发者工具</div>
-    <div class="big-num">06</div>
-  </div>
-  <div class="content-col">
-    <h3>可视化 AI 工作流构建器</h3>
-    <p class="dek">非程序员通过拖拽构建 AI 自动化。CopilotKit（35K★）验证了 Agent 前端框架市场。国内 Dify、扣子（Coze）正快速增长，但"零代码 AI 工作流"面向非技术用户的产品体验仍有巨大改进空间。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🚀 增长</span></span>
-      <span>变现 <span class="val">$20–500 / 月</span></span>
-      <span>MVP <span class="val">8–16 周</span></span>
+<article class="article" data-track="vertical" data-match="strong" data-compound="high">
+  <div class="article-num">06<span class="tag">垂直 Agent</span></div>
+  <div class="article-body">
+    <h2>Agent 记忆系统：复利型产品的终极形态</h2>
+    <p class="summary">rohitg00/agentmemory（23.3K ★，月增 12.4K）和 supermemoryai/supermemory（27.2K ★）领跑 Agent 持久化记忆赛道。加上 TencentDB-Agent-Memory（5.9K ★）的四层渐进式 pipeline，记忆系统越用越精准——这是教科书级的复利产品：用户越多，记忆越丰富，迁移成本越高。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>存储 + API 调用</strong></span>
+      <span class="metric">MVP 周期 <strong>3-5 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/CopilotKit/CopilotKit">CopilotKit (35K★)</a> · n8n | 国内：Dify · 扣子 Coze · 百炼
+      海外 · <a href="https://github.com/rohitg00/agentmemory" target="_blank">agentmemory</a> | <a href="https://github.com/supermemoryai/supermemory" target="_blank">supermemory</a> | <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank">TencentDB-Agent-Memory</a><br>
+      国内 · 腾讯已入场 | 适配国产 Agent 框架的记忆中间件
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>无代码工具的成败取决于交互设计——节点编排、可视化反馈、新手引导。Zapier 的剧本已证明连接器生态的复利效应。可以基于 Dify/Coze 做垂直场景的模板市场。</p>
+    <p class="insight">做一个"个人知识记忆库"——连接你的笔记、代码仓库、聊天记录，让 Agent 越用越懂你。ToC 订阅 + 数据迁移锁定 = 最强复利。</p>
   </div>
 </article>
 
 <!-- 07 -->
-<article class="article" data-category="creative-tool" data-creator="high" data-compound="medium">
-  <div class="num-col">
-    <div class="section-tag">创意工具</div>
-    <div class="big-num">07</div>
-  </div>
-  <div class="content-col">
-    <h3>AI 品牌系统生成器</h3>
-    <p class="dek">为初创团队和独立开发者提供完整的品牌识别系统——Logo、配色、字体层级、品牌指南。国内中小企业和个人 IP 对"低成本品牌化"需求旺盛，但缺乏好用的中文品牌设计 AI 工具。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">📈 稳定</span></span>
-      <span>变现 <span class="val">¥50–300 / 月</span></span>
-      <span>MVP <span class="val">4–8 周</span></span>
+<article class="article" data-track="content" data-match="strong" data-compound="medium">
+  <div class="article-num">07<span class="tag">AI 内容</span></div>
+  <div class="article-body">
+    <h2>开源 NotebookLM：本地知识库的机会</h2>
+    <p class="summary">lfnovo/open-notebook（31.4K ★，月增 8K）实现了 NotebookLM 的开源替代——更灵活、更多功能、可自托管。同时 refactoringhq/tolaria（16.7K ★）做 Markdown 知识库桌面应用。知识管理 + AI 正在从云端回归本地，隐私和可控性是核心卖点。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>桌面应用买断 + 云同步</strong></span>
+      <span class="metric">MVP 周期 <strong>4-6 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：Canva AI · Looka · Brandmark | 国内：稿定设计 · 创客贴 · 标小智
+      海外 · <a href="https://github.com/lfnovo/open-notebook" target="_blank">open-notebook</a> | <a href="https://github.com/refactoringhq/tolaria" target="_blank">tolaria</a><br>
+      国内 · 少数派用户热衷本地知识管理 | V2EX "个人家庭图片存储方案"讨论
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>国内竞品偏"模板化"，缺乏系统性品牌设计思维。将设计方法论产品化，面向中文语境做深度优化（中文字体搭配、中国市场的视觉偏好），是差异化切入点。</p>
+    <p class="insight">做一个"中国版 NotebookLM"——支持微信读书笔记导入、飞书文档同步、本地化运行。隐私 + 国产模型适配 = 差异化壁垒。</p>
   </div>
 </article>
 
 <!-- 08 -->
-<article class="article" data-category="content-ai" data-creator="medium" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">AI 内容</div>
-    <div class="big-num">08</div>
-  </div>
-  <div class="content-col">
-    <h3>跨平台内容适配引擎</h3>
-    <p class="dek">一条长文/视频 → 自动生成小红书图文、抖音脚本、公众号文章、Twitter Thread、LinkedIn 帖子。MoneyPrinterTurbo（89K★）证明了视频生成方向。国内"一鱼多吃"是创作者刚需——小红书 + 抖音 + 视频号 + B站的多平台分发。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🚀 增长</span></span>
-      <span>变现 <span class="val">¥50–300 / 月</span></span>
-      <span>MVP <span class="val">3–5 周</span></span>
+<article class="article" data-track="agent-skills" data-match="strong" data-compound="medium">
+  <div class="article-num">08<span class="tag">Agent 技能</span></div>
+  <div class="article-body">
+    <h2>无 API 费用的互联网之眼：Agent 爬虫新范式</h2>
+    <p class="summary">Panniantong/Agent-Reach（33.9K ★，月增 13.3K）让 AI Agent 零 API 费用抓取 Twitter、Reddit、YouTube、GitHub、Bilibili、小红书——一条 CLI 命令即可。mvanhorn/last30days-skill（44.2K ★）则让 Agent 研究任意话题并生成综述。Agent 的信息获取能力正在指数级增长。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>垂直数据 API 服务</strong></span>
+      <span class="metric">MVP 周期 <strong>2-4 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/harry0703/MoneyPrinterTurbo">MoneyPrinterTurbo (89K★)</a> | 国内：剪映 · 度加剪辑 · 腾讯智影
+      海外 · <a href="https://github.com/Panniantong/Agent-Reach" target="_blank">Agent-Reach</a> | <a href="https://github.com/mvanhorn/last30days-skill" target="_blank">last30days-skill</a><br>
+      国内 · 小红书/抖音/微博舆情监控 | 电商竞品分析 Agent
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>每个平台有独特的<em>内容美学</em>——小红书的视觉丰富性、抖音的快节奏、公众号的深度阅读。理解和编码这些"平台美学差异"是核心竞争力。</p>
+    <p class="insight">为国内电商卖家做一个"竞品舆情 Agent"——每天自动抓取竞品的小红书/抖音数据，生成可执行的运营建议。按月订阅，刚需且高留存。</p>
   </div>
 </article>
 
 <!-- 09 -->
-<article class="article" data-category="agent-skill" data-creator="medium" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">Agent 技能</div>
-    <div class="big-num">09</div>
-  </div>
-  <div class="content-col">
-    <h3>Agent 记忆可视化层</h3>
-    <p class="dek">为 AI Agent 构建持久记忆与可视化管理界面。agentmemory（23K★）、supermemory（27K★）、TencentDB-Agent-Memory（5.8K★）接踵而至。但记忆管理的 UI 层仍是一片蓝海——用户如何看见和管理 Agent 的"记忆"？</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🔥 爆发</span></span>
-      <span>变现 <span class="val">托管服务</span></span>
-      <span>MVP <span class="val">6–12 周</span></span>
+<article class="article" data-track="creative" data-match="medium" data-compound="medium">
+  <div class="article-num">09<span class="tag">创意工具</span></div>
+  <div class="article-body">
+    <h2>语音 AI 民主化：从克隆到实时对话</h2>
+    <p class="summary">debpalash/OmniVoice-Studio（7.2K ★）做本地语音克隆和配音桌面应用——ElevenLabs 开源替代。dograh-hq/dograh（4.4K ★）做自托管语音 AI 平台（Vapi/Retell 替代）。MOSS-TTS（3.4K ★）做高表现力语音合成。语音 AI 正在从 API 调用走向本地部署，成本趋近于零。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>桌面应用 + 配音服务</strong></span>
+      <span class="metric">MVP 周期 <strong>4-8 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/rohitg00/agentmemory">agentmemory (23K★)</a> · <a href="https://github.com/supermemoryai/supermemory">supermemory (27K★)</a> | 国内：Memo AI · 腾讯云 Agent 记忆
+      海外 · <a href="https://github.com/debpalash/OmniVoice-Studio" target="_blank">OmniVoice-Studio</a> | <a href="https://github.com/dograh-hq/dograh" target="_blank">dograh</a> | <a href="https://github.com/OpenMOSS/MOSS-TTS" target="_blank">MOSS-TTS</a><br>
+      国内 · 短视频配音/有声书/播客市场 | 方言 TTS 是空白
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>记忆管理界面是无人踏足的领地——可视化、编辑、整理 Agent 的记忆。本质是信息架构与交互设计。做开源 Agent 记忆项目的中文优化 + 托管服务是一条路径。</p>
+    <p class="insight">做一个"方言配音工具"——四川话、粤语、东北话的 TTS + 语音克隆。中国短视频创作者对非普通话配音的需求巨大但供给极少。</p>
   </div>
 </article>
 
 <!-- 10 -->
-<article class="article" data-category="dev-tool" data-creator="high" data-compound="medium">
-  <div class="num-col">
-    <div class="section-tag">开发者工具</div>
-    <div class="big-num">10</div>
-  </div>
-  <div class="content-col">
-    <h3>利基 AI 微工具</h3>
-    <p class="dek">解决极其具体的痛点：图片压缩不损质量、去除背景保留阴影、生成合规发票模板。一人公司模式，MRR $1K–10K。国内微信生态内的小工具（小程序/AI 助手）尤其适合——用户基数大、使用高频、付费意愿强。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">📈 稳定</span></span>
-      <span>变现 <span class="val">¥20–100 / 月</span></span>
-      <span>MVP <span class="val">1–2 周</span></span>
+<article class="article" data-track="vertical" data-match="medium" data-compound="high">
+  <div class="article-num">10<span class="tag">垂直 Agent</span></div>
+  <div class="article-body">
+    <h2>AI 时代的私有云：Apple 容器与本地模型</h2>
+    <p class="summary">Apple 发布了 container 工具（38.4K ★）——在 Mac 上用轻量级虚拟机运行 Linux 容器，专为 Apple Silicon 优化。同时 HN 热帖"Running local models is good now"（1535 points）和 GLM-5.2 开源（854 points）证明：本地运行强大模型的时代已来。这对注重隐私的中国用户尤其有吸引力。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>硬件 + 软件捆绑</strong></span>
+      <span class="metric">MVP 周期 <strong>6-12 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：TinyWow · Pixelcut · Remove.bg | 国内：微信小程序 AI 工具 · 稿定 AI 修图
+      海外 · <a href="https://github.com/apple/container" target="_blank">apple/container</a> | HN: Local models are good now (1535 pts) | GLM-5.2 on Artificial Analysis<br>
+      国内 · V2EX热议GLM 5.2 | 国产模型本地部署热 | 个人AI服务器需求增长
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>Vibe Coding 做利基工具的最佳实践：从你自己的日常痛点出发，用 AI 辅助快速开发，在微信/小红书生态内获客。挖掘一个"足够小但足够痛"的需求。</p>
+    <p class="insight">"个人 AI 一体机"——预装 GLM/Kimi 本地模型的 Mini PC，开箱即用。ToC 硬件利润 + ToB 企业内网部署 = 两条腿走路。</p>
   </div>
 </article>
 
 <!-- 11 -->
-<article class="article" data-category="vertical-agent" data-creator="high" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">垂直 Agent</div>
-    <div class="big-num">11</div>
-  </div>
-  <div class="content-col">
-    <h3>AI 互动学习平台</h3>
-    <p class="dek">将静态教材转化为互动学习体验——自动生成测验、模拟对话、情境练习。ai-engineering-from-scratch（34K★）验证模式。国内 K12 + 职业教育 + 企业培训市场规模巨大，且政策鼓励 AI+教育。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🌊 蓝海</span></span>
-      <span>变现 <span class="val">¥200–2000 / 月 B2B</span></span>
-      <span>MVP <span class="val">6–10 周</span></span>
+<article class="article" data-track="content" data-match="strong" data-compound="high">
+  <div class="article-num">11<span class="tag">AI 内容</span></div>
+  <div class="article-body">
+    <h2>复利型内容引擎：12-Factor Agents 与工程化思维</h2>
+    <p class="summary">humanlayer/12-factor-agents（23.4K ★）和 EveryInc/compound-engineering-plugin（21.7K ★）代表了一个重要转变：从"试试看"的 AI 开发走向"工程化"的 Agent 构建。Anthropic 发布 AI-native 创业手册（HN 231 pts），市场共识正在形成：AI 产品需要比传统软件更多的工程纪律，而非更少。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>课程 + 咨询 + 工具</strong></span>
+      <span class="metric">MVP 周期 <strong>4-8 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/rohitg00/ai-engineering-from-scratch">ai-engineering-from-scratch (34K★)</a> · Synthesis ($2B+) | 国内：学而思 AI · 猿辅导 AI
+      海外 · <a href="https://github.com/humanlayer/12-factor-agents" target="_blank">12-factor-agents</a> | <a href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank">compound-engineering-plugin</a> | Anthropic AI-native startup playbook<br>
+      国内 · V2EX "公司强制AI开发考核"热议 | "vibe coding微信小游戏"经验帖
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>不要和大厂拼通用教育平台。选一个极细分的垂直领域（如钢琴考级、CPA 备考、PMP 认证），用 AI 做深度互动学习体验。细分领域的<em>学习体验设计</em>是壁垒。</p>
+    <p class="insight">写一本《12-Factor Agents 中文实战指南》+ 配套工具链。内容 → 课程 → SaaS 工具 → 咨询，四层复利漏斗。V2EX 上的 vibe coding 讨论证明市场需求庞大。</p>
   </div>
 </article>
 
 <!-- 12 -->
-<article class="article" data-category="dev-tool" data-creator="medium" data-compound="high">
-  <div class="num-col">
-    <div class="section-tag">开发者工具</div>
-    <div class="big-num">12</div>
-  </div>
-  <div class="content-col">
-    <h3>开源项目云托管商业化</h3>
-    <p class="dek">为热门开源项目提供托管云服务。headroom（32K★）和 Agent-Reach（33K★）正在爆发却零变现。选择刚需项目提供开箱即用的云服务。国内云市场（阿里云/腾讯云）的生态位 + 开源项目托管是可行路径。</p>
-    <div class="meta-strip">
-      <span>趋势 <span class="val">🔥 爆发</span></span>
-      <span>变现 <span class="val">$20–200 / 月 + 企业</span></span>
-      <span>MVP <span class="val">4–8 周</span></span>
+<article class="article" data-track="vertical" data-match="medium" data-compound="high">
+  <div class="article-num">12<span class="tag">垂直 Agent</span></div>
+  <div class="article-body">
+    <h2>多 Agent 编排：Stably Orca 与协作型 AI</h2>
+    <p class="summary">stablyai/orca（5.3K ★）提出了"Agent 舰队"概念——用一个桌面/移动应用管理并行运行的多个编码 Agent，各自用自己的 API 订阅。oh-my-pi（13.3K ★）做终端 AI 编码 Agent。多 Agent 协作正在成为现实：不同的 Agent 负责不同的子任务，协调完成复杂项目。</p>
+    <div class="metrics">
+      <span class="metric">趋势热度 <strong>★★★★</strong></span>
+      <span class="metric">变现潜力 <strong>团队订阅 + 编排服务</strong></span>
+      <span class="metric">MVP 周期 <strong>6-10 周</strong></span>
     </div>
     <div class="ref-strip">
-      海外：<a href="https://github.com/chopratejas/headroom">headroom (32K★)</a> · <a href="https://github.com/Panniantong/Agent-Reach">Agent-Reach (33K★)</a> · Supabase | 国内：Rainbond · 好雨云
+      海外 · <a href="https://github.com/stablyai/orca" target="_blank">orca</a> | <a href="https://github.com/can1357/oh-my-pi" target="_blank">oh-my-pi</a> | <a href="https://github.com/CopilotKit/CopilotKit" target="_blank">CopilotKit</a><br>
+      国内 · V2EX "AI编程工具生产力"讨论 | 企业多Agent协作需求
     </div>
-    <p class="insight"><strong>创作者切入点：</strong>开源工具的最大痛点是"DevEx 极差"——命令行、缺 UI、文档混乱。将程序员工具变成人人可用的产品，做好中文文档和国内云适配。</p>
+    <p class="insight">做一个面向小团队的"Agent 项目看板"——用多个 Agent 协作完成一个项目（设计 Agent + 前端 Agent + 后端 Agent + 测试 Agent）。按项目收费，而非按人头。</p>
   </div>
 </article>
 
-</div><!-- /articles -->
+</main>
 
-<div class="pull-quote">
-  <div class="mark">"</div>
-  <blockquote>
-    用 Vibe Coding 构建 AI 产品。追求复利——而非按小时出售时间。创造真正的价值。
-  </blockquote>
-</div>
+<!-- ═══════════ PULL QUOTE ═══════════ -->
+<section class="pull-quote">
+  <span class="mark">"</span>
+  <blockquote>独立创作者的真正优势，从来不是比大厂更快——而是能在一个足够小的缝隙里，<br>用 AI 做到大厂不屑做、但用户离不开的产品。</blockquote>
+  <cite>—— 本周 GitHub Trending 观察，2026 年 6 月</cite>
+</section>
 
-<div class="colophon">
-  <div class="left">
-    数据来源：GitHub Trending · Hacker News · 即刻 · 少数派 · V2EX · 36氪<br>
-    本分析仅供方向参考，不构成投资建议。原创创造价值，不做搬运工。
+<!-- ═══════════ COLOPHON ═══════════ -->
+<section class="colophon">
+  <div>
+    <h4>数据来源</h4>
+    GitHub Trending (Weekly / TypeScript Monthly / Python Monthly)<br>
+    Hacker News (Front Page + Page 2)<br>
+    V2EX 最热 · 少数派 sspai.com · 36氪 36kr.com<br>
+    报告生成于 2026-06-18 · 全自动 AI 趋势调研
   </div>
-  <div class="right">
-    复利来源：数据网络效应 · 品牌积累 · 生态位锁定<br>
-    字体：Playfair Display + Lora + DM Mono · 周刊
+  <div>
+    <h4>字体与设计</h4>
+    标题 · Playfair Display (Claus Eggers Sørensen)<br>
+    正文 · Lora (Cyreal)<br>
+    标签与元数据 · DM Mono (Colophon Foundry)<br>
+    配色 · #0b0c0e / #dbd7cf / #b8945c<br>
+    设计系统 · Editorial/Magazine · 无卡片无圆角无渐变
   </div>
-</div>
+</section>
 
-</div><!-- /container -->
-
+<!-- ═══════════ SCRIPTS ═══════════ -->
 <script>
-const filterBtns = document.querySelectorAll('[data-filter]');
-const creatorBtns = document.querySelectorAll('[data-creator]');
-const compoundBtns = document.querySelectorAll('[data-compound]');
-const articles = document.querySelectorAll('.article');
-const resultsInfo = document.getElementById('resultsInfo');
-
-let activeCat = 'all', activeCreator = 'all', activeComp = 'all';
-
-function refresh() {
-  let n = 0;
-  articles.forEach(a => {
-    const ok = (activeCat === 'all' || a.dataset.category === activeCat)
-            && (activeCreator === 'all' || a.dataset.creator === activeCreator)
-            && (activeComp === 'all' || a.dataset.compound === activeComp);
-    a.classList.toggle('hidden', !ok);
-    if (ok) n++;
-  });
-  resultsInfo.textContent = n + ' 篇文章';
-}
-
-function setOn(collection, el) {
-  collection.forEach(b => b.classList.remove('on'));
-  el.classList.add('on');
-}
-
-filterBtns.forEach(b => b.addEventListener('click', () => {
-  setOn(filterBtns, b); activeCat = b.dataset.filter; refresh();
-}));
-creatorBtns.forEach(b => b.addEventListener('click', () => {
-  setOn(creatorBtns, b); activeCreator = b.dataset.creator; refresh();
-}));
-compoundBtns.forEach(b => b.addEventListener('click', () => {
-  setOn(compoundBtns, b); activeComp = b.dataset.compound; refresh();
-}));
-
-// ── Navigation: load archive manifest ──
-fetch('archive/manifest.json')
-  .then(r => r.json())
-  .then(data => {
-    if (!data.weeks || data.weeks.length === 0) return;
-    const navGroup = document.querySelector('.nav-group');
-    // Remove existing archive links except "最新"
-    navGroup.querySelectorAll('.nav-link:not(.current)').forEach(el => el.remove());
-    data.weeks.reverse().forEach(week => {
+// Load archive links
+(async () => {
+  try {
+    const res = await fetch('archive/manifest.json');
+    const data = await res.json();
+    const container = document.getElementById('archive-links');
+    data.weeks.slice(0, 8).forEach(w => {
       const a = document.createElement('a');
-      a.className = 'nav-link';
-      a.href = 'archive/' + week.file;
-      a.textContent = week.label;
-      navGroup.appendChild(a);
+      a.href = 'archive/' + w.file;
+      a.textContent = w.label;
+      container.appendChild(a);
     });
-  })
-  .catch(() => { /* manifest 不存在时静默忽略 */ });
+  } catch(e) { /* silent fail */ }
+})();
+
+// Filters
+document.querySelectorAll('.filters').forEach(bar => {
+  bar.addEventListener('click', e => {
+    if (e.target.tagName !== 'BUTTON') return;
+    const btn = e.target;
+    const group = btn.parentElement;
+    const key = btn.dataset.track ? 'track' : btn.dataset.match ? 'match' : btn.dataset.compound ? 'compound' : null;
+    if (!key) return;
+
+    // Update active button in group
+    group.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Collect active filters
+    const active = {};
+    bar.querySelectorAll('button.active').forEach(b => {
+      if (b.dataset.track) active.track = b.dataset.track;
+      if (b.dataset.match) active.match = b.dataset.match;
+      if (b.dataset.compound) active.compound = b.dataset.compound;
+    });
+
+    document.querySelectorAll('.article').forEach(art => {
+      const show =
+        (active.track === 'all' || !active.track || art.dataset.track === active.track) &&
+        (active.match === 'all' || !active.match || art.dataset.match === active.match) &&
+        (active.compound === 'all' || !active.compound || art.dataset.compound === active.compound);
+      art.style.display = show ? '' : 'none';
+    });
+  });
+});
 </script>
 </body>
 </html>
