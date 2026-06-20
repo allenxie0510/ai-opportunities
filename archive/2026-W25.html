@@ -4,143 +4,248 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 趋势周报 · 独立创作者复利创业方向</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f5f5f7;
-    --surface: #ffffff;
-    --text: #1d1d1f;
-    --text-secondary: #6e6e73;
-    --text-tertiary: #aeaeb2;
-    --border: #e5e5ea;
-    --border-light: #f0f0f2;
-    --accent: #0071e3;
-    --bookmark-color: #0071e3;
-    --radius: 20px;
-    --radius-sm: 14px;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+    --ink: #0a0a0a;
+    --ink-strong: #000000;
+    --charcoal: #222222;
+    --slate: #45515e;
+    --steel: #5f5f5f;
+    --stone: #8e8e93;
+    --muted: #a8aab2;
+    --canvas: #ffffff;
+    --surface: #f7f8fa;
+    --surface-soft: #f2f3f5;
+    --hairline: #e5e7eb;
+    --hairline-soft: #eaecf0;
+    --coral: #ff5530;
+    --magenta: #ea5ec1;
+    --blue: #1456f0;
+    --blue-deep: #1d4ed8;
+    --blue-200: #bfdbfe;
+    --purple: #a855f7;
+    --success-bg: #e8ffea;
+    --success-text: #1ba673;
+    --on-dark: #ffffff;
+    --footer-bg: #0a0a0a;
+    --font: 'DM Sans', Inter, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased;
+    font-family: var(--font);
+    background: var(--canvas);
+    color: var(--charcoal);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* ── Nav ── */
+  /* ═══ NAV ═══ */
   .nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(245,245,247,0.78); backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--hairline-soft);
   }
   .nav-inner {
-    max-width: 1060px; margin: 0 auto; padding: 0 24px;
-    display: flex; align-items: center; justify-content: space-between; height: 48px;
+    max-width: 1280px; margin: 0 auto; padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between; height: 56px;
   }
-  .nav-left { display: flex; align-items: center; gap: 24px; }
-  .nav .brand { font-size: 0.88rem; font-weight: 600; letter-spacing: -0.01em; color: var(--text); display: flex; align-items: center; gap: 8px; text-decoration: none; }
-  .nav .brand .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-  .nav .nav-links { display: flex; align-items: center; gap: 4px; }
-  .nav .nav-links a { font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; font-weight: 450; }
-  .nav .nav-links a:hover { color: var(--text); background: rgba(0,0,0,0.04); }
-  .nav .nav-links a.current { color: var(--accent); font-weight: 500; }
+  .nav-left { display: flex; align-items: center; gap: 28px; }
+  .nav .brand {
+    font-size: 16px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink);
+    display: flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .nav .brand .dot { width: 7px; height: 7px; background: var(--coral); border-radius: 50%; }
+  .nav-links { display: flex; align-items: center; gap: 4px; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--steel); text-decoration: none;
+    padding: 6px 14px; border-radius: 9999px; transition: all 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--ink); background: var(--surface); }
+  .nav-links a.current { color: var(--ink); font-weight: 600; }
   .nav .fav-link { position: relative; display: flex; align-items: center; gap: 4px; }
-  .nav .fav-badge { display: none; background: var(--accent); color: #fff; font-size: 0.62rem; font-weight: 600; padding: 1px 6px; border-radius: 8px; }
+  .nav .fav-badge { display: none; background: var(--coral); color: #fff; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 9999px; }
   .nav .fav-link.has-items .fav-badge { display: inline-flex; }
 
-  .container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-  /* ── Hero ── */
-  .hero { padding: 72px 0 48px; text-align: center; }
-  .hero .label { font-size: 0.78rem; font-weight: 500; color: var(--accent); letter-spacing: 0.02em; margin-bottom: 16px; text-transform: uppercase; }
-  .hero h1 { font-size: clamp(2.6rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 16px; }
-  .hero .sub { font-size: 1.1rem; color: var(--text-secondary); max-width: 540px; margin: 0 auto; line-height: 1.55; font-weight: 430; }
-  .hero .meta { margin-top: 24px; font-size: 0.82rem; color: var(--text-tertiary); display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
-  .hero .meta .sep { width: 3px; height: 3px; background: var(--text-tertiary); border-radius: 50%; }
-
-  /* ── Stats ── */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
-  .stat-card { background: var(--surface); border-radius: var(--radius-sm); padding: 24px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); transition: box-shadow 0.3s ease, transform 0.3s ease; }
-  .stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-  .stat-card .num { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px; background: linear-gradient(135deg, var(--text) 0%, #4a4a4f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .stat-card .lbl { font-size: 0.78rem; color: var(--text-secondary); font-weight: 450; }
-
-  /* ── Filters ── */
-  .filter-section { margin-bottom: 32px; }
-  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
-  .filter-row .flabel { font-size: 0.72rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.04em; text-transform: uppercase; margin-right: 2px; }
-  .filter-row .divider { color: var(--border); margin: 0 8px; font-size: 0.7rem; }
-  .fbtn { font-size: 0.8rem; font-weight: 450; color: var(--text-secondary); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 6px 16px; cursor: pointer; transition: all 0.2s ease; white-space: nowrap; }
-  .fbtn:hover { border-color: #c0c0c8; color: var(--text); }
-  .fbtn.on { background: var(--text); color: #fff; border-color: var(--text); font-weight: 500; }
-  .results-hint { font-size: 0.75rem; color: var(--text-tertiary); margin-top: 16px; font-weight: 450; }
-
-  /* ── Article List ── */
-  .article-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 64px; box-shadow: var(--shadow-sm); }
-  .article { background: var(--surface); padding: 28px 32px; transition: background 0.2s ease; position: relative; }
-  .article:hover { background: #fafafc; }
-
-  /* Top zone: category + number + bookmark */
-  .article .top-zone { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-  .article .cat-badge { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); background: #0071e312; padding: 2px 10px; border-radius: 5px; }
-  .article .idx { font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500; margin-left: auto; }
-
-  /* Bookmark button - tab style */
-  .bookmark-btn {
-    width: 36px; height: 24px; border: none; background: transparent; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; padding: 0;
-    color: var(--text-tertiary); transition: color 0.2s ease, transform 0.2s ease;
-    flex-shrink: 0; margin-right: 6px;
+  /* ═══ HERO ═══ */
+  .hero { padding: 80px 0 56px; text-align: center; }
+  .hero .eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 600; color: var(--coral);
+    background: #ff553010; padding: 4px 14px; border-radius: 9999px;
+    margin-bottom: 24px;
   }
-  .bookmark-btn:hover { color: var(--text-secondary); transform: scale(1.1); }
-  .bookmark-btn.faved { color: var(--bookmark-color); }
-  .bookmark-btn svg { width: 18px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: fill 0.2s ease; }
-  .bookmark-btn.faved svg { fill: currentColor; fill-opacity: 0.15; }
+  .hero h1 {
+    font-size: 64px; font-weight: 600; line-height: 1.10; letter-spacing: -1.5px;
+    color: var(--ink); max-width: 800px; margin: 0 auto 16px;
+  }
+  .hero .sub {
+    font-size: 18px; font-weight: 500; color: var(--steel);
+    max-width: 540px; margin: 0 auto; line-height: 1.5;
+  }
+  .hero .meta {
+    margin-top: 28px; font-size: 14px; color: var(--stone);
+    display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+  .hero .meta .dot-sep { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
 
-  /* Title zone */
-  .article h3 { font-size: 1.1rem; font-weight: 650; letter-spacing: -0.015em; line-height: 1.35; margin-bottom: 6px; }
-  .article .desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; max-width: 720px; }
+  /* ═══ STATS STRIP ═══ */
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    background: var(--hairline); border-radius: 16px; overflow: hidden;
+    margin-bottom: 56px;
+  }
+  .stats-strip .item {
+    background: var(--canvas); padding: 28px 24px; text-align: center;
+    transition: background 0.2s ease;
+  }
+  .stats-strip .item:hover { background: var(--surface); }
+  .stats-strip .num {
+    font-size: 40px; font-weight: 600; letter-spacing: -1px; line-height: 1.2; color: var(--ink);
+  }
+  .stats-strip .lbl { font-size: 14px; font-weight: 500; color: var(--steel); margin-top: 2px; }
 
-  /* Meta row: trend / revenue / MVP */
-  .article .meta-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
-  .meta-item { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; }
-  .meta-item .meta-lbl { color: var(--text-tertiary); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; }
-  .meta-item .meta-val { font-weight: 600; color: var(--text); }
+  /* ═══ FILTERS ═══ */
+  .filter-section { margin-bottom: 40px; }
+  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 6px; }
+  .filter-row .flabel {
+    font-size: 12px; font-weight: 600; color: var(--stone);
+    letter-spacing: 0.04em; text-transform: uppercase; margin-right: 4px;
+  }
+  .filter-row .vr { color: var(--hairline); margin: 0 8px; font-size: 0.7rem; }
+  .fbtn {
+    font-size: 14px; font-weight: 500; color: var(--steel);
+    background: var(--canvas); border: 1px solid var(--hairline); border-radius: 9999px;
+    padding: 6px 18px; cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+  }
+  .fbtn:hover { border-color: var(--muted); color: var(--ink); }
+  .fbtn.on {
+    background: var(--ink); color: #fff; border-color: var(--ink); font-weight: 600;
+  }
+  .results-hint { font-size: 13px; color: var(--stone); margin-top: 16px; font-weight: 500; }
 
-  /* Actions row: ref links + insight toggle */
-  .article .actions-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 0; }
-  .pill { display: inline-flex; align-items: center; gap: 4px; font-size: 0.7rem; padding: 4px 12px; border-radius: 14px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); text-decoration: none; transition: all 0.2s ease; font-weight: 450; }
-  .pill:hover { border-color: #c0c0c8; color: var(--text); background: #fafafa; }
-  .pill.link { color: var(--accent); border-color: #0071e320; background: #0071e308; }
-  .pill.link:hover { border-color: var(--accent); background: #0071e312; }
-  .pill.insight-toggle { cursor: pointer; margin-left: auto; border: none; padding: 4px 10px; font-family: inherit; font-size: 0.7rem; color: var(--text-tertiary); background: transparent; }
-  .pill.insight-toggle:hover { color: var(--text); }
+  /* ═══ ARTICLE LIST ═══ */
+  .article-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 80px; }
+  .article {
+    background: var(--canvas); border-radius: 16px; padding: 32px;
+    border: 1px solid var(--hairline); transition: border-color 0.2s ease;
+  }
+  .article:hover { border-color: var(--muted); }
 
-  /* Insight expandable */
-  .article .insight-panel { display: none; margin-top: 14px; padding: 14px 18px; background: #f9f9fb; border-radius: 10px; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.65; }
-  .article .insight-panel.open { display: block; }
-  .article .insight-panel strong { color: var(--text); font-weight: 600; }
-  .article .insight-panel em { color: var(--accent); font-style: normal; }
+  /* Top header row */
+  .article .art-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .art-cat-pill {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
+    color: #fff; padding: 4px 12px; border-radius: 9999px;
+  }
+  .art-cat-pill.cat-agent { background: var(--coral); }
+  .art-cat-pill.cat-creative { background: var(--magenta); }
+  .art-cat-pill.cat-vertical { background: var(--blue); }
+  .art-cat-pill.cat-content { background: var(--purple); }
+  .art-cat-pill.cat-dev { background: var(--charcoal); }
+  .article .art-idx { font-size: 13px; font-weight: 600; color: var(--muted); margin-left: auto; }
 
-  /* ── Footer ── */
-  footer { border-top: 1px solid var(--border); padding: 40px 0 56px; text-align: center; color: var(--text-tertiary); font-size: 0.78rem; line-height: 1.8; }
+  /* Bookmark button — MiniMax pill style */
+  .bookmark-btn {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--canvas); border: 1px solid var(--hairline); border-radius: 9999px;
+    padding: 5px 14px; font-family: inherit; font-size: 13px; font-weight: 500;
+    color: var(--stone); cursor: pointer; transition: all 0.2s ease;
+    margin-left: 8px;
+  }
+  .bookmark-btn:hover { border-color: var(--muted); color: var(--ink); }
+  .bookmark-btn.faved { background: var(--coral); border-color: var(--coral); color: #fff; }
 
-  /* ── Toast ── */
-  .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%); background: var(--text); color: #fff; padding: 10px 24px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; z-index: 999; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  .article h3 {
+    font-size: 24px; font-weight: 600; line-height: 1.30; letter-spacing: -0.01em;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .article .desc {
+    font-size: 16px; font-weight: 400; color: var(--slate); line-height: 1.5;
+    margin-bottom: 18px; max-width: 780px;
+  }
+
+  /* Meta indicators */
+  .art-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 16px; }
+  .art-meta .mi { display: flex; flex-direction: column; gap: 2px; }
+  .art-meta .mi .ml { font-size: 11px; font-weight: 600; color: var(--stone); text-transform: uppercase; letter-spacing: 0.05em; }
+  .art-meta .mi .mv { font-size: 15px; font-weight: 600; color: var(--ink); }
+
+  /* Action pills row */
+  .art-pills { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 0; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 13px; font-weight: 500; padding: 5px 14px; border-radius: 9999px;
+    border: 1px solid var(--hairline); background: transparent; color: var(--steel);
+    text-decoration: none; transition: all 0.2s ease;
+  }
+  .pill:hover { border-color: var(--muted); color: var(--ink); }
+  .pill.link { color: var(--blue); border-color: #1456f020; background: #1456f008; }
+  .pill.link:hover { border-color: var(--blue); background: #1456f012; color: var(--blue-deep); }
+  .pill.insight-tgl {
+    cursor: pointer; margin-left: auto; border-style: dashed; font-family: inherit;
+    font-size: 13px; font-weight: 500; color: var(--stone);
+  }
+  .pill.insight-tgl:hover { color: var(--ink); border-color: var(--muted); }
+
+  /* Insight panel */
+  .insight-panel {
+    display: none; margin-top: 16px; padding: 16px 20px;
+    background: var(--surface); border-radius: 12px;
+    font-size: 14px; color: var(--slate); line-height: 1.5;
+  }
+  .insight-panel.open { display: block; }
+  .insight-panel strong { color: var(--ink); font-weight: 600; }
+  .insight-panel em { color: var(--coral); font-style: normal; font-weight: 500; }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    background: var(--footer-bg); color: var(--muted); padding: 56px 32px 48px;
+    text-align: center; font-size: 14px; line-height: 1.8;
+  }
+  footer p + p { margin-top: 4px; }
+
+  /* ═══ TOAST ═══ */
+  .toast {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
+    background: var(--ink); color: #fff; padding: 11px 28px;
+    border-radius: 9999px; font-size: 14px; font-weight: 600;
+    z-index: 999; opacity: 0; transition: opacity 0.3s ease;
+    pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
   .toast.show { opacity: 1; }
 
-  @media (max-width: 768px) {
-    .hero { padding: 48px 0 32px; }
-    .hero h1 { font-size: 2rem; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .article { padding: 24px 20px; }
-    .article .actions-row { flex-wrap: wrap; }
+  @media (max-width: 1024px) {
+    .hero h1 { font-size: 48px; letter-spacing: -1px; }
   }
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .hero { padding: 56px 0 40px; }
+    .hero h1 { font-size: 36px; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .article { padding: 24px 20px; }
+    .art-header { flex-wrap: wrap; }
+    .bookmark-btn { margin-left: 0; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 28px; letter-spacing: -0.5px; }
+    .stats-strip { grid-template-columns: 1fr 1fr; }
+    .stats-strip .num { font-size: 32px; }
+  }
+
   .hidden { display: none !important; }
 
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  .article { animation: fadeIn 0.4s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  .article { animation: fadeUp 0.4s ease both; }
   .article:nth-child(1) { animation-delay: 0.02s; }
   .article:nth-child(2) { animation-delay: 0.05s; }
   .article:nth-child(3) { animation-delay: 0.08s; }
@@ -153,11 +258,11 @@
   .article:nth-child(10) { animation-delay: 0.29s; }
   .article:nth-child(11) { animation-delay: 0.32s; }
   .article:nth-child(12) { animation-delay: 0.35s; }
-  @keyframes heroIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero .label { animation: heroIn 0.6s ease both; }
-  .hero h1 { animation: heroIn 0.6s 0.06s ease both; }
-  .hero .sub { animation: heroIn 0.6s 0.12s ease both; }
-  .hero .meta { animation: heroIn 0.6s 0.18s ease both; }
+  @keyframes heroIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  .hero .eyebrow { animation: heroIn 0.5s ease both; }
+  .hero h1 { animation: heroIn 0.5s 0.06s ease both; }
+  .hero .sub { animation: heroIn 0.5s 0.12s ease both; }
+  .hero .meta { animation: heroIn 0.5s 0.18s ease both; }
 </style>
 </head>
 <body>
@@ -177,19 +282,19 @@
 <div class="container">
 
 <section class="hero">
-  <div class="label">周报 · 2026 年第 25 周</div>
+  <div class="eyebrow">● 周报 · 2026 年第 25 周</div>
   <h1>AI × 独立创作<br>复利创业方向</h1>
   <p class="sub">从全球开源情报与中国创业生态中梳理出的十二条方向。面向 AI 独立创作者与 Vibe Coding 实践者——追求复利，而非出卖时间。</p>
   <div class="meta">
-    <span>📡 GitHub Trending</span><span class="sep"></span><span>💬 Hacker News</span><span class="sep"></span><span>🇨🇳 V2EX · 少数派</span><span class="sep"></span><span>📅 2026.06.18</span>
+    <span>GitHub Trending</span><span class="dot-sep"></span><span>Hacker News</span><span class="dot-sep"></span><span>V2EX · 少数派</span><span class="dot-sep"></span><span>2026.06.18</span>
   </div>
 </section>
 
-<div class="stats">
-  <div class="stat-card"><div class="num">12</div><div class="lbl">精选方向</div></div>
-  <div class="stat-card"><div class="num">5</div><div class="lbl">核心赛道</div></div>
-  <div class="stat-card"><div class="num">89k</div><div class="lbl">最高星标</div></div>
-  <div class="stat-card"><div class="num">7 天</div><div class="lbl">数据窗口</div></div>
+<div class="stats-strip">
+  <div class="item"><div class="num">12</div><div class="lbl">精选方向</div></div>
+  <div class="item"><div class="num">5</div><div class="lbl">核心赛道</div></div>
+  <div class="item"><div class="num">89k</div><div class="lbl">最高星标</div></div>
+  <div class="item"><div class="num">7 天</div><div class="lbl">数据窗口</div></div>
 </div>
 
 <div class="filter-section">
@@ -207,7 +312,7 @@
     <button class="fbtn on" data-creator="all">不限</button>
     <button class="fbtn" data-creator="high">强匹配</button>
     <button class="fbtn" data-creator="medium">中等匹配</button>
-    <span class="divider">·</span>
+    <span class="vr">|</span>
     <span class="flabel">复利</span>
     <button class="fbtn on" data-compound="all">不限</button>
     <button class="fbtn" data-compound="high">高复利</button>
@@ -216,250 +321,140 @@
   <div class="results-hint" id="resultsInfo">12 个项目</div>
 </div>
 
-<!-- ── ARTICLE LIST ── -->
+<!-- ═══════════════ ARTICLES ═══════════════ -->
 <div class="article-list" id="articleList">
 
 <!-- 01 -->
 <article class="article" data-category="agent-skill" data-creator="high" data-compound="high" data-id="01" data-title="Agent 技能市场" data-section="Agent 技能">
-  <div class="top-zone">
-    <span class="cat-badge">Agent 技能</span>
-    <span class="idx">01</span>
-    <button class="bookmark-btn" data-id="01" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button>
+  <div class="art-header">
+    <span class="art-cat-pill cat-agent">Agent 技能</span>
+    <span class="art-idx">01</span>
+    <button class="bookmark-btn" data-id="01">收藏</button>
   </div>
   <h3>Agent 技能市场</h3>
   <p class="desc">为 AI 编程 Agent 开发和销售垂直领域技能包。taste-skill（46K★）、academic-research-skills（32K★）、last30days-skill（44K★）本月集中爆发——Agent 的 App Store 时刻已经到来。中国生态中，Dify 插件市场同样快速增长。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#34c759;">🔥 爆发</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">订阅 / 按量</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">2–4 周</span></div>
+  <div class="art-meta">
+    <div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div>
+    <div class="mi"><span class="ml">变现</span><span class="mv">订阅 / 按量</span></div>
+    <div class="mi"><span class="ml">MVP</span><span class="mv">2–4 周</span></div>
   </div>
-  <div class="actions-row">
+  <div class="art-pills">
     <a class="pill link" href="https://github.com/Leonxlnx/taste-skill" target="_blank">taste-skill</a>
     <a class="pill link" href="https://github.com/mvanhorn/last30days-skill" target="_blank">last30days-skill</a>
     <span class="pill">Dify 插件生态</span>
     <span class="pill">扣子 Bot 商店</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
+    <button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button>
   </div>
   <div class="insight-panel"><strong>切入点：</strong>技能文件的本质是 Prompt 工程与工作流设计——定义 Agent 的<em>品味</em>和行为模式。核心竞争力是领域知识 + 人机交互设计，而非代码量。</div>
 </article>
 
 <!-- 02 -->
 <article class="article" data-category="creative-tool" data-creator="high" data-compound="high" data-id="02" data-title="叙事型演示文稿引擎" data-section="创意工具">
-  <div class="top-zone"><span class="cat-badge">创意工具</span><span class="idx">02</span><button class="bookmark-btn" data-id="02" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">02</span><button class="bookmark-btn" data-id="02">收藏</button></div>
   <h3>叙事型演示文稿引擎</h3>
   <p class="desc">面向融资路演、学术答辩的 AI 演示生成器。Gamma 估值超 $2B，presenton（8.3K★）证明开源路线可行。国内 AI PPT 工具需求旺盛但普遍缺乏设计品质。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#ff9500;">🚀 增长</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">$10–50/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">4–8 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://github.com/presenton/presenton" target="_blank">presenton (8.3K★)</a>
-    <span class="pill">Gamma ($2B+)</span>
-    <span class="pill">AiPPT</span>
-    <span class="pill">讯飞智文</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$10–50/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/presenton/presenton" target="_blank">presenton (8.3K★)</a><span class="pill">Gamma ($2B+)</span><span class="pill">AiPPT</span><span class="pill">讯飞智文</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>竞品最大痛点是<em>缺乏设计感知力</em>。定义视觉语言、字体规则、色彩系统——让 AI 产出有"被设计过"的感觉。</div>
 </article>
 
 <!-- 03 -->
 <article class="article" data-category="vertical-agent" data-creator="medium" data-compound="high" data-id="03" data-title="领域知识图谱 × AI 问答" data-section="垂直 Agent">
-  <div class="top-zone"><span class="cat-badge">垂直 Agent</span><span class="idx">03</span><button class="bookmark-btn" data-id="03" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">03</span><button class="bookmark-btn" data-id="03">收藏</button></div>
   <h3>领域知识图谱 × AI 问答</h3>
   <p class="desc">将特定领域知识结构化，构建可交互的知识图谱产品。Understand-Anything（63K★）和 codegraph（51K★）印证了可视化知识的巨大需求。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#34c759;">🔥 爆发</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">$50–500/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">6–12 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://github.com/Egonex-AI/Understand-Anything" target="_blank">Understand-Anything (63K★)</a>
-    <a class="pill link" href="https://github.com/colbymchenry/codegraph" target="_blank">codegraph (51K★)</a>
-    <span class="pill">秘塔 AI 搜索</span>
-    <span class="pill">知乎直答</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$50–500/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">6–12 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/Egonex-AI/Understand-Anything" target="_blank">Understand-Anything (63K★)</a><a class="pill link" href="https://github.com/colbymchenry/codegraph" target="_blank">codegraph (51K★)</a><span class="pill">秘塔 AI 搜索</span><span class="pill">知乎直答</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>知识图谱的可视化交互层是蓝海。选一个熟悉的垂直领域，用 Vibe Coding 构建结构化知识 + AI 问答产品。领域壁垒 + 产品体验 = 护城河。</div>
 </article>
 
 <!-- 04 -->
 <article class="article" data-category="creative-tool" data-creator="medium" data-compound="high" data-id="04" data-title="创作者语音工作台" data-section="创意工具">
-  <div class="top-zone"><span class="cat-badge">创意工具</span><span class="idx">04</span><button class="bookmark-btn" data-id="04" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">04</span><button class="bookmark-btn" data-id="04">收藏</button></div>
   <h3>创作者语音工作台</h3>
   <p class="desc">面向播客主、视频创作者的 AI 音频工作流。OmniVoice-Studio（7K★）、dograh（4.4K★）密集出现。国内播客/短视频创作者急需从手动剪辑升级到 AI 驱动的工作流。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#ff9500;">🚀 增长</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">$15–100/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">3–6 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://github.com/debpalash/OmniVoice-Studio" target="_blank">OmniVoice-Studio (7K★)</a>
-    <a class="pill link" href="https://github.com/dograh-hq/dograh" target="_blank">dograh (4.4K★)</a>
-    <span class="pill">魔音工坊</span>
-    <span class="pill">讯飞听见</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$15–100/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–6 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/debpalash/OmniVoice-Studio" target="_blank">OmniVoice-Studio (7K★)</a><a class="pill link" href="https://github.com/dograh-hq/dograh" target="_blank">dograh (4.4K★)</a><span class="pill">魔音工坊</span><span class="pill">讯飞听见</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>竞品是"工程师为工程师设计"。打造一个让创作者真正享受的可视化音频编辑工作流——直觉化、产品设计驱动。</div>
 </article>
 
 <!-- 05 -->
 <article class="article" data-category="creative-tool" data-creator="high" data-compound="high" data-id="05" data-title="互动叙事引擎" data-section="创意工具">
-  <div class="top-zone"><span class="cat-badge">创意工具</span><span class="idx">05</span><button class="bookmark-btn" data-id="05" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">05</span><button class="bookmark-btn" data-id="05">收藏</button></div>
   <h3>互动叙事引擎</h3>
   <p class="desc">用 AI 生成分支故事、互动小说、沉浸式学习体验。Loreline 在 HN 获 146 分。国内互动小说平台工具链老旧——AI 驱动的下一代创作平台是明显的升级机会。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#0071e3;">🌊 蓝海</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">$5–30/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">3–6 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://loreline.app/en/" target="_blank">Loreline (HN 146pts)</a>
-    <a class="pill link" href="https://github.com/lfnovo/open-notebook" target="_blank">open-notebook (31K★)</a>
-    <span class="pill">橙光</span>
-    <span class="pill">易次元</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--blue);">🌊 蓝海</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$5–30/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–6 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://loreline.app/en/" target="_blank">Loreline (HN 146pts)</a><a class="pill link" href="https://github.com/lfnovo/open-notebook" target="_blank">open-notebook (31K★)</a><span class="pill">橙光</span><span class="pill">易次元</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>互动叙事的本质是体验设计——节奏、情感曲线、交互流畅度。有内容 sense 的独立创作者比纯技术团队更懂<em>沉浸感</em>。</div>
 </article>
 
 <!-- 06 -->
 <article class="article" data-category="dev-tool" data-creator="high" data-compound="high" data-id="06" data-title="可视化 AI 工作流构建器" data-section="开发者工具">
-  <div class="top-zone"><span class="cat-badge">开发者工具</span><span class="idx">06</span><button class="bookmark-btn" data-id="06" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">06</span><button class="bookmark-btn" data-id="06">收藏</button></div>
   <h3>可视化 AI 工作流构建器</h3>
   <p class="desc">非程序员通过拖拽构建 AI 自动化。CopilotKit（35K★）验证了市场。国内 Dify、扣子增长快速，但面向非技术用户的产品体验仍有巨大改进空间。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#ff9500;">🚀 增长</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">$20–500/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">8–16 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://github.com/CopilotKit/CopilotKit" target="_blank">CopilotKit (35K★)</a>
-    <span class="pill">Dify</span>
-    <span class="pill">扣子 Coze</span>
-    <span class="pill">n8n</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$20–500/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">8–16 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/CopilotKit/CopilotKit" target="_blank">CopilotKit (35K★)</a><span class="pill">Dify</span><span class="pill">扣子 Coze</span><span class="pill">n8n</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>无代码工具成败取决于交互设计。Zapier 剧本已证明连接器生态的复利效应。可以基于 Dify/Coze 做垂直场景的模板市场。</div>
 </article>
 
 <!-- 07 -->
 <article class="article" data-category="creative-tool" data-creator="high" data-compound="medium" data-id="07" data-title="AI 品牌系统生成器" data-section="创意工具">
-  <div class="top-zone"><span class="cat-badge">创意工具</span><span class="idx">07</span><button class="bookmark-btn" data-id="07" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">07</span><button class="bookmark-btn" data-id="07">收藏</button></div>
   <h3>AI 品牌系统生成器</h3>
   <p class="desc">为初创团队提供完整品牌识别系统——Logo、配色、字体层级、品牌指南。国内中小企业和个人 IP 对低成本品牌化需求旺盛，但缺乏好用的中文品牌设计 AI 工具。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val">📈 稳定</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">¥50–300/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">4–8 周</span></div>
-  </div>
-  <div class="actions-row">
-    <span class="pill">Canva AI</span>
-    <span class="pill">Looka</span>
-    <span class="pill">稿定设计</span>
-    <span class="pill">创客贴</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv">📈 稳定</span></div><div class="mi"><span class="ml">变现</span><span class="mv">¥50–300/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div></div>
+  <div class="art-pills"><span class="pill">Canva AI</span><span class="pill">Looka</span><span class="pill">稿定设计</span><span class="pill">创客贴</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>国内竞品偏"模板化"，缺乏系统品牌设计思维。面向中文语境做深度优化——中文字体搭配、中国市场视觉偏好——是差异化切入点。</div>
 </article>
 
 <!-- 08 -->
 <article class="article" data-category="content-ai" data-creator="medium" data-compound="high" data-id="08" data-title="跨平台内容适配引擎" data-section="AI 内容">
-  <div class="top-zone"><span class="cat-badge">AI 内容</span><span class="idx">08</span><button class="bookmark-btn" data-id="08" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-content">AI 内容</span><span class="art-idx">08</span><button class="bookmark-btn" data-id="08">收藏</button></div>
   <h3>跨平台内容适配引擎</h3>
   <p class="desc">一条长文/视频 → 自动生成小红书图文、抖音脚本、公众号文章。MoneyPrinterTurbo（89K★）证明了视频生成方向。国内"一鱼多吃"是创作者刚需。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#ff9500;">🚀 增长</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">¥50–300/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">3–5 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank">MoneyPrinterTurbo (89K★)</a>
-    <span class="pill">剪映</span>
-    <span class="pill">度加剪辑</span>
-    <span class="pill">腾讯智影</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">¥50–300/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–5 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank">MoneyPrinterTurbo (89K★)</a><span class="pill">剪映</span><span class="pill">度加剪辑</span><span class="pill">腾讯智影</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>每个平台有独特的<em>内容美学</em>——小红书的视觉丰富性、抖音的快节奏、公众号的深度阅读。编码这些"平台美学差异"是核心竞争力。</div>
 </article>
 
 <!-- 09 -->
 <article class="article" data-category="agent-skill" data-creator="medium" data-compound="high" data-id="09" data-title="Agent 记忆可视化层" data-section="Agent 技能">
-  <div class="top-zone"><span class="cat-badge">Agent 技能</span><span class="idx">09</span><button class="bookmark-btn" data-id="09" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-agent">Agent 技能</span><span class="art-idx">09</span><button class="bookmark-btn" data-id="09">收藏</button></div>
   <h3>Agent 记忆可视化层</h3>
   <p class="desc">为 AI Agent 构建持久记忆与可视化管理界面。agentmemory（23K★）、supermemory（27K★）接踵而至。但记忆管理的 UI 层仍是一片蓝海。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#34c759;">🔥 爆发</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">托管服务</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">6–12 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://github.com/rohitg00/agentmemory" target="_blank">agentmemory (23K★)</a>
-    <a class="pill link" href="https://github.com/supermemoryai/supermemory" target="_blank">supermemory (27K★)</a>
-    <span class="pill">Memo AI</span>
-    <span class="pill">腾讯云 Agent 记忆</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">托管服务</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">6–12 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/rohitg00/agentmemory" target="_blank">agentmemory (23K★)</a><a class="pill link" href="https://github.com/supermemoryai/supermemory" target="_blank">supermemory (27K★)</a><span class="pill">Memo AI</span><span class="pill">腾讯云 Agent 记忆</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>记忆管理界面是无人踏足的领地。可视化、编辑、整理 Agent 的记忆——本质是信息架构与交互设计。做开源项目的中文优化 + 托管服务。</div>
 </article>
 
 <!-- 10 -->
 <article class="article" data-category="dev-tool" data-creator="high" data-compound="medium" data-id="10" data-title="利基 AI 微工具" data-section="开发者工具">
-  <div class="top-zone"><span class="cat-badge">开发者工具</span><span class="idx">10</span><button class="bookmark-btn" data-id="10" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">10</span><button class="bookmark-btn" data-id="10">收藏</button></div>
   <h3>利基 AI 微工具</h3>
   <p class="desc">解决极其具体的痛点：图片压缩不损质量、去除背景保留阴影。一人公司模式，MRR $1K–10K。微信生态内的小工具用户基数大、付费意愿强。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val">📈 稳定</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">¥20–100/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">1–2 周</span></div>
-  </div>
-  <div class="actions-row">
-    <span class="pill">TinyWow</span>
-    <span class="pill">Remove.bg</span>
-    <span class="pill">微信小程序 AI 工具</span>
-    <span class="pill">稿定 AI 修图</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv">📈 稳定</span></div><div class="mi"><span class="ml">变现</span><span class="mv">¥20–100/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1–2 周</span></div></div>
+  <div class="art-pills"><span class="pill">TinyWow</span><span class="pill">Remove.bg</span><span class="pill">微信小程序 AI 工具</span><span class="pill">稿定 AI 修图</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>Vibe Coding 做利基工具的最佳实践：从你自己的日常痛点出发，用 AI 辅助快速开发，在微信/小红书生态内获客。</div>
 </article>
 
 <!-- 11 -->
 <article class="article" data-category="vertical-agent" data-creator="high" data-compound="high" data-id="11" data-title="AI 互动学习平台" data-section="垂直 Agent">
-  <div class="top-zone"><span class="cat-badge">垂直 Agent</span><span class="idx">11</span><button class="bookmark-btn" data-id="11" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">11</span><button class="bookmark-btn" data-id="11">收藏</button></div>
   <h3>AI 互动学习平台</h3>
   <p class="desc">将静态教材转化为互动学习体验。ai-engineering-from-scratch（34K★）验证模式。国内 K12 + 职业教育 + 企业培训市场规模巨大，政策鼓励 AI+教育。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#0071e3;">🌊 蓝海</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">¥200–2000/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">6–10 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank">ai-engineering-from-scratch (34K★)</a>
-    <span class="pill">Synthesis ($2B+)</span>
-    <span class="pill">学而思 AI</span>
-    <span class="pill">猿辅导 AI</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--blue);">🌊 蓝海</span></div><div class="mi"><span class="ml">变现</span><span class="mv">¥200–2000/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">6–10 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank">ai-engineering-from-scratch (34K★)</a><span class="pill">Synthesis ($2B+)</span><span class="pill">学而思 AI</span><span class="pill">猿辅导 AI</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>不要和大厂拼通用教育平台。选一个极细分的垂直领域（如钢琴考级、CPA 备考），用 AI 做深度互动学习体验。细分领域的<em>学习体验设计</em>是壁垒。</div>
 </article>
 
 <!-- 12 -->
 <article class="article" data-category="dev-tool" data-creator="medium" data-compound="high" data-id="12" data-title="开源项目云托管商业化" data-section="开发者工具">
-  <div class="top-zone"><span class="cat-badge">开发者工具</span><span class="idx">12</span><button class="bookmark-btn" data-id="12" title="收藏" aria-label="收藏"><svg viewBox="0 0 18 20"><path d="M1 1v18l8-5 8 5V1z"/></svg></button></div>
+  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">12</span><button class="bookmark-btn" data-id="12">收藏</button></div>
   <h3>开源项目云托管商业化</h3>
   <p class="desc">为热门开源项目提供托管云服务。headroom（32K★）和 Agent-Reach（33K★）正在爆发却零变现。选择刚需项目提供开箱即用的云服务。</p>
-  <div class="meta-row">
-    <div class="meta-item"><span class="meta-lbl">趋势</span><span class="meta-val" style="color:#34c759;">🔥 爆发</span></div>
-    <div class="meta-item"><span class="meta-lbl">变现</span><span class="meta-val">$20–200/月</span></div>
-    <div class="meta-item"><span class="meta-lbl">MVP</span><span class="meta-val">4–8 周</span></div>
-  </div>
-  <div class="actions-row">
-    <a class="pill link" href="https://github.com/chopratejas/headroom" target="_blank">headroom (32K★)</a>
-    <a class="pill link" href="https://github.com/Panniantong/Agent-Reach" target="_blank">Agent-Reach (33K★)</a>
-    <span class="pill">Supabase</span>
-    <span class="pill">Rainbond</span>
-    <button class="pill insight-toggle" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent = this.textContent === '展开洞察 ▾' ? '收起 ▴' : '展开洞察 ▾'">展开洞察 ▾</button>
-  </div>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$20–200/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/chopratejas/headroom" target="_blank">headroom (32K★)</a><a class="pill link" href="https://github.com/Panniantong/Agent-Reach" target="_blank">Agent-Reach (33K★)</a><span class="pill">Supabase</span><span class="pill">Rainbond</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
   <div class="insight-panel"><strong>切入点：</strong>开源工具最大痛点是 DevEx 极差——命令行、缺 UI、文档混乱。将程序员工具变成人人可用的产品，做好中文文档和国内云适配。</div>
 </article>
 
@@ -488,10 +483,10 @@ function toggleFav(id, articleEl) {
     const section = articleEl.dataset.section;
     const desc = articleEl.querySelector('.desc')?.textContent?.trim() || '';
     const insight = articleEl.querySelector('.insight-panel')?.textContent?.trim() || '';
-    const refs = articleEl.querySelector('.actions-row')?.innerHTML || '';
+    const refs = articleEl.querySelector('.art-pills')?.innerHTML || '';
     const metrics = [];
-    articleEl.querySelectorAll('.meta-item').forEach(m => {
-      metrics.push({ label: m.querySelector('.meta-lbl')?.textContent || '', value: m.querySelector('.meta-val')?.textContent || '' });
+    articleEl.querySelectorAll('.mi').forEach(m => {
+      metrics.push({ label: m.querySelector('.ml')?.textContent || '', value: m.querySelector('.mv')?.textContent || '' });
     });
     const category = articleEl.dataset.category;
     const creator = articleEl.dataset.creator;
@@ -507,7 +502,9 @@ function toggleFav(id, articleEl) {
 function updateBookmarkUI() {
   const favIds = new Set(getFavorites().map(f => f.id));
   document.querySelectorAll('.bookmark-btn').forEach(btn => {
-    btn.classList.toggle('faved', favIds.has(btn.dataset.id));
+    const faved = favIds.has(btn.dataset.id);
+    btn.classList.toggle('faved', faved);
+    btn.textContent = faved ? '已收藏' : '收藏';
   });
 }
 
@@ -516,7 +513,7 @@ function updateFavCount() {
   const badge = document.getElementById('favCount');
   const link = document.getElementById('favNavLink');
   if (badge) badge.textContent = count;
-  if (link) { link.classList.toggle('has-items', count > 0); }
+  if (link) link.classList.toggle('has-items', count > 0);
 }
 
 function showToast(msg) {
@@ -527,16 +524,13 @@ function showToast(msg) {
 }
 
 document.querySelectorAll('.bookmark-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleFav(btn.dataset.id, btn.closest('.article'));
-  });
+  btn.addEventListener('click', e => { e.stopPropagation(); toggleFav(btn.dataset.id, btn.closest('.article')); });
 });
 
 updateBookmarkUI();
 updateFavCount();
 
-// ── Filters ──
+// Filters
 const filterBtns = document.querySelectorAll('[data-filter]');
 const creatorBtns = document.querySelectorAll('[data-creator]');
 const compoundBtns = document.querySelectorAll('[data-compound]');
