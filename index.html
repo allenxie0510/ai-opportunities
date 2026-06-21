@@ -243,6 +243,17 @@
     .stats-strip .num { font-size: 32px; }
   }
 
+  /* ═══ SHARE BAR ═══ */
+  .share-bar { display: flex; gap: 8px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    padding: 8px 18px; border-radius: 9999px; cursor: pointer;
+    border: 1px solid var(--hairline); background: var(--surface);
+    color: var(--steel); transition: all 0.2s ease;
+  }
+  .share-btn:hover { border-color: var(--muted); color: var(--ink); background: var(--surface-soft); }
+
   .hidden { display: none !important; }
 
   @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
@@ -290,6 +301,11 @@
     <span>GitHub Trending</span><span class="dot-sep"></span><span>Hacker News</span><span class="dot-sep"></span><span>V2EX · 少数派</span><span class="dot-sep"></span><span>2026.06.18</span>
   </div>
 </section>
+
+<div class="share-bar">
+  <button class="share-btn" id="btnShare" title="分享本期">📤 分享本期</button>
+  <button class="share-btn" id="btnDownload" title="下载为 HTML 文件">💾 下载 HTML</button>
+</div>
 
 <div class="stats-strip">
   <div class="item"><div class="num">12</div><div class="lbl">精选方向</div></div>
@@ -559,6 +575,39 @@ fetch('/archive/manifest.json').then(r => r.json()).then(data => {
   data.weeks.reverse().forEach(week => { const a = document.createElement('a'); a.href = '/archive/' + week.file; a.textContent = week.label; navLinks.appendChild(a); });
   const all = document.createElement('a'); all.href = '/archive/'; all.textContent = '全部 ▸'; navLinks.appendChild(all);
 }).catch(() => {});
+
+// ── Share ──
+const SHARE_TITLE = 'AI 趋势周报 · 独立创作者复利创业方向';
+const SHARE_TEXT = 'AI × 独立创作 复利创业方向——12 条精选 AI 创业趋势';
+
+document.getElementById('btnShare').addEventListener('click', async () => {
+  const url = window.location.href;
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: SHARE_TITLE, text: SHARE_TEXT, url });
+      showToast('已分享');
+    } catch (e) {
+      if (e.name !== 'AbortError') fallbackCopy(url);
+    }
+  } else {
+    fallbackCopy(url);
+  }
+});
+
+function fallbackCopy(url) {
+  navigator.clipboard.writeText(url).then(() => showToast('链接已复制，可粘贴分享')).catch(() => showToast('分享失败，请手动复制地址栏链接'));
+}
+
+document.getElementById('btnDownload').addEventListener('click', () => {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'AI趋势周报-W25.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('HTML 文件已下载');
+});
 </script>
 </body>
 </html>
