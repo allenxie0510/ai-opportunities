@@ -21,6 +21,22 @@
 
 直接在浏览器打开 `index.html` 即可预览。
 
+### 收藏按钮规范
+
+所有收藏按钮统一使用 SVG 书签图标，**禁止使用文字按钮**。
+
+HTML 模板（替换 `data-id` 即可）：
+
+```html
+<button class="bookmark-btn" data-id="01" title="收藏">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  </svg>
+</button>
+```
+
+CSS 关键规则：按钮 28×28 透明容器，hover 时浅珊瑚底色，`.faved` 时图标填充 `var(--coral)`。JS `updateBookmarkUI()` 仅切换 class，不修改 textContent。
+
 ## 许可
 
 MIT

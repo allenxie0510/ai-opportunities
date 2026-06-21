@@ -153,16 +153,17 @@
   .art-cat-pill.cat-dev { background: var(--charcoal); }
   .article .art-idx { font-size: 13px; font-weight: 600; color: var(--muted); margin-left: auto; }
 
-  /* Bookmark button — MiniMax pill style */
+  /* Bookmark icon button */
   .bookmark-btn {
-    display: inline-flex; align-items: center; gap: 4px;
-    background: var(--canvas); border: 1px solid var(--hairline); border-radius: 9999px;
-    padding: 5px 14px; font-family: inherit; font-size: 13px; font-weight: 500;
-    color: var(--stone); cursor: pointer; transition: all 0.2s ease;
-    margin-left: 8px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; border: none; border-radius: 8px;
+    padding: 4px; font-family: inherit;
+    color: var(--muted); cursor: pointer; transition: all 0.2s ease;
+    margin-left: 8px; width: 28px; height: 28px;
   }
-  .bookmark-btn:hover { border-color: var(--muted); color: var(--ink); }
-  .bookmark-btn.faved { background: var(--coral); border-color: var(--coral); color: #fff; }
+  .bookmark-btn:hover { color: var(--coral); background: #ff55300d; }
+  .bookmark-btn.faved { color: var(--coral); }
+  .bookmark-btn.faved svg path { fill: var(--coral); stroke: var(--coral); }
 
   .article h3 {
     font-size: 24px; font-weight: 600; line-height: 1.30; letter-spacing: -0.01em;
@@ -234,7 +235,7 @@
     .stats-strip { grid-template-columns: repeat(2, 1fr); }
     .article { padding: 24px 20px; }
     .art-header { flex-wrap: wrap; }
-    .bookmark-btn { margin-left: 0; }
+    .bookmark-btn { margin-left: 0; width: 24px; height: 24px; }
   }
   @media (max-width: 480px) {
     .hero h1 { font-size: 28px; letter-spacing: -0.5px; }
@@ -329,7 +330,7 @@
   <div class="art-header">
     <span class="art-cat-pill cat-agent">Agent 技能</span>
     <span class="art-idx">01</span>
-    <button class="bookmark-btn" data-id="01">收藏</button>
+    <button class="bookmark-btn" data-id="01" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
   </div>
   <h3>Agent 技能市场</h3>
   <p class="desc">为 AI 编程 Agent 开发和销售垂直领域技能包。taste-skill（46K★）、academic-research-skills（32K★）、last30days-skill（44K★）本月集中爆发——Agent 的 App Store 时刻已经到来。中国生态中，Dify 插件市场同样快速增长。</p>
@@ -350,7 +351,7 @@
 
 <!-- 02 -->
 <article class="article" data-category="creative-tool" data-creator="high" data-compound="high" data-id="02" data-title="叙事型演示文稿引擎" data-section="创意工具">
-  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">02</span><button class="bookmark-btn" data-id="02">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">02</span><button class="bookmark-btn" data-id="02" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>叙事型演示文稿引擎</h3>
   <p class="desc">面向融资路演、学术答辩的 AI 演示生成器。Gamma 估值超 $2B，presenton（8.3K★）证明开源路线可行。国内 AI PPT 工具需求旺盛但普遍缺乏设计品质。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$10–50/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div></div>
@@ -360,7 +361,7 @@
 
 <!-- 03 -->
 <article class="article" data-category="vertical-agent" data-creator="medium" data-compound="high" data-id="03" data-title="领域知识图谱 × AI 问答" data-section="垂直 Agent">
-  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">03</span><button class="bookmark-btn" data-id="03">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">03</span><button class="bookmark-btn" data-id="03" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>领域知识图谱 × AI 问答</h3>
   <p class="desc">将特定领域知识结构化，构建可交互的知识图谱产品。Understand-Anything（63K★）和 codegraph（51K★）印证了可视化知识的巨大需求。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$50–500/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">6–12 周</span></div></div>
@@ -370,7 +371,7 @@
 
 <!-- 04 -->
 <article class="article" data-category="creative-tool" data-creator="medium" data-compound="high" data-id="04" data-title="创作者语音工作台" data-section="创意工具">
-  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">04</span><button class="bookmark-btn" data-id="04">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">04</span><button class="bookmark-btn" data-id="04" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>创作者语音工作台</h3>
   <p class="desc">面向播客主、视频创作者的 AI 音频工作流。OmniVoice-Studio（7K★）、dograh（4.4K★）密集出现。国内播客/短视频创作者急需从手动剪辑升级到 AI 驱动的工作流。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$15–100/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–6 周</span></div></div>
@@ -380,7 +381,7 @@
 
 <!-- 05 -->
 <article class="article" data-category="creative-tool" data-creator="high" data-compound="high" data-id="05" data-title="互动叙事引擎" data-section="创意工具">
-  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">05</span><button class="bookmark-btn" data-id="05">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">05</span><button class="bookmark-btn" data-id="05" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>互动叙事引擎</h3>
   <p class="desc">用 AI 生成分支故事、互动小说、沉浸式学习体验。Loreline 在 HN 获 146 分。国内互动小说平台工具链老旧——AI 驱动的下一代创作平台是明显的升级机会。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--blue);">🌊 蓝海</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$5–30/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–6 周</span></div></div>
@@ -390,7 +391,7 @@
 
 <!-- 06 -->
 <article class="article" data-category="dev-tool" data-creator="high" data-compound="high" data-id="06" data-title="可视化 AI 工作流构建器" data-section="开发者工具">
-  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">06</span><button class="bookmark-btn" data-id="06">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">06</span><button class="bookmark-btn" data-id="06" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>可视化 AI 工作流构建器</h3>
   <p class="desc">非程序员通过拖拽构建 AI 自动化。CopilotKit（35K★）验证了市场。国内 Dify、扣子增长快速，但面向非技术用户的产品体验仍有巨大改进空间。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$20–500/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">8–16 周</span></div></div>
@@ -400,7 +401,7 @@
 
 <!-- 07 -->
 <article class="article" data-category="creative-tool" data-creator="high" data-compound="medium" data-id="07" data-title="AI 品牌系统生成器" data-section="创意工具">
-  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">07</span><button class="bookmark-btn" data-id="07">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">07</span><button class="bookmark-btn" data-id="07" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>AI 品牌系统生成器</h3>
   <p class="desc">为初创团队提供完整品牌识别系统——Logo、配色、字体层级、品牌指南。国内中小企业和个人 IP 对低成本品牌化需求旺盛，但缺乏好用的中文品牌设计 AI 工具。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv">📈 稳定</span></div><div class="mi"><span class="ml">变现</span><span class="mv">¥50–300/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div></div>
@@ -410,7 +411,7 @@
 
 <!-- 08 -->
 <article class="article" data-category="content-ai" data-creator="medium" data-compound="high" data-id="08" data-title="跨平台内容适配引擎" data-section="AI 内容">
-  <div class="art-header"><span class="art-cat-pill cat-content">AI 内容</span><span class="art-idx">08</span><button class="bookmark-btn" data-id="08">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-content">AI 内容</span><span class="art-idx">08</span><button class="bookmark-btn" data-id="08" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>跨平台内容适配引擎</h3>
   <p class="desc">一条长文/视频 → 自动生成小红书图文、抖音脚本、公众号文章。MoneyPrinterTurbo（89K★）证明了视频生成方向。国内"一鱼多吃"是创作者刚需。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">¥50–300/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–5 周</span></div></div>
@@ -420,7 +421,7 @@
 
 <!-- 09 -->
 <article class="article" data-category="agent-skill" data-creator="medium" data-compound="high" data-id="09" data-title="Agent 记忆可视化层" data-section="Agent 技能">
-  <div class="art-header"><span class="art-cat-pill cat-agent">Agent 技能</span><span class="art-idx">09</span><button class="bookmark-btn" data-id="09">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-agent">Agent 技能</span><span class="art-idx">09</span><button class="bookmark-btn" data-id="09" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>Agent 记忆可视化层</h3>
   <p class="desc">为 AI Agent 构建持久记忆与可视化管理界面。agentmemory（23K★）、supermemory（27K★）接踵而至。但记忆管理的 UI 层仍是一片蓝海。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">托管服务</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">6–12 周</span></div></div>
@@ -430,7 +431,7 @@
 
 <!-- 10 -->
 <article class="article" data-category="dev-tool" data-creator="high" data-compound="medium" data-id="10" data-title="利基 AI 微工具" data-section="开发者工具">
-  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">10</span><button class="bookmark-btn" data-id="10">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">10</span><button class="bookmark-btn" data-id="10" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>利基 AI 微工具</h3>
   <p class="desc">解决极其具体的痛点：图片压缩不损质量、去除背景保留阴影。一人公司模式，MRR $1K–10K。微信生态内的小工具用户基数大、付费意愿强。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv">📈 稳定</span></div><div class="mi"><span class="ml">变现</span><span class="mv">¥20–100/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1–2 周</span></div></div>
@@ -440,7 +441,7 @@
 
 <!-- 11 -->
 <article class="article" data-category="vertical-agent" data-creator="high" data-compound="high" data-id="11" data-title="AI 互动学习平台" data-section="垂直 Agent">
-  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">11</span><button class="bookmark-btn" data-id="11">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">11</span><button class="bookmark-btn" data-id="11" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>AI 互动学习平台</h3>
   <p class="desc">将静态教材转化为互动学习体验。ai-engineering-from-scratch（34K★）验证模式。国内 K12 + 职业教育 + 企业培训市场规模巨大，政策鼓励 AI+教育。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--blue);">🌊 蓝海</span></div><div class="mi"><span class="ml">变现</span><span class="mv">¥200–2000/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">6–10 周</span></div></div>
@@ -450,7 +451,7 @@
 
 <!-- 12 -->
 <article class="article" data-category="dev-tool" data-creator="medium" data-compound="high" data-id="12" data-title="开源项目云托管商业化" data-section="开发者工具">
-  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">12</span><button class="bookmark-btn" data-id="12">收藏</button></div>
+  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">12</span><button class="bookmark-btn" data-id="12" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
   <h3>开源项目云托管商业化</h3>
   <p class="desc">为热门开源项目提供托管云服务。headroom（32K★）和 Agent-Reach（33K★）正在爆发却零变现。选择刚需项目提供开箱即用的云服务。</p>
   <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$20–200/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div></div>
@@ -504,7 +505,7 @@ function updateBookmarkUI() {
   document.querySelectorAll('.bookmark-btn').forEach(btn => {
     const faved = favIds.has(btn.dataset.id);
     btn.classList.toggle('faved', faved);
-    btn.textContent = faved ? '已收藏' : '收藏';
+    // icon-only: class toggle is sufficient
   });
 }
 
