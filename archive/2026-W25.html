@@ -641,18 +641,27 @@ function closePicker() { weekPicker.classList.remove('open'); }
 weekPickerBtn.addEventListener('click', e => { e.stopPropagation(); togglePicker(); });
 document.addEventListener('click', e => { if (!weekPicker.contains(e.target)) closePicker(); });
 
+// delegated click: handle menu item clicks via data attributes (no onclick strings)
+weekPickerMenu.addEventListener('click', e => {
+  const a = e.target.closest('[data-file]');
+  if (!a) return;
+  const file = a.getAttribute('data-file');
+  const label = a.getAttribute('data-label');
+  const isLatest = a.getAttribute('data-isLatest') === 'true';
+  e.preventDefault();
+  loadWeek(file, label, isLatest);
+});
+
 // detect current week from URL
 function detectCurrentFile() {
   const p = window.location.pathname.toLowerCase();
   if (p.includes('w25')) return '2026-W25.html';
   if (p.includes('w26')) return '2026-W26.html';
-  return null; // null = home page (latest)
+  return null;
 }
 
-// set picker UI: button label + menu active class + dot prefix
 function setPickerState(activeFile) {
   const items = weekPickerMenu.querySelectorAll('[role="menuitem"]');
-  // find the item that matches activeFile, or first item if null (home)
   let targetIdx = 0;
   if (activeFile) {
     for (let i = 0; i < dataWeeks.length; i++) {
@@ -665,64 +674,53 @@ function setPickerState(activeFile) {
     const label = item.textContent.replace(/^●\s*/, '').trim();
     item.innerHTML = (isActive ? '● ' : '') + label;
   });
-  // update button label
-  const label = targetIdx < dataWeeks.length ? dataWeeks[targetIdx].label.replace('2026-', '') : 'W26';
-  weekPickerBtn.innerHTML = label + '<span class="picker-arrow">▾</span>';
+  if (dataWeeks.length) {
+    const label = dataWeeks[targetIdx].label.replace('2026-', '');
+    weekPickerBtn.innerHTML = label + '<span class="picker-arrow">▾</span>';
+  }
 }
 
-async function loadWeek(file, label, isLatest) {
+function loadWeek(file, label, isLatest) {
   closePicker();
   if (!file || isLatest) { location.reload(); return; }
   if (currentWeekFile === file) return;
   weekPickerBtn.disabled = true;
-  try {
-    const resp = await fetch('/archive/' + file);
-    const html = await resp.text();
+  fetch('/archive/' + file).then(resp => resp.text()).then(html => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
-    const srcContainer = doc.querySelector('.container');
-    if (srcContainer) {
-      const dstContainer = document.querySelector('.container');
-      const heroEnd = dstContainer.querySelector('.share-bar') || dstContainer.querySelector('.stats-strip');
-      if (heroEnd) {
-        const srcHero = srcContainer.querySelector('section.hero');
-        const srcShareBar = srcContainer.querySelector('.share-bar');
-        const srcStats = srcContainer.querySelector('.stats-strip');
-        const srcFilters = srcContainer.querySelector('.filter-section');
-        const srcArticles = srcContainer.querySelector('.article-list');
-        const srcFooter = srcContainer.querySelector('footer');
-        if (srcHero) { const old = dstContainer.querySelector('section.hero'); if (old) old.replaceWith(srcHero.cloneNode(true)); }
-        if (srcShareBar) { const old = dstContainer.querySelector('.share-bar'); if (old) old.replaceWith(srcShareBar.cloneNode(true)); rebindShare(); }
-        if (srcStats) { const old = dstContainer.querySelector('.stats-strip'); if (old) old.replaceWith(srcStats.cloneNode(true)); }
-        if (srcFilters) { const old = dstContainer.querySelector('.filter-section'); if (old) old.replaceWith(srcFilters.cloneNode(true)); rebindFilters(); }
-        if (srcArticles) { const old = dstContainer.querySelector('.article-list'); if (old) old.replaceWith(srcArticles.cloneNode(true)); rebindBookmarks(); rebindInsights(); }
-        if (srcFooter) { const old = dstContainer.querySelector('footer'); if (old) old.replaceWith(srcFooter.cloneNode(true)); }
-      }
-    }
+    const src = doc.querySelector('.container');
+    if (!src) throw new Error('no container');
+    const dst = document.querySelector('.container');
+    const safeReplace = (sel) => { const el = src.querySelector(sel); if (el) { const old = dst.querySelector(sel); if (old) old.replaceWith(el.cloneNode(true)); } };
+    safeReplace('section.hero');
+    safeReplace('.share-bar'); rebindShare();
+    safeReplace('.stats-strip');
+    safeReplace('.filter-section'); rebindFilters();
+    safeReplace('.article-list'); rebindBookmarks(); rebindInsights();
+    safeReplace('footer');
     currentWeekFile = file;
     setPickerState(file);
     showToast('已切换至 ' + label);
-  } catch(e) {
-    showToast('加载失败，请重试');
-  }
-  weekPickerBtn.disabled = false;
+  }).catch(() => showToast('加载失败，请重试')).finally(() => {
+    weekPickerBtn.disabled = false;
+  });
 }
 
 // populate picker from manifest
 fetch('/archive/manifest.json').then(r => r.json()).then(data => {
-  if (!data.weeks || data.weeks.length === 0) return;
+  if (!data.weeks || !data.weeks.length) return;
   dataWeeks = data.weeks;
-  const currentFile = detectCurrentFile();
+  currentWeekFile = detectCurrentFile() || dataWeeks[0].file;
   let html = '';
-  data.weeks.forEach((w, i) => {
+  dataWeeks.forEach((w, i) => {
     const label = w.label.replace('2026-', '');
-    html += '<a href="javascript:void(0)" role="menuitem" onclick="loadWeek(\'' + w.file + '\',\'' + label + '\',' + (i === 0) + ')">' + label + '</a>';
+    html += '<a href="#" role="menuitem" data-file="' + w.file + '" data-label="' + label + '" data-isLatest="' + (i === 0) + '">' + label + '</a>';
   });
-  if (data.weeks.length > 1) {
+  if (dataWeeks.length > 1) {
     html += '<div class="menu-divider"></div>';
     html += '<a href="/archive/" role="menuitem">全部归档 →</a>';
   }
   weekPickerMenu.innerHTML = html;
-  setPickerState(currentFile);
+  setPickerState(currentWeekFile);
 }).catch(() => {});
 
 
