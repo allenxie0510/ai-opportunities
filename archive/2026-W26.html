@@ -259,6 +259,8 @@
     text-align: center; font-size: 14px; line-height: 1.8;
   }
   footer p + p { margin-top: 4px; }
+  .visitor-count { font-size: 12px; color: var(--stone); margin-top: 12px; }
+  .visitor-count span { color: var(--muted); font-weight: 500; }
 
   /* ═══ TOAST ═══ */
   .toast {
@@ -528,6 +530,7 @@
 <footer>
   <p>数据来源：X / Twitter · GitHub Trending · Product Hunt · Indie Hackers · TrustMRR</p>
   <p>本分析仅供方向参考。原创创造价值，不做搬运工。每周一自动更新。</p>
+  <p class="visitor-count"><span id="visitorNum">—</span> 次访问</p>
 </footer>
 
 </div><!-- /container -->
@@ -755,6 +758,19 @@ fetch('/archive/manifest.json').then(r => r.json()).then(data => {
   }
   weekPickerMenu.innerHTML = html;
 }).catch(() => {});
+
+// ── Visitor Counter ──
+(async () => {
+  const NS = 'allenxie-ai-opc';
+  const KEY = 'visits';
+  try {
+    const resp = await fetch('https://api.countapi.xyz/hit/' + NS + '/' + KEY);
+    const data = await resp.json();
+    document.getElementById('visitorNum').textContent = data.value.toLocaleString();
+  } catch(e) {
+    document.getElementById('visitorNum').textContent = '···';
+  }
+})();
 </script>
 </body>
 </html>
