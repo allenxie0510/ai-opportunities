@@ -645,6 +645,12 @@ const weekPickerMenu = document.getElementById('weekPickerMenu');
 let currentWeekFile = '';
 let dataWeeks = [];
 
+function togglePicker() { weekPicker.classList.toggle('open'); }
+function closePicker() { weekPicker.classList.remove('open'); }
+weekPickerBtn.addEventListener('click', e => { e.stopPropagation(); togglePicker(); });
+document.addEventListener('click', e => { if (!weekPicker.contains(e.target)) closePicker(); });
+
+
 // detect current week from URL
 function detectCurrentFile() {
   const p = window.location.pathname.toLowerCase();
