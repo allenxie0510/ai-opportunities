@@ -46,9 +46,14 @@
   .nav-left { display: flex; align-items: center; gap: 24px; }
   .nav .brand {
     font-family: 'Bebas Neue', 'Helvetica Neue Condensed', Impact, sans-serif;
-    font-size: 18px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+    font-size: 22px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
     color: var(--text); text-decoration: none;
-    display: flex; align-items: center;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav .brand::before {
+    content: '';
+    width: 7px; height: 7px; background: #1456f0; border-radius: 50%;
+    flex-shrink: 0;
   }
   .nav a {
     font-size: 0.8rem; color: var(--text-secondary); text-decoration: none;
