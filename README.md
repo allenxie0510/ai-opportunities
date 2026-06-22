@@ -1,6 +1,30 @@
-# AI 趋势周报 · AI Trends Weekly
+# AI 一人公司周报 · Solo AI Weekly
 
-每周自动分析 GitHub Trending、Hacker News、Product Hunt 上的 AI 项目趋势，聚焦设计师 + Vibe Coding + 复利创业方向。
+每周自动扫描 X/Twitter、GitHub Trending、Product Hunt、Indie Hackers 上的 AI 创业趋势，聚焦**一人公司**方向——独立设计师与 Vibe Coder 可落地的 AI 微创业机会。
+
+## 定位
+
+> 一人公司 · 独立设计师/开发者 · 可落地的 AI 微创业
+
+### 核心赛道
+- **设计资产** — Figma 插件、UI Kit、AI 品牌素材包
+- **虚拟产品** — Notion 模板、Prompt 库、数字产品
+- **自动化** — n8n 工作流、浏览器脚本
+- **内容变现** — AI 配图生成、跨平台内容分发
+- **微SaaS** — 单平台深度工具、AI Wrapper
+- **小而美** — 设计师工作流工具、独立开发者微工具
+
+### 筛选标准
+- ✅ MVP 1–6 周能做完
+- ✅ 一个人就能跑（设计 + 开发 + 运营）
+- ✅ 有明确的单人变现案例
+- ✅ 有 GitHub / Product Hunt / TrustMRR 真实数据
+- ❌ 需要企业客户 BD
+- ❌ 需要融资或团队
+- ❌ 纯概念无现成产品对标
+
+### 数据源
+X / Twitter · GitHub Trending · Product Hunt · Indie Hackers · TrustMRR
 
 ## 工作原理
 

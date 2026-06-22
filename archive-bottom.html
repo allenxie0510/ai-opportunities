@@ -1,0 +1,135 @@
+
+<footer>
+  <p>数据来源：X / Twitter · GitHub Trending · Product Hunt · Indie Hackers · TrustMRR</p>
+  <p>本分析聚焦一人公司与独立创作者方向。每周一自动更新。</p>
+</footer>
+
+</div><!-- /container -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+const STORAGE_KEY = 'ai_trends_favorites';
+function getFavorites() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; } }
+function saveFavorites(favs) { localStorage.setItem(STORAGE_KEY, JSON.stringify(favs)); }
+
+function toggleFav(id, articleEl) {
+  let favs = getFavorites();
+  const idx = favs.findIndex(f => f.id === id);
+  if (idx >= 0) { favs.splice(idx, 1); }
+  else {
+    const title = articleEl.dataset.title;
+    const section = articleEl.dataset.section;
+    const desc = articleEl.querySelector('.desc')?.textContent?.trim() || '';
+    const insight = articleEl.querySelector('.insight-panel')?.textContent?.trim() || '';
+    const refs = articleEl.querySelector('.art-pills')?.innerHTML || '';
+    const metrics = [];
+    articleEl.querySelectorAll('.mi').forEach(m => {
+      metrics.push({ label: m.querySelector('.ml')?.textContent || '', value: m.querySelector('.mv')?.textContent || '' });
+    });
+    const category = articleEl.dataset.category;
+    const creator = articleEl.dataset.creator;
+    const compound = articleEl.dataset.compound;
+    favs.push({ id, title, section, desc, insight, refs, metrics, category, creator, compound, savedAt: new Date().toISOString() });
+  }
+  saveFavorites(favs);
+  updateBookmarkUI();
+  updateFavCount();
+  showToast(idx >= 0 ? '已取消收藏' : '已收藏');
+}
+
+function updateBookmarkUI() {
+  const favIds = new Set(getFavorites().map(f => f.id));
+  document.querySelectorAll('.bookmark-btn').forEach(btn => {
+    const faved = favIds.has(btn.dataset.id);
+    btn.classList.toggle('faved', faved);
+    // icon-only: class toggle is sufficient
+  });
+}
+
+function updateFavCount() {
+  const count = getFavorites().length;
+  const badge = document.getElementById('favCount');
+  const link = document.getElementById('favNavLink');
+  if (badge) badge.textContent = count;
+  if (link) link.classList.toggle('has-items', count > 0);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._timeout);
+  t._timeout = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+document.querySelectorAll('.bookmark-btn').forEach(btn => {
+  btn.addEventListener('click', e => { e.stopPropagation(); toggleFav(btn.dataset.id, btn.closest('.article')); });
+});
+
+updateBookmarkUI();
+updateFavCount();
+
+// Filters
+const filterBtns = document.querySelectorAll('[data-filter]');
+const creatorBtns = document.querySelectorAll('[data-creator]');
+const compoundBtns = document.querySelectorAll('[data-compound]');
+const articles = document.querySelectorAll('.article');
+const resultsInfo = document.getElementById('resultsInfo');
+let activeCat = 'all', activeCreator = 'all', activeComp = 'all';
+
+function refresh() {
+  let n = 0;
+  articles.forEach(a => {
+    const ok = (activeCat === 'all' || a.dataset.category === activeCat) && (activeCreator === 'all' || a.dataset.creator === activeCreator) && (activeComp === 'all' || a.dataset.compound === activeComp);
+    a.classList.toggle('hidden', !ok);
+    if (ok) n++;
+  });
+  resultsInfo.textContent = n + ' 个项目';
+}
+function setOn(c, e) { c.forEach(b => b.classList.remove('on')); e.classList.add('on'); }
+filterBtns.forEach(b => b.addEventListener('click', () => { setOn(filterBtns, b); activeCat = b.dataset.filter; refresh(); }));
+creatorBtns.forEach(b => b.addEventListener('click', () => { setOn(creatorBtns, b); activeCreator = b.dataset.creator; refresh(); }));
+compoundBtns.forEach(b => b.addEventListener('click', () => { setOn(compoundBtns, b); activeComp = b.dataset.compound; refresh(); }));
+
+fetch('/archive/manifest.json').then(r => r.json()).then(data => {
+  if (!data.weeks || data.weeks.length === 0) return;
+  const navLinks = document.getElementById('navLinks');
+  data.weeks.reverse().forEach(week => { const a = document.createElement('a'); a.href = '/archive/' + week.file; a.textContent = week.label; navLinks.appendChild(a); });
+  const all = document.createElement('a'); all.href = '/archive/'; all.textContent = '全部 ▸'; navLinks.appendChild(all);
+}).catch(() => {});
+
+// ── Share ──
+const SHARE_TITLE = 'AI 趋势周报 · 独立创作者复利创业方向';
+const SHARE_TEXT = 'AI × 独立创作 复利创业方向——12 条精选 AI 创业趋势';
+
+document.getElementById('btnShare').addEventListener('click', async () => {
+  const url = window.location.href;
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: SHARE_TITLE, text: SHARE_TEXT, url });
+      showToast('已分享');
+    } catch (e) {
+      if (e.name !== 'AbortError') fallbackCopy(url);
+    }
+  } else {
+    fallbackCopy(url);
+  }
+});
+
+function fallbackCopy(url) {
+  navigator.clipboard.writeText(url).then(() => showToast('链接已复制，可粘贴分享')).catch(() => showToast('分享失败，请手动复制地址栏链接'));
+}
+
+document.getElementById('btnDownload').addEventListener('click', () => {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'AI趋势周报-W25.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('HTML 文件已下载');
+});
+</script>
+</body>
+</html>
