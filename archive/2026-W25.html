@@ -726,21 +726,14 @@ fetch('/archive/manifest.json').then(r => r.json()).then(data => {
 }).catch(() => {});
 
 
-// ── Visitor Counter ──
-(async () => {
+// ── Visitor Counter (localStorage, zero external deps) ──
+(() => {
   const el = document.getElementById('visitorNum');
   if (!el) return;
-  try {
-    const resp = await fetch('https://api.visitorbadge.io/api/counter?namespace=ai-opc-weekly&key=visits&increment=true');
-    const data = await resp.json();
-    el.textContent = (data.value || data.count || '—').toLocaleString();
-  } catch(e) {
-    // fallback: show localStorage-based session count
-    const key = 'aiopc_sessions';
-    let n = parseInt(localStorage.getItem(key) || '0');
-    if (!sessionStorage.getItem('aiopc_pv')) { n++; localStorage.setItem(key, n); sessionStorage.setItem('aiopc_pv', '1'); }
-    el.textContent = n.toLocaleString() + '+';
-  }
+  const key = 'aiopc_visits';
+  let n = parseInt(localStorage.getItem(key) || '0');
+  if (!sessionStorage.getItem('aiopc_pv')) { n++; localStorage.setItem(key, n); sessionStorage.setItem('aiopc_pv', '1'); }
+  el.textContent = n.toLocaleString();
 })();
 </script>
 </body>
