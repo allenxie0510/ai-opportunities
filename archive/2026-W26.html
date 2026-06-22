@@ -44,6 +44,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* ═══ NAV ═══ */
   .nav {
     position: sticky; top: 0; z-index: 100;
     background: rgba(255,255,255,0.88);
@@ -74,6 +75,7 @@
 
   .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
+  /* ═══ HERO ═══ */
   .hero { padding: 80px 0 56px; text-align: center; }
   .hero .eyebrow {
     display: inline-flex; align-items: center; gap: 6px;
@@ -87,7 +89,7 @@
   }
   .hero .sub {
     font-size: 18px; font-weight: 500; color: var(--steel);
-    max-width: 560px; margin: 0 auto; line-height: 1.5;
+    max-width: 540px; margin: 0 auto; line-height: 1.5;
   }
   .hero .meta {
     margin-top: 28px; font-size: 14px; color: var(--stone);
@@ -95,6 +97,7 @@
   }
   .hero .meta .dot-sep { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
 
+  /* ═══ STATS STRIP ═══ */
   .stats-strip {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
     background: var(--hairline); border-radius: 16px; overflow: hidden;
@@ -110,6 +113,7 @@
   }
   .stats-strip .lbl { font-size: 14px; font-weight: 500; color: var(--steel); margin-top: 2px; }
 
+  /* ═══ FILTERS ═══ */
   .filter-section { margin-bottom: 40px; }
   .filter-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 6px; }
   .filter-row .flabel {
@@ -128,6 +132,7 @@
   }
   .results-hint { font-size: 13px; color: var(--stone); margin-top: 16px; font-weight: 500; }
 
+  /* ═══ ARTICLE LIST ═══ */
   .article-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 80px; }
   .article {
     background: var(--canvas); border-radius: 16px; padding: 32px;
@@ -135,18 +140,21 @@
   }
   .article:hover { border-color: var(--muted); }
 
+  /* Top header row */
   .article .art-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
   .art-cat-pill {
     font-size: 12px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
     color: #fff; padding: 4px 12px; border-radius: 9999px;
   }
-  .art-cat-pill.cat-agent { background: var(--coral); }
-  .art-cat-pill.cat-creative { background: var(--magenta); }
-  .art-cat-pill.cat-vertical { background: var(--blue); }
-  .art-cat-pill.cat-content { background: var(--purple); }
-  .art-cat-pill.cat-dev { background: var(--charcoal); }
+  .art-cat-pill.cat-microsaas { background: #2563eb; }
+  .art-cat-pill.cat-design { background: #ec4899; }
+  .art-cat-pill.cat-automation { background: #8b5cf6; }
+  .art-cat-pill.cat-content { background: #10b981; }
+  .art-cat-pill.cat-tool { background: #f59e0b; }
+  .art-cat-pill.cat-digital { background: #6366f1; }
   .article .art-idx { font-size: 13px; font-weight: 600; color: var(--muted); margin-left: auto; }
 
+  /* Bookmark icon button */
   .bookmark-btn {
     display: inline-flex; align-items: center; justify-content: center;
     background: transparent; border: none; border-radius: 8px;
@@ -167,11 +175,13 @@
     margin-bottom: 18px; max-width: 780px;
   }
 
+  /* Meta indicators */
   .art-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 16px; }
   .art-meta .mi { display: flex; flex-direction: column; gap: 2px; }
   .art-meta .mi .ml { font-size: 11px; font-weight: 600; color: var(--stone); text-transform: uppercase; letter-spacing: 0.05em; }
   .art-meta .mi .mv { font-size: 15px; font-weight: 600; color: var(--ink); }
 
+  /* Action pills row */
   .art-pills { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 0; }
   .pill {
     display: inline-flex; align-items: center; gap: 4px;
@@ -188,6 +198,7 @@
   }
   .pill.insight-tgl:hover { color: var(--ink); border-color: var(--muted); }
 
+  /* Insight panel */
   .insight-panel {
     display: none; margin-top: 16px; padding: 16px 20px;
     background: var(--surface); border-radius: 12px;
@@ -197,12 +208,14 @@
   .insight-panel strong { color: var(--ink); font-weight: 600; }
   .insight-panel em { color: var(--coral); font-style: normal; font-weight: 500; }
 
+  /* ═══ FOOTER ═══ */
   footer {
     background: var(--footer-bg); color: var(--muted); padding: 56px 32px 48px;
     text-align: center; font-size: 14px; line-height: 1.8;
   }
   footer p + p { margin-top: 4px; }
 
+  /* ═══ TOAST ═══ */
   .toast {
     position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
     background: var(--ink); color: #fff; padding: 11px 28px;
@@ -231,6 +244,7 @@
     .stats-strip .num { font-size: 32px; }
   }
 
+  /* ═══ SHARE BAR ═══ */
   .share-bar { display: flex; gap: 8px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
   .share-btn {
     display: inline-flex; align-items: center; gap: 6px;
@@ -281,11 +295,11 @@
 <div class="container">
 
 <section class="hero">
-  <div class="eyebrow">● 周报 · 2026 年第 26 周</div>
-  <h1>AI × 独立创作<br>复利创业方向</h1>
-  <p class="sub">从 GitHub Trending、Hacker News 与中国创业生态中梳理出的全新十二条方向。本周聚焦 Agent 安全、视频生产管线与 AI 原生业务系统三大爆发赛道。</p>
+  <div class="eyebrow">● 周报 · 2026 年第 26 周 · 一人公司特辑</div>
+  <h1>AI × 独立创造<br>一人公司的真实机会</h1>
+  <p class="sub">面向独立设计师与 Vibe Coder——一个人 + AI 工具，2–6 周能上线赚钱。每条方向都有真实的单人变现案例。</p>
   <div class="meta">
-    <span>GitHub Trending</span><span class="dot-sep"></span><span>Hacker News</span><span class="dot-sep"></span><span>V2EX · 少数派 · 36氪</span><span class="dot-sep"></span><span>2026.06.22</span>
+    <span>X / Twitter</span><span class="dot-sep"></span><span>GitHub Trending</span><span class="dot-sep"></span><span>Product Hunt</span><span class="dot-sep"></span><span>Indie Hackers</span><span class="dot-sep"></span><span>2026.06.22</span>
   </div>
 </section>
 
@@ -295,21 +309,22 @@
 </div>
 
 <div class="stats-strip">
-  <div class="item"><div class="num">12</div><div class="lbl">全新方向</div></div>
-  <div class="item"><div class="num">5</div><div class="lbl">核心赛道</div></div>
-  <div class="item"><div class="num">157k</div><div class="lbl">最高星标</div></div>
-  <div class="item"><div class="num">8 个</div><div class="lbl">周增过万项目</div></div>
+  <div class="item"><div class="num">12</div><div class="lbl">一人公司方向</div></div>
+  <div class="item"><div class="num">6</div><div class="lbl">核心赛道</div></div>
+  <div class="item"><div class="num">$239K</div><div class="lbl">单人年收入</div></div>
+  <div class="item"><div class="num">1–6 周</div><div class="lbl">MVP 周期</div></div>
 </div>
 
 <div class="filter-section">
   <div class="filter-row">
     <span class="flabel">赛道</span>
     <button class="fbtn on" data-filter="all">全部</button>
-    <button class="fbtn" data-filter="agent-skill">Agent 技能</button>
-    <button class="fbtn" data-filter="creative-tool">创意工具</button>
-    <button class="fbtn" data-filter="vertical-agent">垂直 Agent</button>
-    <button class="fbtn" data-filter="content-ai">AI 内容</button>
-    <button class="fbtn" data-filter="dev-tool">开发者工具</button>
+    <button class="fbtn" data-filter="design-assets">设计资产</button>
+    <button class="fbtn" data-filter="digital-product">虚拟产品</button>
+    <button class="fbtn" data-filter="automation">自动化</button>
+    <button class="fbtn" data-filter="content-monetize">内容变现</button>
+    <button class="fbtn" data-filter="micro-saas">微SaaS</button>
+    <button class="fbtn" data-filter="indie-tool">小而美</button>
   </div>
   <div class="filter-row" style="margin-top:8px;">
     <span class="flabel">匹配</span>
@@ -329,145 +344,141 @@
 <div class="article-list" id="articleList">
 
 <!-- 01 -->
-<article class="article" data-category="agent-skill" data-creator="high" data-compound="high" data-id="01" data-title="Agent 安全审计技能包" data-section="Agent 技能">
+<article class="article" data-category="design-assets" data-creator="high" data-compound="high" data-id="01" data-title="Figma UI Kit 与插件销售" data-section="设计资产">
   <div class="art-header">
-    <span class="art-cat-pill cat-agent">Agent 技能</span>
+    <span class="art-cat-pill cat-design">设计资产</span>
     <span class="art-idx">01</span>
     <button class="bookmark-btn" data-id="01" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
   </div>
-  <h3>Agent 安全审计技能包</h3>
-  <p class="desc">NVIDIA、Anthropic、Microsoft 三大巨头同一月度密集发布 AI Agent 安全工具——SkillSpector（9K★）扫描技能漏洞、Anthropic Cybersecurity Skills（17.7K★）提供 754 项安全技能、Agent Governance Toolkit 覆盖 OWASP Agentic Top 10。Agent 越强大，安全越刚需——这是一个从零起步的全新子赛道。</p>
+  <h3>Figma UI Kit 与插件销售</h3>
+  <p class="desc">一个人设计 Figma UI Kit 或插件，在 Gumroad、Figma Community 销售。非程序员靠 Figma 插件收入超 $33,000，Untitled UI 从单人项目成长为全球最大 Figma UI Kit。你是设计师——这是你最直接的变现路径。</p>
   <div class="art-meta">
-    <div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div>
-    <div class="mi"><span class="ml">变现</span><span class="mv">SaaS / 审计服务</span></div>
-    <div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div>
+    <div class="mi"><span class="ml">单人收入</span><span class="mv" style="color:var(--coral);">$33K+</span></div>
+    <div class="mi"><span class="ml">变现</span><span class="mv">$49–149/套</span></div>
+    <div class="mi"><span class="ml">MVP</span><span class="mv">2–4 周</span></div>
   </div>
   <div class="art-pills">
-    <a class="pill link" href="https://github.com/NVIDIA/SkillSpector" target="_blank">SkillSpector (9K★)</a>
-    <a class="pill link" href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills" target="_blank">Cyber Skills (17.7K★)</a>
-    <a class="pill link" href="https://github.com/microsoft/agent-governance-toolkit" target="_blank">Agent Governance (4.4K★)</a>
-    <span class="pill">阿里云 Agent 安全</span>
-    <span class="pill">360 AI 安全</span>
+    <a class="pill link" href="https://untitledui.com" target="_blank">Untitled UI</a>
+    <a class="pill link" href="https://www.figma.com/community" target="_blank">Figma Community</a>
+    <span class="pill">Gumroad 销售</span>
     <button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button>
   </div>
-  <div class="insight-panel"><strong>切入点：</strong>Agent 安全是典型的<em>基础设施型机会</em>——每出现一个 Agent 平台，就诞生一个安全需求。可以从垂直场景切入：为金融/医疗 Agent 做合规审计技能包，或面向国内 Dify/Coze 生态开发安全扫描插件。参考 Wiz 从云安全切入的路径。</div>
+  <div class="insight-panel"><strong>怎么做：</strong>选一个高频设计场景（Dashboard、Mobile App、Landing Page），用 Figma 做一套 50–100 个组件的 UI Kit，录一段 2 分钟 Demo 视频，挂到 Gumroad $49–99。关键在于<em>品质感</em>——设计师的核心优势，程序员学不来。</div>
 </article>
 
 <!-- 02 -->
-<article class="article" data-category="agent-skill" data-creator="high" data-compound="high" data-id="02" data-title="代码库智能索引与语义记忆" data-section="Agent 技能">
-  <div class="art-header"><span class="art-cat-pill cat-agent">Agent 技能</span><span class="art-idx">02</span><button class="bookmark-btn" data-id="02" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>代码库智能索引与语义记忆</h3>
-  <p class="desc">codebase-memory-mcp 本周首秀即获 10.3K★（周增 6.3K），158 种语言、亚毫秒级查询、减少 99% token 消耗。不同于上期的 Agent 通用记忆——这是专门为代码库构建持久知识图谱的垂直方案。单一静态二进制，零依赖部署。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">托管 / 企业版</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–5 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/DeusData/codebase-memory-mcp" target="_blank">codebase-memory-mcp (10.3K★)</a><span class="pill">Sourcegraph</span><span class="pill">蚂蚁 CodeFuse</span><span class="pill">字节 Rspack 知识库</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>这是 MCP 生态中增长速度最快的品类之一。可以围绕 codebase-memory-mcp 做<em>中文企业适配层</em>——国内企业代码库（GitLab 私有部署、Gitee）的索引集成、中文代码注释的语义优化。也可以做成 SaaS：按代码库规模收费的托管索引服务。</div>
+<article class="article" data-category="design-assets" data-creator="high" data-compound="high" data-id="02" data-title="AI 品牌素材包" data-section="设计资产">
+  <div class="art-header"><span class="art-cat-pill cat-design">设计资产</span><span class="art-idx">02</span><button class="bookmark-btn" data-id="02" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>AI 品牌素材包</h3>
+  <p class="desc">用 Midjourney / DALL·E 批量生成 icon set、品牌色板、社交媒体模板，打包在 Gumroad、Etsy、Creative Market 销售。一套素材 $5–79，成熟创作者月入 $500–2,000。设计师用 AI 将生产效率放大 10 倍。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">单人收入</span><span class="mv">$500–2K/月</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$5–79/套</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://gumroad.com" target="_blank">Gumroad</a><a class="pill link" href="https://creativemarket.com" target="_blank">Creative Market</a><span class="pill">Midjourney</span><span class="pill">Etsy 数字产品</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>用 Midjourney 生成一套风格统一的 icon（50–100 个），PS 微调后打包 PNG+SVG，写一段英文产品描述，挂 Etsy + Gumroad 双渠道。关键是<em>风格一致性</em>和<em>使用场景</em>（SaaS 产品、社交媒体、PPT 演示）——设计师天生擅长这个。</div>
 </article>
 
 <!-- 03 -->
-<article class="article" data-category="creative-tool" data-creator="high" data-compound="high" data-id="03" data-title="Agentic 视频生产工作室" data-section="创意工具">
-  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">03</span><button class="bookmark-btn" data-id="03" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>Agentic 视频生产工作室</h3>
-  <p class="desc">OpenMontage（8.9K★，周增 2.8K）是全球首个开源 Agentic 视频制作系统——12 条管线、52 个工具、500+ Agent 技能。把 AI 编程助手变成完整视频工作室。这不是"AI 辅助剪辑"，而是 Agent 全流程自主制作视频。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$30–200/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">6–10 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/calesthio/OpenMontage" target="_blank">OpenMontage (8.9K★)</a><span class="pill">Runway</span><span class="pill">剪映 AI</span><span class="pill">度加剪辑</span><span class="pill">腾讯智影</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>视频制作的终极形态是"一句话需求 → 完整成片"。可以基于 OpenMontage 的管线做<em>中文垂直场景</em>——电商带货视频 Agent、企业宣传片 Agent、教育培训视频 Agent。每个垂直场景都是一个独立的产品市场。</div>
+<article class="article" data-category="digital-product" data-creator="high" data-compound="high" data-id="03" data-title="Notion / Airtable 模板帝国" data-section="虚拟产品">
+  <div class="art-header"><span class="art-cat-pill cat-digital">虚拟产品</span><span class="art-idx">03</span><button class="bookmark-btn" data-id="03" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>Notion / Airtable 模板帝国</h3>
+  <p class="desc">Easlo 一个人靠卖 Notion 模板年收入 $239,000，Thomas Frank 总收入超 $1,000,000。零代码、纯拖拽、设计师的排版和交互 sense 就是核心竞争力。模板在 Gumroad + Notion Marketplace 双渠道销售。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">单人年收入</span><span class="mv" style="color:var(--coral);">$239K</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$15–79/模板</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1–3 天</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://www.easlo.co" target="_blank">Easlo</a><a class="pill link" href="https://thomasjfrank.com" target="_blank">Thomas Frank</a><span class="pill">Notion Marketplace</span><span class="pill">Gumroad</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>选一个高频需求（个人财务、项目追踪、内容日历），在 Notion 里搭建模板，用设计师审美做排版——<em>好看就是溢价</em>。Easlo 的成功来自精美的排版 + YouTube 引流。你不需要会写代码，只需要会排版 + 懂需求。</div>
 </article>
 
 <!-- 04 -->
-<article class="article" data-category="creative-tool" data-creator="medium" data-compound="high" data-id="04" data-title="开源工业级语音 AI 平台" data-section="创意工具">
-  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">04</span><button class="bookmark-btn" data-id="04" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>开源工业级语音 AI 平台</h3>
-  <p class="desc">阿里 ModelScope FunASR（18.4K★）提供 170 倍实时、50+ 语言的工业级语音识别；MOSS-TTS（3.5K★）实现高保真长文本语音合成。两股开源力量正在将语音 AI 从实验室推向生产环境。与上期"语音工作台"关注 UI 不同——这里是底层引擎的开源化浪潮。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--blue);">🌊 蓝海</span></div><div class="mi"><span class="ml">变现</span><span class="mv">API / 私有部署</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/modelscope/FunASR" target="_blank">FunASR (18.4K★)</a><a class="pill link" href="https://github.com/OpenMOSS/MOSS-TTS" target="_blank">MOSS-TTS (3.5K★)</a><span class="pill">思必驰</span><span class="pill">标贝科技</span><span class="pill">出门问问</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>工业级 ASR/TTS 的最大痛点是部署门槛高。可以做<em>一键部署</em>的托管服务——面向中小企业的电话客服语音识别、会议纪要实时转写、有声书自动生成。中文方言（粤语、四川话）是差异化杀手锏。</div>
+<article class="article" data-category="digital-product" data-creator="high" data-compound="high" data-id="04" data-title="AI Prompt 库与 GPT 配置包" data-section="虚拟产品">
+  <div class="art-header"><span class="art-cat-pill cat-digital">虚拟产品</span><span class="art-idx">04</span><button class="bookmark-btn" data-id="04" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>AI Prompt 库与 GPT 配置包</h3>
+  <p class="desc">把调试好的 AI prompt 模板打包成产品——设计师专属的 Midjourney prompt 库、UX 写作用 prompt 集合、设计系统生成配置。Gumroad 上成熟创作者月入 $500–1,500。写文档 + 整理经验 = 零成本产品。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">单人收入</span><span class="mv">$500–1.5K/月</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$19–79/库</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1–2 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://gumroad.com" target="_blank">Gumroad</a><a class="pill link" href="https://www.lemonsqueezy.com" target="_blank">Lemon Squeezy</a><span class="pill">PromptBase</span><span class="pill">Notion 发布</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>你是设计师，最懂设计师的 prompt 需求。整理 50–100 条经过验证的 Midjourney / DALL·E prompt（附效果图），按场景分类（UI mockup、品牌视觉、插画风格），写成漂亮的 Notion 文档，定价 $29–49。关键是<em>有图有真相</em>——每条 prompt 配成品图才能说服人付费。</div>
 </article>
 
 <!-- 05 -->
-<article class="article" data-category="creative-tool" data-creator="medium" data-compound="medium" data-id="05" data-title="复利工程与知识工作插件生态" data-section="创意工具">
-  <div class="art-header"><span class="art-cat-pill cat-creative">创意工具</span><span class="art-idx">05</span><button class="bookmark-btn" data-id="05" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>复利工程与知识工作插件生态</h3>
-  <p class="desc">Anthropic 官方发布 knowledge-work-plugins（21.6K★），EveryInc 推出 compound-engineering-plugin（21.8K★）。两个 20K+ 项目在同一个赛道——为知识工作者打造结构化 AI 效率插件。这不是 Agent 技能市场，而是面向白领工作流的插件工具箱。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$10–100/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–6 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/anthropics/knowledge-work-plugins" target="_blank">knowledge-work-plugins (21.6K★)</a><a class="pill link" href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank">compound-eng (21.8K★)</a><span class="pill">飞书 AI 插件</span><span class="pill">钉钉 AI 助手</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>知识工作插件的本质是<em>工作流抽象</em>——把重复性脑力劳动固化为可复用的 AI 流程。可以从中国职场高频场景切入：周报生成、竞品分析、合同审核、会议纪要→待办事项。面向飞书/钉钉/企业微信生态做插件分发。</div>
+<article class="article" data-category="automation" data-creator="high" data-compound="high" data-id="05" data-title="n8n AI 自动化模板" data-section="自动化">
+  <div class="art-header"><span class="art-cat-pill cat-automation">自动化</span><span class="art-idx">05</span><button class="bookmark-btn" data-id="05" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>n8n AI 自动化模板</h3>
+  <p class="desc">在 n8n Creator Hub 上发布 3 个免费工作流，即可售卖付费模板。AI 邮件助手、社交媒体自动发帖、Notion 数据同步——每个模板 $15–49，半天做一个。低代码，适合 Vibe Coder + 设计师的组合技能。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">单人收入</span><span class="mv">$200–2K/月</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$15–49/模板</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">半天–1 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://n8n.io/creators" target="_blank">n8n Creator Hub</a><a class="pill link" href="https://n8nmarkets.com" target="_blank">n8nMarkets (850+模板)</a><span class="pill">GitHub awesome-n8n</span><span class="pill">Make.com 模板</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>找到一个高频痛点场景（如"把 Twitter 收藏自动同步到 Notion"），用 n8n 搭好工作流，加 AI 步骤（总结、翻译、分类），录屏演示效果，上传 Creator Hub。先免费引流 3 个，再推付费版。一个下午能搞定一个。<em>设计师的加分项</em>：工作流的 UI 和文档可以做得比程序员好看 10 倍。</div>
 </article>
 
 <!-- 06 -->
-<article class="article" data-category="vertical-agent" data-creator="high" data-compound="high" data-id="06" data-title="AI 原生开源 CRM" data-section="垂直 Agent">
-  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">06</span><button class="bookmark-btn" data-id="06" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>AI 原生开源 CRM</h3>
-  <p class="desc">twenty（51K★，月增 5.2K）定位"为 AI 设计的开源 Salesforce 替代品"。不是简单加 AI 功能——而是从数据模型层面重构 CRM 为 AI 可读、可操作。同一赛道还有 plane（52K★）做项目管理。AI 原生企业软件正在重新定义 SaaS。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$50–500/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">8–16 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/twentyhq/twenty" target="_blank">twenty (51K★)</a><a class="pill link" href="https://github.com/makeplane/plane" target="_blank">plane (52K★)</a><span class="pill">纷享销客</span><span class="pill">销售易</span><span class="pill">用友 YonSuite</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>中国中小企业 CRM 渗透率不足 20%，但 AI 原生 CRM 可以凭借<em>零配置 + 自然语言交互</em>打开市场。可以从一个垂直行业切入——比如外贸 CRM 或装修 CRM——用 AI 自动从聊天记录中提取客户、商机和待办。企业微信生态是天然分发渠道。</div>
+<article class="article" data-category="automation" data-creator="medium" data-compound="medium" data-id="06" data-title="浏览器自动化脚本" data-section="自动化">
+  <div class="art-header"><span class="art-cat-pill cat-automation">自动化</span><span class="art-idx">06</span><button class="bookmark-btn" data-id="06" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>浏览器自动化脚本</h3>
+  <p class="desc">用 Playwright / Puppeteer + AI 写自动化脚本——自动填表、批量截图、数据抓取、网页监控。打包成 Chrome 扩展或 Tampermonkey 脚本在 Gumroad 卖，GitHub 上这类小工具经常上 Trending，每个 $5–19。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 GitHub 热门</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$5–19/脚本</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1–3 天</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://github.com/topics/browser-automation" target="_blank">GitHub browser-automation</a><span class="pill">Playwright</span><span class="pill">Chrome Web Store</span><span class="pill">Gumroad</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>找一个你每天重复做的网页操作，用 Vibe Coding 写脚本自动化，加 AI 让脚本能处理变化（如页面结构变了自动适配）。免费放 GitHub 攒 star，同时 Gumroad 卖"Pro 版"加批量处理、定时任务。设计师的<em>产品包装能力</em>让你比纯程序员卖得好。</div>
 </article>
 
 <!-- 07 -->
-<article class="article" data-category="vertical-agent" data-creator="medium" data-compound="high" data-id="07" data-title="时间序列 AI 预测引擎" data-section="垂直 Agent">
-  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">07</span><button class="bookmark-btn" data-id="07" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>时间序列 AI 预测引擎</h3>
-  <p class="desc">Google Research 开源的 TimesFM（24.9K★，周增 4.1K）是首个大规模时间序列基础模型。不同于传统统计方法——零样本即可预测，覆盖零售、能源、金融、供应链等万亿级市场。时间序列 AI 正从学术论文走向生产部署。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--blue);">🌊 蓝海</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$500–5000/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">6–12 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/google-research/timesfm" target="_blank">TimesFM (24.9K★)</a><span class="pill">Amazon Forecast</span><span class="pill">同花顺 AI</span><span class="pill">万得 AI</span><span class="pill">帆软 FineBI</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>时序预测的最大价值在<em>垂直场景产品化</em>。不是卖模型，而是卖解决方案——零售库存预测、电商销量预测、电网负荷预测、物流需求预测。用 TimesFM 做底层引擎，上层包装为行业 SaaS。选择一个你熟悉的行业，用 AI 替代 Excel。</div>
+<article class="article" data-category="content-monetize" data-creator="high" data-compound="high" data-id="07" data-title="AI 博客配图自动生成" data-section="内容变现">
+  <div class="art-header"><span class="art-cat-pill cat-content">内容变现</span><span class="art-idx">07</span><button class="bookmark-btn" data-id="07" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>AI 博客配图自动生成</h3>
+  <p class="desc">根据文章内容自动生成品牌化配图——博客封面、社交分享卡片、内文插图。输入文章链接或文本，输出一套风格统一的图片。月费 $9–29，目标用户是内容创作者和自媒体人。设计师的配色和排版能力是核心壁垒。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv">📈 稳定需求</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$9–29/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">2–3 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://ideaproof.io" target="_blank">IdeaProof #29</a><span class="pill">DALL·E API</span><span class="pill">Stable Diffusion</span><span class="pill">Canva API</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>用 AI 图像生成 API + 模板系统，输入文章标题和摘要，自动选择配色和布局生成配图。你能做的是：<em>定义 5–10 套高质量视觉模板</em>——这是设计师独有的能力，程序员想抄都抄不对。先做 1 套模板验证需求，再扩展。</div>
 </article>
 
 <!-- 08 -->
-<article class="article" data-category="vertical-agent" data-creator="high" data-compound="high" data-id="08" data-title="AI 投资分析与量化交易助手" data-section="垂直 Agent">
-  <div class="art-header"><span class="art-cat-pill cat-vertical">垂直 Agent</span><span class="art-idx">08</span><button class="bookmark-btn" data-id="08" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>AI 投资分析与量化交易助手</h3>
-  <p class="desc">OpenStock（13.3K★）提供开源实时行情与智能预警；AiToEarn（21.6K★，月增 6K）打造 AI 驱动的收益平台。两个项目瞄准同一个趋势——用 AI 工具降低投资分析门槛。中国个人投资者超 2 亿，但专业分析工具渗透率极低。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">订阅 / 信号付费</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">8–16 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/Open-Dev-Society/OpenStock" target="_blank">OpenStock (13.3K★)</a><a class="pill link" href="https://github.com/yikart/AiToEarn" target="_blank">AiToEarn (21.6K★)</a><span class="pill">聚宽 JoinQuant</span><span class="pill">米筐 RiceQuant</span><span class="pill">同花顺 i问财</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>AI 投资工具的最大机会在<em>个性化分析</em>——不是提供通用行情，而是根据个人持仓、风险偏好、投资风格定制分析报告。可以做成微信小程序：拍照导入持仓截图 → AI 生成个性化调仓建议。合规是最大门槛，需与持牌机构合作。</div>
+<article class="article" data-category="content-monetize" data-creator="medium" data-compound="high" data-id="08" data-title="一鱼多吃内容分发引擎" data-section="内容变现">
+  <div class="art-header"><span class="art-cat-pill cat-content">内容变现</span><span class="art-idx">08</span><button class="bookmark-btn" data-id="08" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>一鱼多吃内容分发引擎</h3>
+  <p class="desc">1 篇博客/长文 → 自动生成小红书图文、Twitter Thread、短视频脚本、公众号文章。创作者"一鱼多吃"的刚需，月费 $19–59。技术栈：LLM API + 模板引擎，Vibe Coder 3–4 周出 MVP。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$19–59/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–4 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://ideaproof.io" target="_blank">IdeaProof #6</a><span class="pill">OpenRouter API</span><span class="pill">小红书 API</span><span class="pill">Twitter API</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>每个平台的"内容美学"不一样——小红书要图文并茂、Twitter 要简洁 punchy、公众号要深度。你作为设计师，比任何程序员都更懂<em>每个平台的视觉和文案风格</em>。为每个平台设计一个 prompt 模板 + 视觉风格，打包成工具。</div>
 </article>
 
 <!-- 09 -->
-<article class="article" data-category="content-ai" data-creator="high" data-compound="high" data-id="09" data-title="AI 虚拟主播与数字人引擎" data-section="AI 内容">
-  <div class="art-header"><span class="art-cat-pill cat-content">AI 内容</span><span class="art-idx">09</span><button class="bookmark-btn" data-id="09" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>AI 虚拟主播与数字人引擎</h3>
-  <p class="desc">Open-LLM-VTuber（11.7K★，月增 3.9K）实现了 LLM + Live2D + 语音打断的端到端虚拟主播方案，跨平台本地运行。MOSS-TTS 提供高表现力语音合成。B 站虚拟主播市场规模超 50 亿，但 AI 驱动的实时互动方案仍然稀缺。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$20–200/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">4–8 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/Open-LLM-VTuber/Open-LLM-VTuber" target="_blank">Open-LLM-VTuber (11.7K★)</a><span class="pill">B站虚拟主播区</span><span class="pill">小冰数字人</span><span class="pill">MetaHuman</span><span class="pill">D-ID</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>虚拟主播的本质是<em>人设 + 实时互动</em>。可以为不同角色定制 LLM 人格——知识科普主播、情感陪伴主播、游戏解说主播。技术上整合 STT → LLM → TTS → Live2D 管线，产品上提供一键开播的 SaaS 服务。面向 B 站/抖音创作者。</div>
+<article class="article" data-category="micro-saas" data-creator="medium" data-compound="high" data-id="09" data-title="单平台深度分析工具" data-section="微SaaS">
+  <div class="art-header"><span class="art-cat-pill cat-microsaas">微SaaS</span><span class="art-idx">09</span><button class="bookmark-btn" data-id="09" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>单平台深度分析工具</h3>
+  <p class="desc">Notionlytics——给 Notion 页面加分析功能，单人运营，MRR $43,160（+121% 增长）。单平台策略：绑定一个平台做深度集成，粘性来自集成深度而非功能广度。Next.js + Supabase 即可搭建。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">单人 MRR</span><span class="mv" style="color:var(--coral);">$43,160</span></div><div class="mi"><span class="ml">利润率</span><span class="mv">75%</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">2–4 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://notionlytics.com" target="_blank">Notionlytics</a><span class="pill">Next.js</span><span class="pill">Supabase</span><span class="pill">Notion API</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>选一个你熟悉的平台（Figma、Notion、Airtable、飞书），找一个该平台"应该有但没有"的功能，用 API + AI 补上。平台已有海量用户，你的获客成本极低。<em>设计师的优势</em>：你能做出平台生态里最好看的工具界面。</div>
 </article>
 
 <!-- 10 -->
-<article class="article" data-category="content-ai" data-creator="high" data-compound="high" data-id="10" data-title="企业文档 AI 格式转换中枢" data-section="AI 内容">
-  <div class="art-header"><span class="art-cat-pill cat-content">AI 内容</span><span class="art-idx">10</span><button class="bookmark-btn" data-id="10" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>企业文档 AI 格式转换中枢</h3>
-  <p class="desc">Microsoft markitdown（157K★，月增 33K）是本季度增长最快的 AI 工具之一——将任意办公文档（Word/Excel/PPT/PDF）转换为结构化 Markdown。157K★ 的背后是巨大的企业文档处理刚需——RAG 管道、知识库构建、合规审计都依赖文档解析。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🔥 爆发</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$100–2000/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">2–4 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/microsoft/markitdown" target="_blank">markitdown (157K★)</a><span class="pill">WPS AI</span><span class="pill">腾讯文档 AI</span><span class="pill">百度文库 AI</span><span class="pill">LlamaParse</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>文档转换的差异化在<em>中文场景</em>——中文排版（竖排、双栏）、公章识别、手写体、扫描件去噪。可以在 markitdown 基础上做中文优化层，打包为 API 服务。面向法律、金融、政务等文档密集型行业做垂直方案。</div>
+<article class="article" data-category="micro-saas" data-creator="high" data-compound="high" data-id="10" data-title="AI Wrapper 高利润微工具" data-section="微SaaS">
+  <div class="art-header"><span class="art-cat-pill cat-microsaas">微SaaS</span><span class="art-idx">10</span><button class="bookmark-btn" data-id="10" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>AI Wrapper 高利润微工具</h3>
+  <p class="desc">Gronk 单人运营，99% 利润率，MRR $9,004——就是 LLM API + 一个简单前端。不要做"又一个 ChatGPT"，做一个解决具体小痛点的单功能工具。纯软件 + 轻推理 = 利润密码。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">单人 MRR</span><span class="mv">$9,004</span></div><div class="mi"><span class="ml">利润率</span><span class="mv" style="color:var(--coral);">99%</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1–2 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://trustmrr.com" target="_blank">TrustMRR 案例</a><span class="pill">OpenAI API</span><span class="pill">Next.js</span><span class="pill">Vercel 部署</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>找一个你做设计师时遇到的重复性文字工作（写设计说明、生成 alt text、整理 feedback），用 AI API 包装成工具。定价 $9–29/月，挂到 Product Hunt 冷启动。关键：<em>定价时先算推理成本</em>——推理成本高的工具利润只有 25%，定价要覆盖 4 倍以上。</div>
 </article>
 
 <!-- 11 -->
-<article class="article" data-category="dev-tool" data-creator="high" data-compound="high" data-id="11" data-title="免费 LLM API 聚合网关" data-section="开发者工具">
-  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">11</span><button class="bookmark-btn" data-id="11" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>免费 LLM API 聚合网关</h3>
-  <p class="desc">freellmapi（11.3K★，月增 8.1K）将 16 个 LLM 厂商的免费额度（合计约 1.7B tokens/月）聚合到单一 OpenAI 兼容端点，支持智能路由和自动故障转移。headroom（44K★）则从另一方向——压缩 token 消耗——降低成本。API 经济学是开发者的新基建。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--coral);">🚀 增长</span></div><div class="mi"><span class="ml">变现</span><span class="mv">代理 / 增值服务</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">2–4 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/tashfeenahmed/freellmapi" target="_blank">freellmapi (11.3K★)</a><span class="pill">硅基流动</span><span class="pill">DeepSeek API</span><span class="pill">OpenRouter</span><span class="pill">Groq</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>API 聚合的核心竞争力是<em>路由智能</em>——根据任务复杂度自动选择最优模型（简单任务用小模型、复杂任务用大模型），最大化免费额度利用率。可以特别优化中国开发者场景：整合国内模型 API（DeepSeek/Qwen/GLM）+ 海外免费额度，提供一键接入。</div>
+<article class="article" data-category="indie-tool" data-creator="high" data-compound="high" data-id="11" data-title="设计师日常工作流工具" data-section="小而美">
+  <div class="art-header"><span class="art-cat-pill cat-tool">小而美</span><span class="art-idx">11</span><button class="bookmark-btn" data-id="11" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>设计师日常工作流工具</h3>
+  <p class="desc">把你每天都做的设计流程变成产品。比如：截图转设计规范、设计稿自动标注、批量导出多倍图、颜色对比度检查器。你自己每天都在用 = 最好的产品经理。Chrome 扩展 + Figma 插件双渠道卖。</p>
+  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv">📈 垂直上升</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$9–49/一次性</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1–3 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://chromewebstore.google.com" target="_blank">Chrome Web Store</a><span class="pill">Figma Plugin API</span><span class="pill">OpenAI Vision</span><span class="pill">Gumroad</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>打开你的 Figma，看哪个操作你每天重复做 10 次以上——把它自动化。用 Figma Plugin API + AI（视觉识别、文本生成）做插件。先在 Figma Community 免费发布，攒好评后出 Pro 版收费。你的<em>日常痛点</em>就是千万设计师的痛点。</div>
 </article>
 
 <!-- 12 -->
-<article class="article" data-category="dev-tool" data-creator="high" data-compound="high" data-id="12" data-title="轻量终端 AI 原生开发环境" data-section="开发者工具">
-  <div class="art-header"><span class="art-cat-pill cat-dev">开发者工具</span><span class="art-idx">12</span><button class="bookmark-btn" data-id="12" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
-  <h3>轻量终端 AI 原生开发环境</h3>
-  <p class="desc">oh-my-pi（13.8K★）用 hash 锚定编辑做终端 AI 编程 Agent；terax-ai（7.2K★）以 7MB 超轻量实现终端优先的 AI 开发工作区；flue（6.3K★）提供沙箱 Agent 框架。三者共同描绘了一个趋势：开发者正在从 IDE 插件转向终端原生的 AI 编程体验。</p>
-  <div class="art-meta"><div class="mi"><span class="ml">趋势</span><span class="mv" style="color:var(--blue);">🌊 蓝海</span></div><div class="mi"><span class="ml">变现</span><span class="mv">$5–50/月</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">3–6 周</span></div></div>
-  <div class="art-pills"><a class="pill link" href="https://github.com/can1357/oh-my-pi" target="_blank">oh-my-pi (13.8K★)</a><a class="pill link" href="https://github.com/crynta/terax-ai" target="_blank">terax-ai (7.2K★)</a><a class="pill link" href="https://github.com/withastro/flue" target="_blank">flue (6.3K★)</a><span class="pill">通义灵码</span><span class="pill">CodeBuddy</span><span class="pill">Warp</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
-  <div class="insight-panel"><strong>切入点：</strong>终端 AI 编程环境的本质是<em>低摩擦</em>——不离开终端、不用开 IDE、毫秒级响应。可以做中文优化版本：集成通义千问/DeepSeek 的 CLI 工具、国内 npm/pip 镜像加速、SSH 远程开发的一键配置。面向 Vibe Coding 实践者和远程开发场景。</div>
+<article class="article" data-category="indie-tool" data-creator="medium" data-compound="medium" data-id="12" data-title="独立开发者微工具" data-section="小而美">
+  <div class="art-header"><span class="art-cat-pill cat-tool">小而美</span><span class="art-idx">12</span><button class="bookmark-btn" data-id="12" title="收藏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 2.75C3.75 1.92157 4.42157 1.25 5.25 1.25H12.75C13.5784 1.25 14.25 1.92157 14.25 2.75V15.5L9 12.25L3.75 15.5V2.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></div>
+  <h3>独立开发者微工具</h3>
+  <p class="desc">CheatMate 单人运营，98% 利润率，MRR $9,058。不要做大产品，做一个让你朋友愿意付 $5/月的小工具。最好的产品来源：你自己或身边人的日常小烦恼——你的设计圈朋友每天在吐槽什么？</p>
+  <div class="art-meta"><div class="mi"><span class="ml">单人 MRR</span><span class="mv">$9,058</span></div><div class="mi"><span class="ml">利润率</span><span class="mv" style="color:var(--coral);">98%</span></div><div class="mi"><span class="ml">MVP</span><span class="mv">1–2 周</span></div></div>
+  <div class="art-pills"><a class="pill link" href="https://trustmrr.com" target="_blank">TrustMRR</a><a class="pill link" href="https://indiehackers.com" target="_blank">Indie Hackers</a><span class="pill">Product Hunt</span><span class="pill">X / Twitter</span><button class="pill insight-tgl" onclick="this.closest('.article').querySelector('.insight-panel').classList.toggle('open'); this.textContent=this.textContent==='展开洞察 ▾'?'收起 ▴':'展开洞察 ▾'">展开洞察 ▾</button></div>
+  <div class="insight-panel"><strong>怎么做：</strong>去 Twitter / Indie Hackers 看独立开发者在讨论什么小痛点，用 Vibe Coding 快速出原型，挂 Product Hunt 测试。$9K MRR 是 AI 工具的第一个瓶颈——突破需要内容引擎或创始人个人品牌。但你作为设计师，<em>产品做得好看就是天然的传播杠杆</em>。</div>
 </article>
-
-</div><!-- /article-list -->
 
 <footer>
   <p>数据来源：GitHub Trending · Hacker News · V2EX · 少数派 · 36氪</p>
-  <p>本期 12 个方向均为全新选题，与往期无重复覆盖。原创创造价值，不做搬运工。每周一自动更新。</p>
+  <p>本分析仅供方向参考。原创创造价值，不做搬运工。每周一自动更新。</p>
 </footer>
 
 </div><!-- /container -->
@@ -509,6 +520,7 @@ function updateBookmarkUI() {
   document.querySelectorAll('.bookmark-btn').forEach(btn => {
     const faved = favIds.has(btn.dataset.id);
     btn.classList.toggle('faved', faved);
+    // icon-only: class toggle is sufficient
   });
 }
 
@@ -534,6 +546,7 @@ document.querySelectorAll('.bookmark-btn').forEach(btn => {
 updateBookmarkUI();
 updateFavCount();
 
+// Filters
 const filterBtns = document.querySelectorAll('[data-filter]');
 const creatorBtns = document.querySelectorAll('[data-creator]');
 const compoundBtns = document.querySelectorAll('[data-compound]');
@@ -562,15 +575,22 @@ fetch('/archive/manifest.json').then(r => r.json()).then(data => {
   const all = document.createElement('a'); all.href = '/archive/'; all.textContent = '全部 ▸'; navLinks.appendChild(all);
 }).catch(() => {});
 
+// ── Share ──
 const SHARE_TITLE = 'AI 趋势周报 · 独立创作者复利创业方向';
 const SHARE_TEXT = 'AI × 独立创作 复利创业方向——12 条精选 AI 创业趋势';
 
 document.getElementById('btnShare').addEventListener('click', async () => {
   const url = window.location.href;
   if (navigator.share) {
-    try { await navigator.share({ title: SHARE_TITLE, text: SHARE_TEXT, url }); showToast('已分享'); }
-    catch (e) { if (e.name !== 'AbortError') fallbackCopy(url); }
-  } else { fallbackCopy(url); }
+    try {
+      await navigator.share({ title: SHARE_TITLE, text: SHARE_TEXT, url });
+      showToast('已分享');
+    } catch (e) {
+      if (e.name !== 'AbortError') fallbackCopy(url);
+    }
+  } else {
+    fallbackCopy(url);
+  }
 });
 
 function fallbackCopy(url) {
