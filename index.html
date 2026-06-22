@@ -745,11 +745,18 @@ function rebindInsights() {
 // populate picker from manifest
 fetch('/archive/manifest.json').then(r => r.json()).then(data => {
   if (!data.weeks || data.weeks.length === 0) return;
+  // detect current page from URL path
+  const path = window.location.pathname;
+  let currentFile = '';
+  if (path.includes('W25') || path.includes('w25')) currentFile = '2026-W25.html';
+  else if (path.includes('W26') || path.includes('w26')) currentFile = '2026-W26.html';
+  // default: first item (latest)
   let html = '';
   data.weeks.forEach((w, i) => {
     const isLast = i === 0;
+    const isCurrent = currentFile ? w.file === currentFile : isLast;
     const label = w.label.replace('2026-', '');
-    const active = isLast ? ' active' : '';
+    const active = isCurrent ? ' active' : '';
     html += '<a href="javascript:void(0)" role="menuitem" class="' + active + '" onclick="loadWeek(\'' + w.file + '\',\'' + label + '\',' + isLast + ')">' + (isLast ? '● ' : '') + label + '</a>';
   });
   if (data.weeks.length > 1) {
@@ -757,6 +764,11 @@ fetch('/archive/manifest.json').then(r => r.json()).then(data => {
     html += '<a href="/archive/" role="menuitem">全部归档 →</a>';
   }
   weekPickerMenu.innerHTML = html;
+  // also update picker button label
+  const currentWeek = data.weeks.find(w => currentFile ? w.file === currentFile : true);
+  if (currentWeek) {
+    weekPickerBtn.innerHTML = currentWeek.label.replace('2026-', '') + '<span class="picker-arrow">▾</span>';
+  }
 }).catch(() => {});
 
 // ── Visitor Counter ──

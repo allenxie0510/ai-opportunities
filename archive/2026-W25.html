@@ -745,11 +745,18 @@ function rebindInsights() {
 // populate picker from manifest
 fetch('/archive/manifest.json').then(r => r.json()).then(data => {
   if (!data.weeks || data.weeks.length === 0) return;
+  // detect current page from URL path
+  const path = window.location.pathname;
+  let currentFile = '';
+  if (path.includes('W25') || path.includes('w25')) currentFile = '2026-W25.html';
+  else if (path.includes('W25') || path.includes('w26')) currentFile = '2026-W25.html';
+  // default: first item (latest)
   let html = '';
   data.weeks.forEach((w, i) => {
     const isLast = i === 0;
+    const isCurrent = currentFile ? w.file === currentFile : isLast;
     const label = w.label.replace('2026-', '');
-    const active = isLast ? ' active' : '';
+    const active = isCurrent ? ' active' : '';
     html += '<a href="javascript:void(0)" role="menuitem" class="' + active + '" onclick="loadWeek(\'' + w.file + '\',\'' + label + '\',' + isLast + ')">' + (isLast ? '● ' : '') + label + '</a>';
   });
   if (data.weeks.length > 1) {
@@ -757,18 +764,27 @@ fetch('/archive/manifest.json').then(r => r.json()).then(data => {
     html += '<a href="/archive/" role="menuitem">全部归档 →</a>';
   }
   weekPickerMenu.innerHTML = html;
+  // also update picker button label
+  const currentWeek = data.weeks.find(w => currentFile ? w.file === currentFile : true);
+  if (currentWeek) {
+    weekPickerBtn.innerHTML = currentWeek.label.replace('2026-', '') + '<span class="picker-arrow">▾</span>';
+  }
 }).catch(() => {});
 
 // ── Visitor Counter ──
 (async () => {
-  const NS = 'allenxie-ai-opc';
-  const KEY = 'visits';
+  const el = document.getElementById('visitorNum');
+  if (!el) return;
   try {
-    const resp = await fetch('https://api.countapi.xyz/hit/' + NS + '/' + KEY);
+    const resp = await fetch('https://api.visitorbadge.io/api/counter?namespace=ai-opc-weekly&key=visits&increment=true');
     const data = await resp.json();
-    document.getElementById('visitorNum').textContent = data.value.toLocaleString();
+    el.textContent = (data.value || data.count || '—').toLocaleString();
   } catch(e) {
-    document.getElementById('visitorNum').textContent = '···';
+    // fallback: show localStorage-based session count
+    const key = 'aiopc_sessions';
+    let n = parseInt(localStorage.getItem(key) || '0');
+    if (!sessionStorage.getItem('aiopc_pv')) { n++; localStorage.setItem(key, n); sessionStorage.setItem('aiopc_pv', '1'); }
+    el.textContent = n.toLocaleString() + '+';
   }
 })();
 </script>
