@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <title>我的收藏 · AI 趋势周报</title>
 <style>
   :root {
@@ -42,10 +45,11 @@
   }
   .nav-left { display: flex; align-items: center; gap: 24px; }
   .nav .brand {
-    font-size: 0.88rem; font-weight: 600; letter-spacing: -0.01em; color: var(--text);
-    display: flex; align-items: center; gap: 8px; text-decoration: none;
+    font-family: 'Bebas Neue', 'Helvetica Neue Condensed', Impact, sans-serif;
+    font-size: 18px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    display: flex; align-items: center;
   }
-  .nav .brand .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
   .nav a {
     font-size: 0.8rem; color: var(--text-secondary); text-decoration: none;
     padding: 6px 12px; border-radius: 6px; transition: all 0.2s; font-weight: 450;
@@ -212,7 +216,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-left">
-      <a href="/" class="brand"><span class="dot"></span>AI 趋势周报</a>
+      <a href="/" class="brand">AI OPC Weekly</a>
       <a href="/">← 返回最新</a>
     </div>
   </div>

@@ -6,7 +6,7 @@
 <title>AI 趋势周报 · 独立创作者复利创业方向</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swapfamily=Bebas+Neuefamily=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swapdisplay=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0a0a0a;
@@ -32,6 +32,7 @@
     --on-dark: #ffffff;
     --footer-bg: #0a0a0a;
     --font: 'DM Sans', Inter, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --font-brand: 'Bebas Neue', 'Helvetica Neue Condensed', 'Impact', sans-serif;, Inter, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
@@ -58,10 +59,9 @@
   }
   .nav-left { display: flex; align-items: center; gap: 28px; }
   .nav .brand {
-    font-size: 16px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink);
-    display: flex; align-items: center; gap: 8px; text-decoration: none;
+    font-family: var(--font-brand); font-size: 18px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none;
+    display: flex; align-items: center; text-decoration: none;
   }
-  .nav .brand .dot { width: 7px; height: 7px; background: var(--coral); border-radius: 50%; }
   .nav-links { display: flex; align-items: center; gap: 4px; }
   .nav-links a {
     font-size: 14px; font-weight: 500; color: var(--steel); text-decoration: none;
@@ -283,7 +283,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-left">
-      <a href="/" class="brand"><span class="dot"></span>AI 趋势周报</a>
+      <a href="/" class="brand">AI OPC Weekly</a>
       <div class="nav-links" id="navLinks"><a href="/" class="current">最新</a></div>
     </div>
     <div class="nav-links">
