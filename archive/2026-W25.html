@@ -641,36 +641,39 @@ function closePicker() { weekPicker.classList.remove('open'); }
 weekPickerBtn.addEventListener('click', e => { e.stopPropagation(); togglePicker(); });
 document.addEventListener('click', e => { if (!weekPicker.contains(e.target)) closePicker(); });
 
-
 // detect current week from URL
 function detectCurrentFile() {
   const p = window.location.pathname.toLowerCase();
   if (p.includes('w25')) return '2026-W25.html';
   if (p.includes('w26')) return '2026-W26.html';
-  return '';
+  return null; // null = home page (latest)
 }
 
 // set picker UI: button label + menu active class + dot prefix
-function setPickerState(file) {
+function setPickerState(activeFile) {
   const items = weekPickerMenu.querySelectorAll('[role="menuitem"]');
-  items.forEach(item => {
-    const onclick = item.getAttribute('onclick') || '';
-    const itemFile = onclick.match(/'([^']+)'/)?.[1] || '';
-    const isActive = file ? (itemFile === file) : !file;
+  // find the item that matches activeFile, or first item if null (home)
+  let targetIdx = 0;
+  if (activeFile) {
+    for (let i = 0; i < dataWeeks.length; i++) {
+      if (dataWeeks[i].file === activeFile) { targetIdx = i; break; }
+    }
+  }
+  items.forEach((item, idx) => {
+    const isActive = (idx === targetIdx);
     item.classList.toggle('active', isActive);
     const label = item.textContent.replace(/^●\s*/, '').trim();
     item.innerHTML = (isActive ? '● ' : '') + label;
   });
-  let label = 'W26';
-  if (file) { const w = dataWeeks.find(x => x.file === file); if (w) label = w.label.replace('2026-', ''); }
-  else if (dataWeeks.length) label = dataWeeks[0].label.replace('2026-', '');
+  // update button label
+  const label = targetIdx < dataWeeks.length ? dataWeeks[targetIdx].label.replace('2026-', '') : 'W26';
   weekPickerBtn.innerHTML = label + '<span class="picker-arrow">▾</span>';
 }
 
 async function loadWeek(file, label, isLatest) {
   closePicker();
-  if (currentWeekFile === file) return;
   if (!file || isLatest) { location.reload(); return; }
+  if (currentWeekFile === file) return;
   weekPickerBtn.disabled = true;
   try {
     const resp = await fetch('/archive/' + file);
@@ -704,8 +707,6 @@ async function loadWeek(file, label, isLatest) {
   weekPickerBtn.disabled = false;
 }
 
-
-
 // populate picker from manifest
 fetch('/archive/manifest.json').then(r => r.json()).then(data => {
   if (!data.weeks || data.weeks.length === 0) return;
@@ -714,7 +715,7 @@ fetch('/archive/manifest.json').then(r => r.json()).then(data => {
   let html = '';
   data.weeks.forEach((w, i) => {
     const label = w.label.replace('2026-', '');
-    html += '<a href="javascript:void(0)" role="menuitem" onclick="loadWeek('' + w.file + '','' + label + ''',' + (i === 0) + ')">' + label + '</a>';
+    html += '<a href="javascript:void(0)" role="menuitem" onclick="loadWeek(\'' + w.file + '\',\'' + label + '\',' + (i === 0) + ')">' + label + '</a>';
   });
   if (data.weeks.length > 1) {
     html += '<div class="menu-divider"></div>';
