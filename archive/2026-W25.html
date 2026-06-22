@@ -714,7 +714,7 @@ fetch('/archive/manifest.json').then(r => r.json()).then(data => {
   let html = '';
   data.weeks.forEach((w, i) => {
     const label = w.label.replace('2026-', '');
-    html += '<a href="javascript:void(0)" role="menuitem" onclick="loadWeek('' + w.file + '','' + label + '',' + (i === 0) + ')">' + label + '</a>';
+    html += '<a href="javascript:void(0)" role="menuitem" onclick="loadWeek('' + w.file + '','' + label + ''',' + (i === 0) + ')">' + label + '</a>';
   });
   if (data.weeks.length > 1) {
     html += '<div class="menu-divider"></div>';
