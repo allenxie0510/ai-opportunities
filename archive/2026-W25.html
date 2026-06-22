@@ -696,33 +696,13 @@ function loadWeek(file, label, isLatest) {
   });
 }
 
-// populate picker from manifest
-fetch('/archive/manifest.json').then(r => r.json()).then(data => {
-  if (!data.weeks || !data.weeks.length) return;
-  dataWeeks = data.weeks;
-  currentWeekFile = detectCurrentFile() || dataWeeks[0].file;
-  weekPickerMenu.innerHTML = '';
-  dataWeeks.forEach((w, i) => {
-    const label = w.label.replace('2026-', '');
-    const a = document.createElement('a');
-    a.href = '#';
-    a.setAttribute('role', 'menuitem');
-    a.textContent = label;
-    a.addEventListener('click', function(e) { e.preventDefault(); closePicker(); loadWeek(w.file, label, i === 0); });
-    weekPickerMenu.appendChild(a);
-  });
-  if (dataWeeks.length > 1) {
-    const div = document.createElement('div');
-    div.className = 'menu-divider';
-    weekPickerMenu.appendChild(div);
-    const arch = document.createElement('a');
-    arch.href = '/archive/';
-    arch.setAttribute('role', 'menuitem');
-    arch.textContent = '全部归档 →';
-    weekPickerMenu.appendChild(arch);
-  }
-  setPickerState(currentFile);
-}).catch(() => {});
+// init picker state on page load (menu items are hardcoded in HTML)
+dataWeeks = [
+  { file: '2026-W26.html', label: '2026-W26' },
+  { file: '2026-W25.html', label: '2026-W25' }
+];
+currentWeekFile = detectCurrentFile() || dataWeeks[0].file;
+setPickerState(currentFile);
 
 
 // ── Visitor Counter (localStorage, zero external deps) ──

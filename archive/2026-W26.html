@@ -335,7 +335,12 @@
     <a href="/" class="brand">AI OPC Weekly</a>
     <div class="week-picker" id="weekPicker">
       <button class="week-picker-btn" id="weekPickerBtn" aria-label="切换期数">W26<span class="picker-arrow">▾</span></button>
-      <div class="week-picker-menu" id="weekPickerMenu" role="menu"></div>
+      <div class="week-picker-menu" id="weekPickerMenu" role="menu">
+        <a href="#" role="menuitem" onclick="event.preventDefault();loadWeek('2026-W26.html','W26',true)">W26</a>
+        <a href="#" role="menuitem" onclick="event.preventDefault();loadWeek('2026-W25.html','W25',false)">W25</a>
+        <div class="menu-divider"></div>
+        <a href="/archive/" role="menuitem">全部归档 →</a>
+      </div>
     </div>
     <div class="nav-right">
       <a href="/favorites.html" class="fav-link" id="favNavLink">收藏<span class="fav-badge" id="favCount">0</span></a>
@@ -705,33 +710,13 @@ function loadWeek(file, label, isLatest) {
   });
 }
 
-// populate picker from manifest
-fetch('/archive/manifest.json').then(r => r.json()).then(data => {
-  if (!data.weeks || !data.weeks.length) return;
-  dataWeeks = data.weeks;
-  currentWeekFile = detectCurrentFile() || dataWeeks[0].file;
-  weekPickerMenu.innerHTML = '';
-  dataWeeks.forEach((w, i) => {
-    const label = w.label.replace('2026-', '');
-    const a = document.createElement('a');
-    a.href = '#';
-    a.setAttribute('role', 'menuitem');
-    a.textContent = label;
-    a.addEventListener('click', function(e) { e.preventDefault(); closePicker(); loadWeek(w.file, label, i === 0); });
-    weekPickerMenu.appendChild(a);
-  });
-  if (dataWeeks.length > 1) {
-    const div = document.createElement('div');
-    div.className = 'menu-divider';
-    weekPickerMenu.appendChild(div);
-    const arch = document.createElement('a');
-    arch.href = '/archive/';
-    arch.setAttribute('role', 'menuitem');
-    arch.textContent = '全部归档 →';
-    weekPickerMenu.appendChild(arch);
-  }
-  setPickerState(currentFile);
-}).catch(() => {});
+// init picker state on page load (menu items are hardcoded in HTML)
+dataWeeks = [
+  { file: '2026-W26.html', label: '2026-W26' },
+  { file: '2026-W25.html', label: '2026-W25' }
+];
+currentWeekFile = detectCurrentFile() || dataWeeks[0].file;
+setPickerState(currentWeekFile);
 
 
 // ── Visitor Counter (localStorage, zero external deps) ──
